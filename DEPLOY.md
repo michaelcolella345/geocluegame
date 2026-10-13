@@ -27,7 +27,7 @@ GitHub is where your project lives. Once Cloudflare is connected to it, **every 
 A "repository" (or "repo") is just a project folder on GitHub.
 
 1. Go to <https://github.com/new>.
-2. **Repository name:** `geoclue`
+2. **Repository name:** `geocluegame` (you've already created this one: <https://github.com/michaelcolella345/geocluegame>)
 3. **Visibility:** choose **Public** or **Private**. Both work with Cloudflare's free plan. Private hides the files (including future answers) from casual browsing, but `puzzles.json` is still downloadable from the live site either way.
 4. **Leave everything else unchecked.** Don't add a README, .gitignore or license, because the project already has them.
 5. Click **Create repository**.
@@ -38,7 +38,7 @@ Pick **one** of these two options.
 
 **Option A: let Claude push it for you (recommended).** This keeps the full history of every stage.
 
-1. Connect the new repo to this project ([Connect GitHub](https://claude.ai/connect-github), then add `geoclue` in the project's settings).
+1. Connect the new repo to this project ([Connect GitHub](https://claude.ai/connect-github), then add `geocluegame` in the project's settings (already done)).
 2. Tell Claude "push it". Claude will push the code and confirm.
 
 **Option B: upload it yourself in the browser.**
@@ -64,8 +64,8 @@ Pick **one** of these two options.
 2. Click **Create application**.
 3. Choose the **Pages** tab, then **Connect to Git**.
    - If you only see Workers options, look for a link that says **"Looking to deploy Pages? Get started"**.
-4. Click **Connect GitHub**. A GitHub window opens. Choose **Only select repositories**, pick `geoclue`, and click **Install & Authorize**.
-5. Back in Cloudflare, select the `geoclue` repo and click **Begin setup**.
+4. Click **Connect GitHub**. A GitHub window opens. Choose **Only select repositories**, pick `geocluegame`, and click **Install & Authorize**.
+5. Back in Cloudflare, select the `geocluegame` repo and click **Begin setup**.
 
 ### 2.3 Build settings
 
@@ -73,14 +73,14 @@ GeoClue has no build step, so most of these fields stay empty.
 
 | Field | What to enter |
 |---|---|
-| Project name | `geoclue` (this gives you the free address `geoclue.pages.dev`; if that name is taken, pick another) |
+| Project name | `geocluegame` (this gives you the free address `geocluegame.pages.dev`; if that name is taken, pick another) |
 | Production branch | `main` |
 | Framework preset | **None** |
 | Build command | *(leave empty)* |
 | Build output directory | `/` (or leave empty if it allows that) |
 | Root directory | *(leave as is)* |
 
-Click **Save and Deploy**. After about a minute you'll see **Success** and a link like `https://geoclue.pages.dev`. Open it. The game is live!
+Click **Save and Deploy**. After about a minute you'll see **Success** and a link like `https://geocluegame.pages.dev`. Open it. The game is live!
 
 > **Before Nov 1** the page will say "GeoClue starts soon". That's expected, because the first puzzle is dated 2026-11-01. To try a puzzle early, see "Testing a future puzzle" below.
 
@@ -125,7 +125,7 @@ Back in Cloudflare, click **Continue** / **Check nameservers**. It usually finis
 
 You can do this right away. It finishes on its own once the domain is active.
 
-1. Go to **Workers & Pages** → your `geoclue` project → **Custom domains**.
+1. Go to **Workers & Pages** → your `geocluegame` project → **Custom domains**.
 2. Click **Set up a custom domain**, enter `geocluegame.com`, and click **Continue** → **Activate domain**.
 3. Repeat for `www.geocluegame.com`, so people who type "www" also land on the game.
 
