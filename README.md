@@ -70,6 +70,15 @@ It lists errors (✗) you must fix and warnings (!) worth a look, such as a gap 
 
 Remember that `puzzles.json` is public. Anyone who opens the file can see future answers. That's normal for a game with no server.
 
+## Look and sharing
+
+- **Light/dark mode** follows the device setting until the player taps the sun/moon button. That choice is remembered.
+- **Link previews:** `assets/og-image.png` is the picture shown when someone shares the link. Its source is `tools/og/og-image.html`. The full address `https://geoclue.com` appears three times in `index.html` (`canonical`, `og:url`, `og:image`). Change those if your domain is different.
+- **Icons:** `favicon.ico`, `assets/favicon.svg`, `assets/apple-touch-icon.png` and `assets/icon-192/512.png` (used when someone adds the game to their phone's home screen).
+- **Fonts** (Bricolage Grotesque, IBM Plex Sans and IBM Plex Mono) are stored in `assets/fonts` under the SIL Open Font License, so the site makes no requests to Google.
+- **Analytics:** there's a commented-out Cloudflare Web Analytics snippet near the top of `index.html`, with instructions for where to paste your token. On Cloudflare Pages you can skip the token and switch analytics on in the project settings instead (covered in the deploy steps).
+- **Caching:** `_headers` tells Cloudflare to cache fonts for a year and always re-check the page, code and puzzles, so new puzzles show up right away.
+
 ## Country data
 
 `data/countries.json` lists all 193 UN member states plus Taiwan, Kosovo, Palestine and Vatican City (197 in total). Vatican City can be guessed, but it's marked `"neverAnswer": true` so it won't be used as a puzzle answer.

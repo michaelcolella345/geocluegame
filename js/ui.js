@@ -30,6 +30,8 @@ function prettyDate(key) {
 
 // ---------- Setup ----------
 async function init() {
+  $("theme-btn").addEventListener("click", toggleTheme);
+  updateThemeButton();
   try {
     const data = await loadData();
     matcher = makeMatcher(data.countries);
@@ -140,7 +142,7 @@ function statsHTML() {
     <h3 class="dist-h">Guess distribution</h3>
     <ol class="dist">${keys.map((k) => {
       const v = s.dist[k] || 0;
-      return `<li${String(k) === String(mine) ? ' class="mine"' : ""}><span>${k === "fail" ? "X" : k}</span>
+      return `<li${String(k) === String(mine) ? ` class="mine${k === "fail" ? " fail" : ""}"` : ""}><span>${k === "fail" ? "X" : k}</span>
         <span class="bar" style="--w:${Math.max(8, (100 * v) / max)}%"><b>${v}</b></span></li>`;
     }).join("")}</ol>`;
 }
@@ -216,6 +218,22 @@ function openDialog(id) {
   if (!d.open) d.showModal();
 }
 
+// ---------- Light / dark ----------
+// Follows the device setting until the player picks one with the toggle.
+function currentTheme() {
+  return document.documentElement.dataset.theme ||
+    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+}
+function updateThemeButton() {
+  $("theme-btn").setAttribute("aria-label", currentTheme() === "dark" ? "Switch to light mode" : "Switch to dark mode");
+}
+function toggleTheme() {
+  const next = currentTheme() === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  store.saveTheme(next);
+  updateThemeButton();
+}
+
 // ---------- Countdown + midnight rollover ----------
 function countdownText() {
   const s = Math.max(0, Math.floor(msUntilMidnight() / 1000));
@@ -254,6 +272,7 @@ function bindEvents() {
   $("result").addEventListener("click", (e) => { if (e.target.id === "share-btn") share(); });
   $("help-btn").addEventListener("click", () => openDialog("help"));
   $("stats-btn").addEventListener("click", () => openDialog("stats"));
+
   $("help").addEventListener("close", () => { store.markHelpSeen(); if (game && !game.done) input.focus(); });
   // Clicking the dimmed backdrop closes a dialog.
   for (const d of document.querySelectorAll("dialog")) {

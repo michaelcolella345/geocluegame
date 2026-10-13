@@ -1,3 +1,19 @@
+/* Fonts are self-hosted (assets/fonts, SIL Open Font License). */
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 200 800; font-display: swap;
+  src: url(../assets/fonts/bricolage-grotesque-latin.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(../assets/fonts/ibm-plex-sans-latin-400.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(../assets/fonts/ibm-plex-sans-latin-ext-400.woff2) format("woff2");
+  unicode-range: U+0100-02AF, U+1E00-1E9F, U+1EF2-1EFF, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url(../assets/fonts/ibm-plex-sans-latin-500.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url(../assets/fonts/ibm-plex-sans-latin-600.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url(../assets/fonts/ibm-plex-mono-latin-500.woff2) format("woff2"); }
+
 /* GeoClue styles. Layout: one narrow "field card" column: clues, guess bar, then the guess log. */
 :root {
   --bg: #e8f0ee;      /* pale chart-sea */
@@ -26,6 +42,7 @@
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
+b, strong { font-weight: 600; }
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
@@ -34,8 +51,8 @@ body {
   background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--line) 70%, transparent) 1px, transparent 0);
   background-size: 22px 22px;
 }
-.wrap { max-width: 560px; margin: 0 auto; display: grid; gap: 18px; }
-main { display: grid; gap: 18px; }
+.wrap { max-width: 560px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 /* Header */
@@ -51,6 +68,13 @@ button.icon {
 }
 button.icon svg { width: 18px; height: 18px; }
 button.icon:hover { border-color: var(--accent); }
+.theme-btn .moon { display: none; }
+:root[data-theme="dark"] .theme-btn .sun { display: none; }
+:root[data-theme="dark"] .theme-btn .moon { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .theme-btn .sun { display: none; }
+  :root:not([data-theme]) .theme-btn .moon { display: block; }
+}
 
 .lede { margin: 0; color: var(--muted); max-width: 60ch; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
@@ -107,6 +131,7 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 .dist li { display: grid; grid-template-columns: 1.2rem 1fr; gap: 8px; align-items: center; font-family: var(--mono); font-size: .85rem; }
 .dist .bar { display: block; width: var(--w); background: var(--muted); color: var(--card); border-radius: 3px; padding: 1px 6px; text-align: right; }
 .dist li.mine .bar { background: var(--win); }
+.dist li.mine.fail .bar { background: var(--hot); }
 .btns { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
 .copied { min-height: 1.4em; }
 .copied textarea { width: 100%; font: inherit; font-family: var(--mono); }
@@ -123,6 +148,15 @@ dialog h2 { font-family: var(--display); margin: 0 0 10px; font-size: 1.5rem; }
 dialog ul { padding-left: 1.1rem; display: grid; gap: 8px; }
 .dlg-close { position: absolute; top: 12px; right: 12px; }
 dialog { position: fixed; }
-.chip { display: inline-block; padding: 0 6px; border-radius: 4px; background: var(--c); color: #fff; font-size: .8rem; font-weight: 600; }
+.chip { font-weight: 600; white-space: nowrap; }
+.chip::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; background: var(--c); }
 
+@media (max-width: 360px) {
+  body { padding-inline: 12px; }
+  h1 { font-size: 1.9rem; }
+  button.icon { width: 32px; height: 32px; }
+  .icons { gap: 4px; }
+  .meta { font-size: .68rem; }
+}
 @media (prefers-reduced-motion: reduce) { .clue.new p { animation: none; } }
+a.button { display: inline-block; font-weight: 600; text-decoration: none; border-radius: 8px; padding: 12px 18px; background: var(--accent); color: var(--on-accent); }

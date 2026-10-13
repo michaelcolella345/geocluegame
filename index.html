@@ -5,8 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GeoClue: the daily geography puzzle</title>
   <meta name="description" content="Guess the mystery country from five clues. A new free geography puzzle every day.">
+
+  <!-- Apply the saved light/dark choice before the page draws, so it doesn't flash. -->
+  <script>try{var t=JSON.parse(localStorage.getItem("geoclue:v1:theme"));if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+
+  <meta name="theme-color" content="#e8f0ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c1a24" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Link previews (iMessage, WhatsApp, Slack, Facebook, X, Discord…).
+       If your domain isn't geoclue.com, change the three https://geoclue.com addresses below. -->
+  <link rel="canonical" href="https://geoclue.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GeoClue">
+  <meta property="og:url" content="https://geoclue.com/">
+  <meta property="og:title" content="GeoClue: the daily geography puzzle">
+  <meta property="og:description" content="Five clues. Five guesses. One mystery country a day. Free to play.">
+  <meta property="og:image" content="https://geoclue.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="GeoClue: guess the mystery country from five clues">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GeoClue: the daily geography puzzle">
+  <meta name="twitter:description" content="Five clues. Five guesses. One mystery country a day. Free to play.">
+
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <script type="module" src="js/ui.js"></script>
+
+  <!-- Cloudflare Web Analytics (privacy-friendly, no cookies, no consent banner needed).
+       To turn it on:
+         1. In the Cloudflare dashboard go to Analytics & Logs > Web Analytics > Add a site.
+         2. Copy the token it shows you (a long string of letters and numbers).
+         3. Paste it in place of PASTE_YOUR_TOKEN_HERE below, then delete the two comment lines
+            marked "remove this line" so the script runs.
+       If you deploy on Cloudflare Pages you can instead switch Web Analytics on in the Pages
+       project settings with one click, and leave this block as it is. -->
+  <!-- remove this line
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "PASTE_YOUR_TOKEN_HERE"}'></script>
+  remove this line -->
 </head>
 <body>
   <div class="wrap">
@@ -16,6 +57,10 @@
         <p class="meta" id="meta" aria-live="polite"></p>
         <div class="icons">
           <button type="button" class="icon" id="help-btn" aria-label="How to play">?</button>
+          <button type="button" class="icon theme-btn" id="theme-btn" aria-label="Switch light or dark mode">
+            <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"/></svg>
+          </button>
           <button type="button" class="icon" id="stats-btn" aria-label="Statistics">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10h3v10H4Zm6.5 0V4h3v16h-3ZM17 20v-7h3v7h-3Z" fill="currentColor"/></svg>
           </button>
@@ -80,7 +125,7 @@
       <li>Common names work too: USA, UK, Ivory Coast, Czech Republic…</li>
     </ul>
     <p>A new puzzle arrives every day at midnight, your time.</p>
-    <form method="dialog"><button>Let's play</button></form>
+    <form method="dialog"><button autofocus>Let's play</button></form>
   </dialog>
 
   <dialog id="stats" aria-labelledby="stats-h">

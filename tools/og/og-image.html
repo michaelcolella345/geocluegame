@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- Source for assets/og-image.png (the link-preview picture). Screenshot at 1200×630 to regenerate. -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../../css/style.css">
+<style>
+  html,body{margin:0;width:1200px;height:630px;overflow:hidden}
+  body{padding:64px 72px;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+  h1{font-size:128px;line-height:.9}
+  .tag{font-size:34px;line-height:1.25;color:var(--muted);margin:28px 0 0;font-family:var(--body)}
+  .url{font-family:var(--mono);font-size:24px;letter-spacing:.08em;color:var(--accent);margin-top:36px;text-transform:uppercase}
+  .card{padding:26px 28px;display:grid;gap:14px;box-shadow:0 18px 50px rgba(16,39,58,.12)}
+  .card .clue p{font-size:22px;line-height:1.35}
+  .card .clue .n{width:2.2rem;height:2.2rem;font-size:16px}
+  .rows{display:grid;gap:10px}
+  .row{font-size:22px;padding:12px 16px}
+  .row .dist{font-size:20px}
+  .slots .slot{height:12px}
+</style></head>
+<body>
+  <div>
+    <h1>Geo<span>Clue</span></h1>
+    <p class="tag">Five clues. Five guesses.<br>One mystery country a day.</p>
+    <p class="url">Free daily geography puzzle</p>
+  </div>
+  <div class="rows">
+    <div class="card">
+      <div class="clue"><span class="n">1</span><p>Start with the hardest clue. Every wrong guess unlocks an easier one.</p></div>
+      <div class="clue locked"><span class="n">2</span><p>Then follow the distance and arrow.</p></div>
+    </div>
+    <div class="slots"><div class="slot" style="background:var(--cold)"></div><div class="slot" style="background:var(--warm)"></div><div class="slot" style="background:var(--hot)"></div><div class="slot"></div><div class="slot"></div></div>
+    <div class="row" style="--c:var(--hot)"><span class="name">Tanzania</span><span class="dist">312 mi</span><span class="arrow" style="color:var(--hot)"><svg viewBox="0 0 24 24" style="transform:rotate(270deg)"><path d="M12 2 L18 20 L12 16 L6 20 Z" fill="currentColor"/></svg></span></div>
+    <div class="row" style="--c:var(--warm)"><span class="name">Kenya</span><span class="dist">1,140 mi</span><span class="arrow" style="color:var(--warm)"><svg viewBox="0 0 24 24" style="transform:rotate(268deg)"><path d="M12 2 L18 20 L12 16 L6 20 Z" fill="currentColor"/></svg></span></div>
+  </div>
+</body></html>
