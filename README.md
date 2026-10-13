@@ -73,7 +73,7 @@ Remember that `puzzles.json` is public. Anyone who opens the file can see future
 ## Look and sharing
 
 - **Light/dark mode** follows the device setting until the player taps the sun/moon button. That choice is remembered.
-- **Link previews:** `assets/og-image.png` is the picture shown when someone shares the link. Its source is `tools/og/og-image.html`. The full address `https://geoclue.com` appears three times in `index.html` (`canonical`, `og:url`, `og:image`). Change those if your domain is different.
+- **Link previews:** `assets/og-image.png` is the picture shown when someone shares the link. Its source is `tools/og/og-image.html`. The full address `https://geocluegame.com` appears three times in `index.html` (`canonical`, `og:url`, `og:image`). Change those if the domain ever changes.
 - **Icons:** `favicon.ico`, `assets/favicon.svg`, `assets/apple-touch-icon.png` and `assets/icon-192/512.png` (used when someone adds the game to their phone's home screen).
 - **Fonts** (Bricolage Grotesque, IBM Plex Sans and IBM Plex Mono) are stored in `assets/fonts` under the SIL Open Font License, so the site makes no requests to Google.
 - **Analytics:** there's a commented-out Cloudflare Web Analytics snippet near the top of `index.html`, with instructions for where to paste your token. On Cloudflare Pages you can skip the token and switch analytics on in the project settings instead (covered in the deploy steps).

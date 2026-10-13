@@ -83,7 +83,7 @@ export function displayStreak(stats, todayNumber) {
   return stats.lastWon >= todayNumber - 1 ? stats.currentStreak : 0;
 }
 
-// The text the Share button copies, e.g. "GeoClue #12 3/5\n🟨🟧🟩\ngeoclue.com".
+// The text the Share button copies, e.g. "GeoClue #12 3/5\n🟨🟧🟩\ngeocluegame.com".
 export function shareText(number, game, scored, emoji) {
   const score = game.won ? game.guesses.length : "X";
   return `GeoClue #${number} ${score}/${CONFIG.MAX_GUESSES}\n${scored.map((g) => emoji[g.band]).join("")}\n${CONFIG.SITE_URL}`;

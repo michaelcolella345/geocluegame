@@ -8,7 +8,7 @@ Starting point: `geoclue-prototype.html` ("Clue Trail"). Its gameplay, distance/
 |---|---|---|
 | Build tool | **None.** Plain HTML/CSS/JS, no Vite, no npm. | Cloudflare Pages can serve the folder as-is, with no build command to configure or break. Running locally is one command. |
 | Launch date | **2026-11-01** = GeoClue #1 | Matches your example key. It's one value in `js/config.js`. |
-| Site URL in share text | `geoclue.com` | One value in `js/config.js`; change it when your domain is final. |
+| Site URL in share text | `geocluegame.com` | Michael's domain. One value in `js/config.js`. |
 | Vatican City | **Kept** as a guessable country (197 total) | It's in the prototype and players will try it. It won't be used as an answer unless you want it. |
 | Prototype's "Play another" practice mode | **Removed** | Not in your spec, and it overlaps with the future archive. Noted in the README. |
 | Fonts | **Self-hosted** (no Google Fonts call) | Faster first load and no third-party requests. |
@@ -51,7 +51,7 @@ geoclue/
 - Guess matching: case/accent-insensitive names + aliases; autocomplete with arrow keys/Enter; duplicate and unknown guesses rejected without using a turn.
 - Each wrong guess: next clue unlocks, plus distance in miles, compass arrow, color band. 5 guesses max.
 - localStorage: today's progress (refresh-safe), stats (played, wins, current streak, best streak, guess distribution 1–5 + losses). Fixes a prototype bug where a skipped day didn't break the streak correctly.
-- Share text: `GeoClue #12 3/5`, emoji row, `geoclue.com`. Copies to clipboard; uses the phone's share sheet when available.
+- Share text: `GeoClue #12 3/5`, emoji row, `geocluegame.com`. Copies to clipboard; uses the phone's share sheet when available.
 
 ## Stage 3: UI polish
 - Results screen: answer, "Did you know?" fact, emoji row, stats, guess-distribution bar chart, Share button, countdown to next puzzle.

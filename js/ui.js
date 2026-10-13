@@ -201,6 +201,11 @@ function moveSel(delta) {
 async function share() {
   const text = shareText(day.number, game, scored(), BAND_EMOJI);
   const out = $("copied");
+  // On phones, open the share sheet (Messages, WhatsApp…). Elsewhere, copy to the clipboard.
+  if (navigator.share && matchMedia("(pointer: coarse)").matches) {
+    try { await navigator.share({ text }); return; }
+    catch (e) { if (e.name === "AbortError") return; /* otherwise fall back to copying */ }
+  }
   try {
     await navigator.clipboard.writeText(text);
     out.textContent = "Copied! Paste it anywhere.";

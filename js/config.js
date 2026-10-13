@@ -5,7 +5,7 @@ export const CONFIG = {
   LAUNCH_DATE: "2026-11-01",
 
   // Shown on the last line of the Share text.
-  SITE_URL: "geoclue.com",
+  SITE_URL: "geocluegame.com",
 
   MAX_GUESSES: 5,
 
