@@ -69,7 +69,7 @@ dates.forEach((d, i) => {
   else p.clues.forEach((cl, j) => {
     if (!cl || typeof cl.text !== "string" || cl.text.trim().length < 10) err(`${where}: clue ${j + 1} text is missing or too short`);
     if (!isUrl(cl && cl.source)) err(`${where}: clue ${j + 1} needs a source URL`);
-    if (j < 4 && cl && cl.text && norm(cl.text).includes(norm(p.answer))) err(`${where}: clue ${j + 1} gives away the answer`);
+    if (j < 4 && cl && cl.text && new RegExp(`\\b${norm(p.answer)}\\b`).test(norm(cl.text))) err(`${where}: clue ${j + 1} gives away the answer`);
   });
   if (!p.didYouKnow || typeof p.didYouKnow.text !== "string") err(`${where}: needs didYouKnow.text`);
   else if (!isUrl(p.didYouKnow.source)) err(`${where}: didYouKnow needs a source URL`);
