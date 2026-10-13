@@ -57,7 +57,7 @@ Rules:
 
 - `answer` must match a `name` in `data/countries.json` exactly. Aliases don't count here.
 - There must be exactly 5 clues, each with a source link, and clues 1–4 must not name the country.
-- `difficulty`: `easy` for Monday to Wednesday, `hard` for Thursday to Sunday.
+- `difficulty`: `easy`, `medium` or `hard`. Hard puzzles go on Fridays only, and every Friday should be hard.
 - Don't repeat a country within 60 days.
 
 After editing, run the checker from this folder:
@@ -66,7 +66,7 @@ After editing, run the checker from this folder:
 node tools/validate.js
 ```
 
-It lists errors (✗) you must fix and warnings (!) worth a look, such as a gap in dates or the wrong difficulty for the weekday. You'll need [Node.js](https://nodejs.org) installed for this one command. The site itself doesn't need it.
+It lists errors (✗) you must fix and warnings (!) worth a look, such as a gap in dates or a hard puzzle on a day other than Friday. You'll need [Node.js](https://nodejs.org) installed for this one command. The site itself doesn't need it.
 
 Remember that `puzzles.json` is public. Anyone who opens the file can see future answers. That's normal for a game with no server.
 

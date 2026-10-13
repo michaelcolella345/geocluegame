@@ -64,7 +64,8 @@ geoclue/
 
 ## Stage 4: 60 puzzles + fact-check
 - 60 puzzles, 2026-11-01 → 2026-12-30, each country used once.
-- Mix of continents; easier, better-known countries Mon–Wed, harder ones Thu–Sun.
+- Mix of continents. **Hard puzzles on Fridays only** (changed by Michael 2026-10-13); easy and medium anywhere else.
+- Includes Michael's 30 puzzles (uploads/geoclue-puzzles-michael.json); I write the other 30. His file has one reference per puzzle, so I'll add a source for each clue, and his "verify" notes go into FACT-CHECK.md.
 - Clues ordered hardest → easiest, specific and interesting (no bare population/area stats). Clue 5 may name the capital. Each clue gets a source URL (Britannica, CIA World Factbook, UNESCO, national/official sites, etc.).
 - Separate fact-check pass on every clue → `FACT-CHECK.md` listing anything I'm not fully confident in, with the reason, for you to verify.
 

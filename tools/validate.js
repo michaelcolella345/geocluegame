@@ -74,10 +74,11 @@ dates.forEach((d, i) => {
   if (!p.didYouKnow || typeof p.didYouKnow.text !== "string") err(`${where}: needs didYouKnow.text`);
   else if (!isUrl(p.didYouKnow.source)) err(`${where}: didYouKnow needs a source URL`);
 
-  // Mon–Wed easy, Thu–Sun hard.
-  const wd = new Date(dayNum(d) * 864e5).getUTCDay(); // 0 = Sunday
-  const expected = wd >= 1 && wd <= 3 ? "easy" : "hard";
-  if (p.difficulty && p.difficulty !== expected) warn(`${where}: marked ${p.difficulty}, but ${["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][wd]} should be ${expected}`);
+  // Hard puzzles go on Fridays, and only on Fridays. Easy and medium can go any other day.
+  const wd = new Date(dayNum(d) * 864e5).getUTCDay(); // 0 = Sunday, 5 = Friday
+  if (!["easy", "medium", "hard"].includes(p.difficulty)) err(`${where}: difficulty must be "easy", "medium" or "hard"`);
+  else if (wd === 5 && p.difficulty !== "hard") warn(`${where}: is a Friday, so it should be a hard puzzle (it's ${p.difficulty})`);
+  else if (wd !== 5 && p.difficulty === "hard") warn(`${where}: is hard, but hard puzzles go on Fridays only`);
 
   if (lastUsed.has(p.answer)) {
     const gap = dayNum(d) - dayNum(lastUsed.get(p.answer));
