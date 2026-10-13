@@ -1,0 +1,128 @@
+/* GeoClue styles. Layout: one narrow "field card" column: clues, guess bar, then the guess log. */
+:root {
+  --bg: #e8f0ee;      /* pale chart-sea */
+  --card: #f7faf9;
+  --ink: #10273a;
+  --muted: #5a6f7c;
+  --line: #c9d8d5;
+  --accent: #1f6f8b;  /* chart-water blue */
+  --on-accent: #ffffff;
+  --hot: #d1462f; --warm: #e08a1e; --mild: #d8b628; --cold: #6f8fa3; --win: #2e8a57;
+  --display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c1a24; --card: #122634; --ink: #e3eef0; --muted: #8fa6b2; --line: #24404f; --accent: #5fb3cf; --on-accent: #0c1a24;
+    --hot: #f0634a; --warm: #f1a03a; --mild: #e6cb4a; --cold: #7f9fb3; --win: #4fbf7f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c1a24; --card: #122634; --ink: #e3eef0; --muted: #8fa6b2; --line: #24404f; --accent: #5fb3cf; --on-accent: #0c1a24;
+  --hot: #f0634a; --warm: #f1a03a; --mild: #e6cb4a; --cold: #7f9fb3; --win: #4fbf7f; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 15px; line-height: 1.5;
+  padding: 24px 16px 48px;
+  background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--line) 70%, transparent) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+.wrap { max-width: 560px; margin: 0 auto; display: grid; gap: 18px; }
+main { display: grid; gap: 18px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Header */
+.top { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.1rem, 9vw, 2.8rem); line-height: .95; margin: 0; letter-spacing: -.02em; }
+h1 span { color: var(--accent); }
+.top-right { display: grid; justify-items: end; gap: 6px; }
+.meta { margin: 0; font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-align: right; }
+.icons { display: flex; gap: 6px; }
+button.icon {
+  width: 36px; height: 36px; padding: 0; display: grid; place-items: center; border-radius: 50%;
+  background: transparent; color: var(--accent); border: 1.5px solid var(--line); font-family: var(--display); font-size: 1.05rem;
+}
+button.icon svg { width: 18px; height: 18px; }
+button.icon:hover { border-color: var(--accent); }
+
+.lede { margin: 0; color: var(--muted); max-width: 60ch; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+
+/* Clues */
+.clues { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.clue { display: grid; grid-template-columns: 2.2rem 1fr; gap: 10px; align-items: start; }
+.clue .n { font-family: var(--mono); font-size: .8rem; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 50%; width: 1.9rem; height: 1.9rem; display: grid; place-items: center; }
+.clue p { margin: 0; padding-top: .15rem; min-width: 0; }
+.clue.locked .n { color: var(--muted); border-color: var(--line); border-style: dashed; }
+.clue.locked p { color: var(--muted); font-style: italic; }
+.clue.new p { animation: fade .5s ease; }
+@keyframes fade { from { opacity: .2; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+.slots { display: flex; gap: 6px; }
+.slot { flex: 1; height: 8px; border-radius: 4px; background: var(--line); }
+
+/* Guess bar + autocomplete */
+.guessbar { position: relative; display: flex; gap: 8px; }
+#guess { flex: 1; min-width: 0; font: inherit; font-size: 1rem; padding: 12px 14px; border-radius: 8px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink); }
+#guess:focus { outline: none; border-color: var(--accent); }
+button { font: inherit; font-weight: 600; cursor: pointer; border-radius: 8px; border: 0; padding: 12px 18px; background: var(--accent); color: var(--on-accent); }
+button:focus-visible, #guess:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+.sugg { position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 5; list-style: none; margin: 0; padding: 4px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.14); max-height: 240px; overflow: auto; }
+.sugg li { padding: 9px 10px; border-radius: 6px; cursor: pointer; }
+.sugg li small { color: var(--muted); }
+.sugg li.on, .sugg li:hover { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.msg { min-height: 1.4em; margin: 6px 0 0; font-size: .9rem; color: var(--hot); }
+
+/* Guess log */
+.log { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.row { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); border-left: 5px solid var(--c); }
+.row .name { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.row .dist { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: .9rem; }
+.arrow { width: 26px; height: 26px; display: grid; place-items: center; font-weight: 700; }
+.arrow svg { width: 22px; height: 22px; }
+
+/* Results + notices */
+.result, .notice { text-align: center; display: grid; gap: 12px; justify-items: center; }
+.result h2, .notice h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.1; margin: 0; text-wrap: balance; }
+.result p, .notice p { margin: 0; color: var(--muted); }
+.emoji-row { font-size: 1.4rem; letter-spacing: .15em; }
+.dyk { width: 100%; text-align: left; border-top: 1px solid var(--line); padding-top: 12px; }
+.dyk h3 { margin: 0 0 4px; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.dyk p { color: var(--ink); }
+.dyk a { font-size: .8rem; color: var(--muted); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; text-align: center; }
+.stat { display: grid; gap: 2px; }
+.stat b { font-family: var(--display); font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+.stat span { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); line-height: 1.2; }
+.dist-h { margin: 4px 0 0; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); width: 100%; text-align: left; }
+.dist { list-style: none; margin: 0; padding: 0; width: 100%; display: grid; gap: 4px; }
+.dist li { display: grid; grid-template-columns: 1.2rem 1fr; gap: 8px; align-items: center; font-family: var(--mono); font-size: .85rem; }
+.dist .bar { display: block; width: var(--w); background: var(--muted); color: var(--card); border-radius: 3px; padding: 1px 6px; text-align: right; }
+.dist li.mine .bar { background: var(--win); }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.copied { min-height: 1.4em; }
+.copied textarea { width: 100%; font: inherit; font-family: var(--mono); }
+.countdown { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 500; }
+
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: .78rem; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+footer { font-size: .8rem; color: var(--muted); text-align: center; }
+
+/* Dialogs */
+dialog { width: min(92vw, 440px); border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); padding: 22px; }
+dialog::backdrop { background: rgba(8, 20, 28, .55); }
+dialog h2 { font-family: var(--display); margin: 0 0 10px; font-size: 1.5rem; }
+dialog ul { padding-left: 1.1rem; display: grid; gap: 8px; }
+.dlg-close { position: absolute; top: 12px; right: 12px; }
+dialog { position: fixed; }
+.chip { display: inline-block; padding: 0 6px; border-radius: 4px; background: var(--c); color: #fff; font-size: .8rem; font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) { .clue.new p { animation: none; } }

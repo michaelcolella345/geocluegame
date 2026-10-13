@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoClue: the daily geography puzzle</title>
+  <meta name="description" content="Guess the mystery country from five clues. A new free geography puzzle every day.">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/ui.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <h1>Geo<span>Clue</span></h1>
+      <div class="top-right">
+        <p class="meta" id="meta" aria-live="polite"></p>
+        <div class="icons">
+          <button type="button" class="icon" id="help-btn" aria-label="How to play">?</button>
+          <button type="button" class="icon" id="stats-btn" aria-label="Statistics">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10h3v10H4Zm6.5 0V4h3v16h-3ZM17 20v-7h3v7h-3Z" fill="currentColor"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <noscript><p class="card">GeoClue needs JavaScript turned on to play.</p></noscript>
+
+    <section class="card notice" id="notice" hidden></section>
+
+    <main id="game" hidden>
+      <p class="lede">Find today's mystery country. Each wrong guess unlocks an easier clue and shows how far off you are, plus which way to head.</p>
+
+      <section class="card" aria-labelledby="clues-h">
+        <h2 class="sr-only" id="clues-h">Clues</h2>
+        <ol class="clues" id="clues"></ol>
+      </section>
+
+      <div class="slots" id="slots" aria-hidden="true"></div>
+
+      <section id="play" aria-label="Make a guess">
+        <form class="guessbar" id="form" autocomplete="off">
+          <label class="sr-only" for="guess">Your guess</label>
+          <input id="guess" type="text" placeholder="Type a country…" spellcheck="false" autocapitalize="off"
+                 role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sugg">
+          <button type="submit" id="go">Guess</button>
+          <ul class="sugg" id="sugg" role="listbox" aria-label="Suggestions" hidden></ul>
+        </form>
+        <p class="msg" id="msg" role="alert"></p>
+        <p class="sr-only" id="announce" aria-live="polite"></p>
+      </section>
+
+      <section class="card result" id="result" hidden aria-live="polite"></section>
+
+      <section aria-label="Your guesses">
+        <ol class="log" id="log"></ol>
+      </section>
+
+      <div class="legend" aria-label="Distance colors">
+        <span><i style="background:var(--hot)"></i>Hot: under 500 mi</span>
+        <span><i style="background:var(--warm)"></i>Warm: 500–1,500</span>
+        <span><i style="background:var(--mild)"></i>Mild: 1,500–3,500</span>
+        <span><i style="background:var(--cold)"></i>Cold: 3,500+</span>
+      </div>
+    </main>
+
+    <footer>Distances are measured between country centers. New puzzle every day at midnight.</footer>
+  </div>
+
+  <dialog id="help" aria-labelledby="help-h">
+    <form method="dialog" class="dlg-close"><button class="icon" aria-label="Close">✕</button></form>
+    <h2 id="help-h">How to play</h2>
+    <p>Guess the mystery country in <b>5 tries</b>. Everyone gets the same country each day.</p>
+    <ul>
+      <li>You start with one clue, the hardest. Each wrong guess unlocks an easier one.</li>
+      <li>After a wrong guess you'll see how far away it is (center to center), an arrow pointing toward the answer, and a color:
+        <span class="chip" style="--c:var(--hot)">Hot</span> under 500 mi,
+        <span class="chip" style="--c:var(--warm)">Warm</span> under 1,500,
+        <span class="chip" style="--c:var(--mild)">Mild</span> under 3,500,
+        <span class="chip" style="--c:var(--cold)">Cold</span> farther.</li>
+      <li>Common names work too: USA, UK, Ivory Coast, Czech Republic…</li>
+    </ul>
+    <p>A new puzzle arrives every day at midnight, your time.</p>
+    <form method="dialog"><button>Let's play</button></form>
+  </dialog>
+
+  <dialog id="stats" aria-labelledby="stats-h">
+    <form method="dialog" class="dlg-close"><button class="icon" aria-label="Close">✕</button></form>
+    <h2 id="stats-h">Statistics</h2>
+    <div id="stats-body"></div>
+  </dialog>
+</body>
+</html>
