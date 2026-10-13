@@ -68,7 +68,7 @@ function loadDay() {
   $("game").hidden = false;
   game = startGame(day, store.loadProgress());
   store.saveProgress(game);
-  render(-1);
+  render();
 }
 
 function showNotice(title, text, countdown = false) {
@@ -85,30 +85,68 @@ function arrowSVG(deg) {
   return `<svg viewBox="0 0 24 24" aria-hidden="true" style="transform:rotate(${deg.toFixed(0)}deg)"><path d="M12 2 L18 20 L12 16 L6 20 Z" fill="currentColor"/></svg>`;
 }
 
-function render(newClue) {
+// Motion timings (ms). All zero when the player prefers reduced motion.
+const reduceMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+const T = () => reduceMotion()
+  ? { firstReveal: 0, stagger: 0, settle: 0 }
+  : { firstReveal: 450, stagger: 220, settle: 550 };
+
+// `anim` describes what just happened: { newClue, newRow, finishing }.
+function render(anim = {}) {
   const p = day.puzzle;
   const shown = cluesShown(game);
   const rows = scored();
+  // Clues the player actually saw while guessing. On a win the rest are "bonus" clues.
+  const seen = game.won ? game.guesses.length : shown;
+  const t = T();
 
-  $("clues").innerHTML = p.clues.map((c, i) => i < shown
-    ? `<li class="clue${i === newClue ? " new" : ""}"><span class="n" aria-hidden="true">${i + 1}</span><p><span class="sr-only">Clue ${i + 1}: </span>${esc(c.text)}</p></li>`
-    : `<li class="clue locked"><span class="n" aria-hidden="true">${i + 1}</span><p>Unlocks after guess ${i}</p></li>`).join("");
+  $("clues").innerHTML = p.clues.map((c, i) => {
+    if (i >= shown) return `<li class="clue locked"><span class="n" aria-hidden="true">${i + 1}</span><p>Unlocks after guess ${i}</p></li>`;
+    const bonus = i >= seen;
+    const cls = ["clue", i === anim.newClue ? "new" : "", bonus ? "bonus" : "", anim.finishing && bonus ? "reveal" : ""].filter(Boolean).join(" ");
+    const delay = anim.finishing && bonus ? ` style="--d:${t.firstReveal + (i - seen) * t.stagger}ms"` : "";
+    return `<li class="${cls}"${delay}><span class="n" aria-hidden="true">${i + 1}</span><p><span class="sr-only">Clue ${i + 1}: </span>${esc(c.text)}${bonus ? ' <span class="tag">Bonus clue</span>' : ""}</p></li>`;
+  }).join("");
 
   $("slots").innerHTML = Array.from({ length: CONFIG.MAX_GUESSES }, (_, i) =>
-    `<div class="slot"${rows[i] ? ` style="background:var(--${rows[i].band})"` : ""}></div>`).join("");
+    `<div class="slot${anim.newRow && i === rows.length - 1 ? " pop" : ""}"${rows[i] ? ` style="background:var(--${rows[i].band})"` : ""}></div>`).join("");
 
-  $("log").innerHTML = rows.slice().reverse().map((g) => {
+  $("log").innerHTML = rows.slice().reverse().map((g, i) => {
     const label = g.correct ? `${g.name}: correct!` : `${g.name}: ${fmtMiles(g.miles)} away, ${BAND_LABEL[g.band].toLowerCase()}, head ${compassWord(g.bearing)}`;
-    return `<li class="row" style="--c:var(--${g.band})" aria-label="${esc(label)}">
+    const fx = anim.newRow && i === 0 ? (g.correct ? " enter win" : anim.finishing ? " enter miss" : " enter") : "";
+    return `<li class="row${fx}" style="--c:var(--${g.band})" aria-label="${esc(label)}">
       <span class="name">${esc(g.name)}</span>
       <span class="dist">${g.correct ? "Found it" : fmtMiles(g.miles)}</span>
       <span class="arrow" style="color:var(--${g.band})" title="${g.correct ? "" : "Head " + compassWord(g.bearing)}">${g.correct ? "✓" : arrowSVG(g.bearing)}</span>
     </li>`;
   }).join("");
 
-  $("play").hidden = game.done;
-  $("result").hidden = !game.done;
-  if (game.done) $("result").innerHTML = resultHTML(rows);
+  const play = $("play");
+  play.classList.remove("leaving");
+  $("guess").disabled = $("go").disabled = false;
+  play.hidden = game.done;
+  if (!game.done) { $("result").hidden = true; return; }
+  $("result").innerHTML = resultHTML(rows);
+  if (!anim.finishing) { $("result").hidden = false; return; }
+
+  // Keep the guess bar in place (faded, disabled) during the transition so the page doesn't jump.
+  play.hidden = false;
+  play.classList.add("leaving");
+  $("guess").disabled = $("go").disabled = true;
+
+  // Finishing: let the last guess land and the bonus clues open, then bring in the results.
+  const bonusCount = shown - seen;
+  const wait = bonusCount ? t.firstReveal + (bonusCount - 1) * t.stagger + t.settle : t.settle;
+  $("result").hidden = true;
+  setTimeout(() => {
+    const r = $("result");
+    play.hidden = true;
+    play.classList.remove("leaving");
+    r.hidden = false;
+    r.classList.remove("enter"); void r.offsetWidth; r.classList.add("enter");
+    r.scrollIntoView({ behavior: reduceMotion() ? "auto" : "smooth", block: "nearest" });
+    r.querySelector("h2").focus({ preventScroll: true });
+  }, wait);
 }
 
 function resultHTML(rows) {
@@ -116,7 +154,7 @@ function resultHTML(rows) {
   const n = game.guesses.length;
   const title = game.won ? (n === 1 ? "First clue. Incredible!" : `Found it in ${n}!`) : `The answer was ${esc(game.answer)}`;
   const sub = game.won ? `It was <b>${esc(game.answer)}</b>.` : "Five clues down. Tomorrow's a new trail.";
-  return `<h2>${title}</h2>
+  return `<h2 tabindex="-1">${title}</h2>
     <p>${sub}</p>
     <div class="emoji-row" aria-label="Your result">${rows.map((g) => BAND_EMOJI[g.band]).join("")}</div>
     <div class="dyk"><h3>Did you know?</h3><p>${esc(p.didYouKnow.text)}</p>
@@ -160,14 +198,15 @@ function submitGuess(raw) {
   if (game.done) store.saveStats(recordResult(store.loadStats(), day.number, game));
   $("guess").value = "";
   hideSugg();
-  render(game.done ? -1 : game.guesses.length);
+  render({ newRow: true, newClue: game.done ? -1 : game.guesses.length, finishing: game.done });
 
   const last = scoreGuess(c.name, game.answer, matcher.byName);
+  const bonus = 5 - game.guesses.length;
   $("announce").textContent = last.correct
-    ? `Correct! It's ${game.answer}.`
+    ? `Correct! It's ${game.answer}.` + (bonus ? ` ${bonus} bonus clue${bonus > 1 ? "s" : ""} revealed.` : "")
     : `${c.name} is ${fmtMiles(last.miles)} away. Head ${compassWord(last.bearing)}.` +
       (game.done ? ` Out of guesses. The answer was ${game.answer}.` : ` Clue ${game.guesses.length + 1} unlocked.`);
-  if (game.done) $("share-btn")?.focus(); else $("guess").focus();
+  if (!game.done) $("guess").focus();
 }
 const setMsg = (t) => { $("msg").textContent = t; };
 
