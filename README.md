@@ -91,7 +91,9 @@ To accept another spelling for a guess, add it to that country's `aliases` list.
 
 ## Deploying
 
-Coming in stage 5: step-by-step instructions for GitHub, Cloudflare Pages and a custom domain.
+See **[DEPLOY.md](DEPLOY.md)** for step-by-step instructions: putting the files on GitHub, publishing free on Cloudflare Pages, connecting geocluegame.com, and turning on Web Analytics. It also covers everyday tasks like adding puzzles and rolling back a bad change.
+
+In short: Cloudflare Pages, connected to the GitHub repo, framework preset **None**, build command **empty**, output directory **/**. Every commit to `main` goes live automatically.
 
 ## Ideas for later
 
