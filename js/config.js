@@ -2,7 +2,7 @@
 
 export const CONFIG = {
   // The date of puzzle #1 (YYYY-MM-DD). Puzzle number = days since this date + 1.
-  LAUNCH_DATE: "2026-11-01",
+  LAUNCH_DATE: "2026-10-13",
 
   // Shown on the last line of the Share text.
   SITE_URL: "geocluegame.com",

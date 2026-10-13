@@ -7,7 +7,7 @@ Starting point: `geoclue-prototype.html` ("Clue Trail"). Its gameplay, distance/
 | Question | My default | Why |
 |---|---|---|
 | Build tool | **None.** Plain HTML/CSS/JS, no Vite, no npm. | Cloudflare Pages can serve the folder as-is, with no build command to configure or break. Running locally is one command. |
-| Launch date | **2026-11-01** = GeoClue #1 | Matches your example key. It's one value in `js/config.js`. |
+| Launch date | **2026-10-13** = GeoClue #1 | Changed by Michael on 2026-10-13 (was Nov 1). It's one value in `js/config.js`. |
 | Site URL in share text | `geocluegame.com` | Michael's domain. One value in `js/config.js`. |
 | Vatican City | **Kept** as a guessable country (197 total) | It's in the prototype and players will try it. It won't be used as an answer unless you want it. |
 | Prototype's "Play another" practice mode | **Removed** | Not in your spec, and it overlaps with the future archive. Noted in the README. |
@@ -63,7 +63,7 @@ geoclue/
 - Target: whole page under ~100 KB before fonts, no external requests except analytics.
 
 ## Stage 4: 60 puzzles + fact-check
-- 60 puzzles, 2026-11-01 → 2026-12-30, each country used once.
+- 60 puzzles, 2026-10-13 → 2026-12-11, each country used once.
 - Mix of continents. **Hard puzzles on Fridays only** (changed by Michael 2026-10-13); easy and medium anywhere else.
 - Includes Michael's 30 puzzles (uploads/geoclue-puzzles-michael.json); I write the other 30. His file has one reference per puzzle, so I'll add a source for each clue, and his "verify" notes go into FACT-CHECK.md.
 - Clues ordered hardest → easiest, specific and interesting (no bare population/area stats). Clue 5 may name the capital. Each clue gets a source URL (Britannica, CIA World Factbook, UNESCO, national/official sites, etc.).

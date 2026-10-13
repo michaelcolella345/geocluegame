@@ -1,5 +1,5 @@
 {
-  "2026-11-01": {
+  "2026-10-13": {
     "answer": "Colombia",
     "difficulty": "easy",
     "clues": [
@@ -29,7 +29,7 @@
       "source": "https://en.wikipedia.org/wiki/List_of_birds_of_Colombia"
     }
   },
-  "2026-11-02": {
+  "2026-10-14": {
     "answer": "Morocco",
     "difficulty": "medium",
     "clues": [
@@ -59,7 +59,7 @@
       "source": "https://en.wikipedia.org/wiki/Chefchaouen"
     }
   },
-  "2026-11-03": {
+  "2026-10-15": {
     "answer": "Cuba",
     "difficulty": "medium",
     "clues": [
@@ -89,67 +89,7 @@
       "source": "https://en.wikipedia.org/wiki/Daiquiri"
     }
   },
-  "2026-11-04": {
-    "answer": "Australia",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "It is the world's largest exporter of iron ore.",
-        "source": "https://en.wikipedia.org/wiki/Iron_ore"
-      },
-      {
-        "text": "Voting in its national elections is compulsory.",
-        "source": "https://en.wikipedia.org/wiki/Compulsory_voting"
-      },
-      {
-        "text": "It is home to the world's largest coral reef system.",
-        "source": "https://en.wikipedia.org/wiki/Great_Barrier_Reef"
-      },
-      {
-        "text": "It's the only country that covers an entire continent.",
-        "source": "https://en.wikipedia.org/wiki/Australia_(continent)"
-      },
-      {
-        "text": "Its capital is Canberra, and it's home to kangaroos and koalas.",
-        "source": "https://en.wikipedia.org/wiki/Canberra"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It has more than 10,000 beaches, so you could visit a new one every day for over 27 years.",
-      "source": "https://en.wikipedia.org/wiki/Australia"
-    }
-  },
-  "2026-11-05": {
-    "answer": "Poland",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "Its constitution of May 3, 1791, was Europe's first modern written national constitution.",
-        "source": "https://en.wikipedia.org/wiki/Constitution_of_3_May_1791"
-      },
-      {
-        "text": "Its Białowieża Forest, shared with a neighbor, is home to free-roaming European bison.",
-        "source": "https://en.wikipedia.org/wiki/Bia%C5%82owie%C5%BCa_Forest"
-      },
-      {
-        "text": "Its Wieliczka Salt Mine contains chapels carved entirely out of salt.",
-        "source": "https://en.wikipedia.org/wiki/Wieliczka_Salt_Mine"
-      },
-      {
-        "text": "Marie Curie and Nicolaus Copernicus were both born here.",
-        "source": "https://en.wikipedia.org/wiki/Marie_Curie"
-      },
-      {
-        "text": "Its capital is Warsaw, and pierogi dumplings are its best-known dish.",
-        "source": "https://en.wikipedia.org/wiki/Warsaw"
-      }
-    ],
-    "didYouKnow": {
-      "text": "After World War II its capital's Old Town was rebuilt so faithfully that it became a UNESCO World Heritage Site.",
-      "source": "https://en.wikipedia.org/wiki/Warsaw_Old_Town"
-    }
-  },
-  "2026-11-06": {
+  "2026-10-16": {
     "answer": "Nepal",
     "difficulty": "hard",
     "clues": [
@@ -179,7 +119,67 @@
       "source": "https://en.wikipedia.org/wiki/Nepal_Standard_Time"
     }
   },
-  "2026-11-07": {
+  "2026-10-17": {
+    "answer": "Australia",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "It is the world's largest exporter of iron ore.",
+        "source": "https://en.wikipedia.org/wiki/Iron_ore"
+      },
+      {
+        "text": "Voting in its national elections is compulsory.",
+        "source": "https://en.wikipedia.org/wiki/Compulsory_voting"
+      },
+      {
+        "text": "It is home to the world's largest coral reef system.",
+        "source": "https://en.wikipedia.org/wiki/Great_Barrier_Reef"
+      },
+      {
+        "text": "It's the only country that covers an entire continent.",
+        "source": "https://en.wikipedia.org/wiki/Australia_(continent)"
+      },
+      {
+        "text": "Its capital is Canberra, and it's home to kangaroos and koalas.",
+        "source": "https://en.wikipedia.org/wiki/Canberra"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It has more than 10,000 beaches, so you could visit a new one every day for over 27 years.",
+      "source": "https://en.wikipedia.org/wiki/Australia"
+    }
+  },
+  "2026-10-18": {
+    "answer": "Senegal",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Its Lake Retba often turns pink because of salt-loving algae.",
+        "source": "https://en.wikipedia.org/wiki/Lake_Retba"
+      },
+      {
+        "text": "The 160-foot African Renaissance Monument, the tallest statue in Africa, stands in its capital.",
+        "source": "https://en.wikipedia.org/wiki/African_Renaissance_Monument"
+      },
+      {
+        "text": "Its Cap-Vert peninsula is the westernmost point of mainland Africa.",
+        "source": "https://en.wikipedia.org/wiki/Cap-Vert"
+      },
+      {
+        "text": "It almost completely surrounds The Gambia.",
+        "source": "https://en.wikipedia.org/wiki/Gambia%E2%80%93Senegal_border"
+      },
+      {
+        "text": "Its capital is Dakar, long the finish line of the Paris–Dakar Rally.",
+        "source": "https://en.wikipedia.org/wiki/Dakar_Rally"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Gorée Island, just off its capital, is a UNESCO World Heritage Site that remembers the Atlantic slave trade.",
+      "source": "https://en.wikipedia.org/wiki/Gor%C3%A9e"
+    }
+  },
+  "2026-10-19": {
     "answer": "New Zealand",
     "difficulty": "medium",
     "clues": [
@@ -209,7 +209,7 @@
       "source": "https://en.wikipedia.org/wiki/Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu"
     }
   },
-  "2026-11-08": {
+  "2026-10-20": {
     "answer": "Italy",
     "difficulty": "easy",
     "clues": [
@@ -239,7 +239,7 @@
       "source": "https://en.wikipedia.org/wiki/Glasses"
     }
   },
-  "2026-11-09": {
+  "2026-10-21": {
     "answer": "Chile",
     "difficulty": "medium",
     "clues": [
@@ -269,1447 +269,7 @@
       "source": "https://en.wikipedia.org/wiki/Arica"
     }
   },
-  "2026-11-10": {
-    "answer": "Croatia",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "The necktie, or cravat, is named after its 17th-century soldiers.",
-        "source": "https://en.wikipedia.org/wiki/Cravat"
-      },
-      {
-        "text": "The Dalmatian dog is named after its coastal region.",
-        "source": "https://en.wikipedia.org/wiki/Dalmatian_dog"
-      },
-      {
-        "text": "Its walled city of Dubrovnik stood in for King's Landing in Game of Thrones.",
-        "source": "https://en.wikipedia.org/wiki/Dubrovnik"
-      },
-      {
-        "text": "Plitvice Lakes, 16 turquoise lakes linked by waterfalls, are here.",
-        "source": "https://en.wikipedia.org/wiki/Plitvice_Lakes_National_Park"
-      },
-      {
-        "text": "Its capital is Zagreb, and its football team reached the 2018 World Cup final.",
-        "source": "https://en.wikipedia.org/wiki/Zagreb"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It adopted the euro and joined the Schengen passport-free area on the same day, January 1, 2023.",
-      "source": "https://en.wikipedia.org/wiki/Croatia_and_the_euro"
-    }
-  },
-  "2026-11-11": {
-    "answer": "Indonesia",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "The 1883 eruption of its volcano Krakatoa was heard nearly 3,000 miles away.",
-        "source": "https://en.wikipedia.org/wiki/1883_eruption_of_Krakatoa"
-      },
-      {
-        "text": "Komodo dragons, the world's largest living lizards, live only here.",
-        "source": "https://en.wikipedia.org/wiki/Komodo_dragon"
-      },
-      {
-        "text": "It has more Muslims than any other country.",
-        "source": "https://en.wikipedia.org/wiki/Islam_in_Indonesia"
-      },
-      {
-        "text": "It's the world's largest archipelago nation, with more than 17,000 islands.",
-        "source": "https://en.wikipedia.org/wiki/List_of_islands_of_Indonesia"
-      },
-      {
-        "text": "Its largest city is Jakarta, and its island of Bali draws millions of visitors.",
-        "source": "https://en.wikipedia.org/wiki/Jakarta"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It is building a new capital city, Nusantara, on the island of Borneo.",
-      "source": "https://en.wikipedia.org/wiki/Nusantara_(city)"
-    }
-  },
-  "2026-11-12": {
-    "answer": "Canada",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "It has the longest coastline of any country.",
-        "source": "https://en.wikipedia.org/wiki/List_of_countries_by_length_of_coastline"
-      },
-      {
-        "text": "It has more lakes than any other country.",
-        "source": "https://en.wikipedia.org/wiki/List_of_lakes_of_Canada"
-      },
-      {
-        "text": "Basketball was invented by one of its citizens, James Naismith.",
-        "source": "https://en.wikipedia.org/wiki/James_Naismith"
-      },
-      {
-        "text": "It's the world's second-largest country by area.",
-        "source": "https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_area"
-      },
-      {
-        "text": "Its capital is Ottawa, and a red maple leaf is on its flag.",
-        "source": "https://en.wikipedia.org/wiki/Flag_of_Canada"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its border with the United States is the longest international border in the world, about 5,500 miles.",
-      "source": "https://en.wikipedia.org/wiki/Canada%E2%80%93United_States_border"
-    }
-  },
-  "2026-11-13": {
-    "answer": "Madagascar",
-    "difficulty": "hard",
-    "clues": [
-      {
-        "text": "Its currency is the ariary.",
-        "source": "https://en.wikipedia.org/wiki/Malagasy_ariary"
-      },
-      {
-        "text": "It is the world's top producer of vanilla.",
-        "source": "https://en.wikipedia.org/wiki/Vanilla"
-      },
-      {
-        "text": "About 90% of its plants and animals live nowhere else on Earth.",
-        "source": "https://en.wikipedia.org/wiki/Wildlife_of_Madagascar"
-      },
-      {
-        "text": "It's home to lemurs and the famous Avenue of the Baobabs.",
-        "source": "https://en.wikipedia.org/wiki/Avenue_of_the_Baobabs"
-      },
-      {
-        "text": "It's the fourth-largest island in the world, off Africa's southeast coast.",
-        "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It broke away from the Indian subcontinent around 88 million years ago, which is why its wildlife evolved in isolation.",
-      "source": "https://en.wikipedia.org/wiki/Madagascar"
-    }
-  },
-  "2026-11-14": {
-    "answer": "Vietnam",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "It is the world's second-largest coffee producer.",
-        "source": "https://en.wikipedia.org/wiki/Coffee_production_in_Vietnam"
-      },
-      {
-        "text": "Its currency is the đồng.",
-        "source": "https://en.wikipedia.org/wiki/Vietnamese_%C4%91%E1%BB%93ng"
-      },
-      {
-        "text": "Ha Long Bay holds around 1,600 limestone islands and islets.",
-        "source": "https://en.wikipedia.org/wiki/H%E1%BA%A1_Long_Bay"
-      },
-      {
-        "text": "The country forms a long S-shape along the South China Sea.",
-        "source": "https://en.wikipedia.org/wiki/Geography_of_Vietnam"
-      },
-      {
-        "text": "Its capital is Hanoi, and its largest city is Ho Chi Minh City.",
-        "source": "https://en.wikipedia.org/wiki/Hanoi"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its noodle soup phở took shape in the early 1900s in the north, around Hanoi.",
-      "source": "https://en.wikipedia.org/wiki/Ph%E1%BB%9F"
-    }
-  },
-  "2026-11-15": {
-    "answer": "Namibia",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "The Hoba meteorite, the largest known meteorite on Earth, still lies where it fell here.",
-        "source": "https://en.wikipedia.org/wiki/Hoba_meteorite"
-      },
-      {
-        "text": "Some of the world's tallest sand dunes rise around its Sossusvlei salt pan.",
-        "source": "https://en.wikipedia.org/wiki/Sossusvlei"
-      },
-      {
-        "text": "Its Skeleton Coast is littered with shipwrecks.",
-        "source": "https://en.wikipedia.org/wiki/Skeleton_Coast"
-      },
-      {
-        "text": "It's named after a coastal desert often called the oldest in the world.",
-        "source": "https://en.wikipedia.org/wiki/Namib"
-      },
-      {
-        "text": "Its capital is Windhoek, and it won independence from South Africa in 1990.",
-        "source": "https://en.wikipedia.org/wiki/Windhoek"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its Fish River Canyon is the largest canyon in Africa.",
-      "source": "https://en.wikipedia.org/wiki/Fish_River_Canyon"
-    }
-  },
-  "2026-11-16": {
-    "answer": "Japan",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "A 2023 government recount found it has more than 14,000 islands.",
-        "source": "https://en.wikipedia.org/wiki/List_of_islands_of_Japan"
-      },
-      {
-        "text": "Its imperial family is the oldest continuous hereditary monarchy in the world.",
-        "source": "https://en.wikipedia.org/wiki/Imperial_House_of_Japan"
-      },
-      {
-        "text": "It opened the world's first high-speed rail line in 1964.",
-        "source": "https://en.wikipedia.org/wiki/Shinkansen"
-      },
-      {
-        "text": "Its highest peak is a volcano that last erupted in 1707.",
-        "source": "https://en.wikipedia.org/wiki/Mount_Fuji"
-      },
-      {
-        "text": "Its capital is Tokyo, and its flag is a red circle on white.",
-        "source": "https://en.wikipedia.org/wiki/Flag_of_Japan"
-      }
-    ],
-    "didYouKnow": {
-      "text": "In 2017 a rail company publicly apologized after a train left 20 seconds early.",
-      "source": "https://en.wikipedia.org/wiki/Tsukuba_Express"
-    }
-  },
-  "2026-11-17": {
-    "answer": "Kenya",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "Its runners have won the Olympic men's 3,000 m steeplechase more than any other nation.",
-        "source": "https://en.wikipedia.org/wiki/3000_metres_steeplechase"
-      },
-      {
-        "text": "The equator runs straight through it.",
-        "source": "https://en.wikipedia.org/wiki/Equator"
-      },
-      {
-        "text": "Its highest mountain shares the country's name.",
-        "source": "https://en.wikipedia.org/wiki/Mount_Kenya"
-      },
-      {
-        "text": "The Great Migration of wildebeest crosses into its Maasai Mara reserve.",
-        "source": "https://en.wikipedia.org/wiki/Maasai_Mara"
-      },
-      {
-        "text": "Its capital is Nairobi, in East Africa.",
-        "source": "https://en.wikipedia.org/wiki/Nairobi"
-      }
-    ],
-    "didYouKnow": {
-      "text": "M-Pesa, one of the world's first mass-market mobile money services, launched here in 2007.",
-      "source": "https://en.wikipedia.org/wiki/M-Pesa"
-    }
-  },
-  "2026-11-18": {
-    "answer": "Switzerland",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "The World Wide Web was invented here in 1989, at the CERN laboratory near Geneva.",
-        "source": "https://en.wikipedia.org/wiki/CERN"
-      },
-      {
-        "text": "It has four national languages: German, French, Italian and Romansh.",
-        "source": "https://en.wikipedia.org/wiki/Languages_of_Switzerland"
-      },
-      {
-        "text": "Its Gotthard Base Tunnel, about 35 miles long, is the world's longest railway tunnel.",
-        "source": "https://en.wikipedia.org/wiki/Gotthard_Base_Tunnel"
-      },
-      {
-        "text": "The Matterhorn rises on its border with Italy.",
-        "source": "https://en.wikipedia.org/wiki/Matterhorn"
-      },
-      {
-        "text": "Its federal city is Bern, and the Red Cross was founded in its city of Geneva.",
-        "source": "https://en.wikipedia.org/wiki/International_Committee_of_the_Red_Cross"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its constitution names no capital; Bern is officially called the \"federal city.\"",
-      "source": "https://en.wikipedia.org/wiki/Bern"
-    }
-  },
-  "2026-11-19": {
-    "answer": "Mauritius",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "The dodo lived only here, and was extinct by the late 1600s.",
-        "source": "https://en.wikipedia.org/wiki/Dodo"
-      },
-      {
-        "text": "An \"underwater waterfall\" off its Le Morne peninsula is really an optical illusion made by sand.",
-        "source": "https://en.wikipedia.org/wiki/Le_Morne_Brabant"
-      },
-      {
-        "text": "The Seven Coloured Earths at Chamarel are sand dunes in shades of red, brown and purple.",
-        "source": "https://en.wikipedia.org/wiki/Chamarel"
-      },
-      {
-        "text": "It's an Indian Ocean island nation east of Madagascar.",
-        "source": "https://en.wikipedia.org/wiki/Mascarene_Islands"
-      },
-      {
-        "text": "Its capital is Port Louis, and most of its people are of Indian descent.",
-        "source": "https://en.wikipedia.org/wiki/Port_Louis"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its 1847 \"Post Office\" stamps are among the rarest and most valuable stamps in the world.",
-      "source": "https://en.wikipedia.org/wiki/Mauritius_%22Post_Office%22_stamps"
-    }
-  },
-  "2026-11-20": {
-    "answer": "Finland",
-    "difficulty": "hard",
-    "clues": [
-      {
-        "text": "It has roughly 3 million saunas for about 5.6 million people.",
-        "source": "https://en.wikipedia.org/wiki/Finnish_sauna"
-      },
-      {
-        "text": "It has about 188,000 lakes.",
-        "source": "https://en.wikipedia.org/wiki/Geography_of_Finland"
-      },
-      {
-        "text": "It hosts the annual Wife Carrying World Championships.",
-        "source": "https://en.wikipedia.org/wiki/Wife-carrying"
-      },
-      {
-        "text": "Nokia and the game Angry Birds both come from here.",
-        "source": "https://en.wikipedia.org/wiki/Nokia"
-      },
-      {
-        "text": "Its capital is Helsinki, and it borders Sweden, Norway and Russia.",
-        "source": "https://en.wikipedia.org/wiki/Helsinki"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It has topped the World Happiness Report every year since 2018.",
-      "source": "https://en.wikipedia.org/wiki/World_Happiness_Report"
-    }
-  },
-  "2026-11-21": {
-    "answer": "South Africa",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "The world's first human-to-human heart transplant was performed here, in 1967.",
-        "source": "https://en.wikipedia.org/wiki/Christiaan_Barnard"
-      },
-      {
-        "text": "Since 2023 it has had 12 official languages, including sign language.",
-        "source": "https://en.wikipedia.org/wiki/Languages_of_South_Africa"
-      },
-      {
-        "text": "It completely surrounds another country, Lesotho.",
-        "source": "https://en.wikipedia.org/wiki/Lesotho"
-      },
-      {
-        "text": "Flat-topped Table Mountain overlooks its city of Cape Town.",
-        "source": "https://en.wikipedia.org/wiki/Table_Mountain"
-      },
-      {
-        "text": "It has three capital cities, including Pretoria and Cape Town, and Nelson Mandela was its president.",
-        "source": "https://en.wikipedia.org/wiki/South_Africa"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It is the only country to have built nuclear weapons and then voluntarily dismantled all of them.",
-      "source": "https://en.wikipedia.org/wiki/South_Africa_and_weapons_of_mass_destruction"
-    }
-  },
-  "2026-11-22": {
-    "answer": "Estonia",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "The software behind Skype was written by programmers here.",
-        "source": "https://en.wikipedia.org/wiki/Skype"
-      },
-      {
-        "text": "In 2007 it became the first country to let people vote online in a national parliamentary election.",
-        "source": "https://en.wikipedia.org/wiki/Electronic_voting_in_Estonia"
-      },
-      {
-        "text": "Mass song festivals in its \"Singing Revolution\" helped it regain independence in 1991.",
-        "source": "https://en.wikipedia.org/wiki/Singing_Revolution"
-      },
-      {
-        "text": "It's the northernmost of the three Baltic states.",
-        "source": "https://en.wikipedia.org/wiki/Baltic_states"
-      },
-      {
-        "text": "Its capital is Tallinn, a medieval walled city on the Gulf of Finland.",
-        "source": "https://en.wikipedia.org/wiki/Tallinn"
-      }
-    ],
-    "didYouKnow": {
-      "text": "About half of its land is covered by forest.",
-      "source": "https://en.wikipedia.org/wiki/Geography_of_Estonia"
-    }
-  },
-  "2026-11-23": {
-    "answer": "Philippines",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "Its Chocolate Hills are more than 1,200 cone-shaped hills that turn brown in the dry season.",
-        "source": "https://en.wikipedia.org/wiki/Chocolate_Hills"
-      },
-      {
-        "text": "It's named after a 16th-century Spanish king, Philip II.",
-        "source": "https://en.wikipedia.org/wiki/Philip_II_of_Spain"
-      },
-      {
-        "text": "Its colorful jeepney buses grew out of U.S. military jeeps left behind after World War II.",
-        "source": "https://en.wikipedia.org/wiki/Jeepney"
-      },
-      {
-        "text": "It's made up of more than 7,000 islands in the western Pacific.",
-        "source": "https://en.wikipedia.org/wiki/List_of_islands_of_the_Philippines"
-      },
-      {
-        "text": "Its capital is Manila, and Filipino is its national language.",
-        "source": "https://en.wikipedia.org/wiki/Manila"
-      }
-    ],
-    "didYouKnow": {
-      "text": "The tarsier, one of the world's smallest primates, lives on several of its islands.",
-      "source": "https://en.wikipedia.org/wiki/Philippine_tarsier"
-    }
-  },
-  "2026-11-24": {
-    "answer": "Panama",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "Its Guna people are known for brightly layered textile panels called molas.",
-        "source": "https://en.wikipedia.org/wiki/Mola_(art_form)"
-      },
-      {
-        "text": "Its own currency, the balboa, is pegged one-to-one to the U.S. dollar, which is used alongside it.",
-        "source": "https://en.wikipedia.org/wiki/Panamanian_balboa"
-      },
-      {
-        "text": "The Darién Gap, a roadless jungle on its border, is the only break in the Pan-American Highway.",
-        "source": "https://en.wikipedia.org/wiki/Dari%C3%A9n_Gap"
-      },
-      {
-        "text": "Its canal, opened in 1914, links the Atlantic and Pacific Oceans.",
-        "source": "https://en.wikipedia.org/wiki/Panama_Canal"
-      },
-      {
-        "text": "Its capital shares the country's name, and it joins Central and South America.",
-        "source": "https://en.wikipedia.org/wiki/Panama_City"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Ships crossing its canal are lifted about 85 feet by locks to Gatun Lake and lowered again on the other side.",
-      "source": "https://en.wikipedia.org/wiki/Gatun_Lake"
-    }
-  },
-  "2026-11-25": {
-    "answer": "Greece",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "It has about 6,000 islands and islets, but only around 200 are inhabited.",
-        "source": "https://en.wikipedia.org/wiki/List_of_islands_of_Greece"
-      },
-      {
-        "text": "No spot on its mainland is more than about 85 miles from the sea.",
-        "source": "https://en.wikipedia.org/wiki/Geography_of_Greece"
-      },
-      {
-        "text": "Its national anthem has 158 verses, one of the longest in the world.",
-        "source": "https://en.wikipedia.org/wiki/Hymn_to_Liberty"
-      },
-      {
-        "text": "The ancient Olympic Games began here.",
-        "source": "https://en.wikipedia.org/wiki/Ancient_Olympic_Games"
-      },
-      {
-        "text": "Its capital is Athens, home of the Parthenon.",
-        "source": "https://en.wikipedia.org/wiki/Parthenon"
-      }
-    ],
-    "didYouKnow": {
-      "text": "At every modern Olympics opening ceremony, its team marches in first.",
-      "source": "https://en.wikipedia.org/wiki/Parade_of_Nations"
-    }
-  },
-  "2026-11-26": {
-    "answer": "Costa Rica",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "Hundreds of near-perfect stone spheres, some over 6 feet across, were carved here more than 1,000 years ago.",
-        "source": "https://en.wikipedia.org/wiki/Stone_spheres_of_Costa_Rica"
-      },
-      {
-        "text": "It abolished its army in 1948.",
-        "source": "https://en.wikipedia.org/wiki/Military_of_Costa_Rica"
-      },
-      {
-        "text": "It holds about 5% of the world's species on roughly 0.03% of Earth's surface.",
-        "source": "https://en.wikipedia.org/wiki/Wildlife_of_Costa_Rica"
-      },
-      {
-        "text": "Its people greet each other with \"pura vida\" (\"pure life\").",
-        "source": "https://en.wikipedia.org/wiki/Pura_vida"
-      },
-      {
-        "text": "Its capital is San José, between Nicaragua and Panama.",
-        "source": "https://en.wikipedia.org/wiki/San_Jos%C3%A9,_Costa_Rica"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its Nicoya Peninsula is one of the world's \"Blue Zones,\" where unusually many people live past 100.",
-      "source": "https://en.wikipedia.org/wiki/Blue_zone"
-    }
-  },
-  "2026-11-27": {
-    "answer": "Mongolia",
-    "difficulty": "hard",
-    "clues": [
-      {
-        "text": "It is the most sparsely populated sovereign country in the world.",
-        "source": "https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population_density"
-      },
-      {
-        "text": "Its Naadam festival features wrestling, archery and horse racing.",
-        "source": "https://en.wikipedia.org/wiki/Naadam"
-      },
-      {
-        "text": "Many families live in round felt tents called gers.",
-        "source": "https://en.wikipedia.org/wiki/Yurt"
-      },
-      {
-        "text": "It's landlocked between just two countries: Russia and China.",
-        "source": "https://en.wikipedia.org/wiki/Geography_of_Mongolia"
-      },
-      {
-        "text": "Its capital is Ulaanbaatar, and Genghis Khan founded an empire here.",
-        "source": "https://en.wikipedia.org/wiki/Ulaanbaatar"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Horses outnumber people here.",
-      "source": "https://en.wikipedia.org/wiki/Mongolian_horse"
-    }
-  },
-  "2026-11-28": {
-    "answer": "Bolivia",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "It still has a navy that patrols lakes and rivers, even though it lost its seacoast in the 1880s.",
-        "source": "https://en.wikipedia.org/wiki/Bolivian_Navy"
-      },
-      {
-        "text": "Silver from the Cerro Rico mountain made its city of Potosí one of the richest in the world in the 1600s.",
-        "source": "https://en.wikipedia.org/wiki/Cerro_Rico"
-      },
-      {
-        "text": "Its Salar de Uyuni is the world's largest salt flat.",
-        "source": "https://en.wikipedia.org/wiki/Salar_de_Uyuni"
-      },
-      {
-        "text": "Its seat of government, La Paz, sits at about 11,900 feet, higher than any other.",
-        "source": "https://en.wikipedia.org/wiki/La_Paz"
-      },
-      {
-        "text": "Its constitutional capital is Sucre, and it's landlocked in the heart of South America.",
-        "source": "https://en.wikipedia.org/wiki/Sucre"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It holds some of the largest known lithium resources in the world, much of it beneath its salt flats.",
-      "source": "https://en.wikipedia.org/wiki/Salar_de_Uyuni"
-    }
-  },
-  "2026-11-29": {
-    "answer": "India",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "Chess is traced back to a game called chaturanga played here around the 6th century.",
-        "source": "https://en.wikipedia.org/wiki/Chaturanga"
-      },
-      {
-        "text": "Its constitution lists 22 \"scheduled\" languages.",
-        "source": "https://en.wikipedia.org/wiki/Languages_with_official_status_in_India"
-      },
-      {
-        "text": "It became the world's most populous country in 2023, passing China.",
-        "source": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)"
-      },
-      {
-        "text": "The Ganges River and the Taj Mahal are found here.",
-        "source": "https://en.wikipedia.org/wiki/Taj_Mahal"
-      },
-      {
-        "text": "Its capital is New Delhi, on a large South Asian peninsula.",
-        "source": "https://en.wikipedia.org/wiki/New_Delhi"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its postal service runs a floating post office on a houseboat on Dal Lake in Srinagar.",
-      "source": "https://en.wikipedia.org/wiki/Dal_Lake"
-    }
-  },
-  "2026-11-30": {
-    "answer": "Ecuador",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "In 2008 it became the first country to give nature legal rights in its constitution.",
-        "source": "https://en.wikipedia.org/wiki/Rights_of_nature"
-      },
-      {
-        "text": "The so-called Panama hat is actually made here.",
-        "source": "https://en.wikipedia.org/wiki/Panama_hat"
-      },
-      {
-        "text": "The summit of its volcano Chimborazo is the point on Earth's surface farthest from Earth's center.",
-        "source": "https://en.wikipedia.org/wiki/Chimborazo"
-      },
-      {
-        "text": "The Galápagos Islands belong to it.",
-        "source": "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_Islands"
-      },
-      {
-        "text": "Its capital is Quito, and the country is named after the imaginary line that crosses it.",
-        "source": "https://en.wikipedia.org/wiki/Quito"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It has used the U.S. dollar as its official currency since 2000.",
-      "source": "https://en.wikipedia.org/wiki/Dollarization"
-    }
-  },
-  "2026-12-01": {
-    "answer": "Malta",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "Its megalithic temples are older than Stonehenge and the pyramids of Giza.",
-        "source": "https://en.wikipedia.org/wiki/Megalithic_Temples_of_Malta"
-      },
-      {
-        "text": "Its national language is the only Semitic language that is an official language of the EU.",
-        "source": "https://en.wikipedia.org/wiki/Maltese_language"
-      },
-      {
-        "text": "It was awarded the George Cross for bravery in World War II, and the medal appears on its flag.",
-        "source": "https://en.wikipedia.org/wiki/Flag_of_Malta"
-      },
-      {
-        "text": "It's the smallest country in the European Union, by both area and population.",
-        "source": "https://en.wikipedia.org/wiki/Member_state_of_the_European_Union"
-      },
-      {
-        "text": "Its capital is Valletta, on a small island south of Sicily.",
-        "source": "https://en.wikipedia.org/wiki/Valletta"
-      }
-    ],
-    "didYouKnow": {
-      "text": "The Knights of St. John ruled it from 1530 until Napoleon took it in 1798.",
-      "source": "https://en.wikipedia.org/wiki/Hospitaller_Malta"
-    }
-  },
-  "2026-12-02": {
-    "answer": "Jamaica",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "Its Blue Mountains grow one of the world's most prized coffees.",
-        "source": "https://en.wikipedia.org/wiki/Jamaican_Blue_Mountain_Coffee"
-      },
-      {
-        "text": "Its old pirate haven of Port Royal, once called \"the wickedest city on Earth,\" sank in a 1692 earthquake.",
-        "source": "https://en.wikipedia.org/wiki/Port_Royal"
-      },
-      {
-        "text": "Its bobsled team at the 1988 Winter Olympics inspired the film Cool Runnings.",
-        "source": "https://en.wikipedia.org/wiki/Jamaica_national_bobsleigh_team"
-      },
-      {
-        "text": "Reggae music and Bob Marley come from here.",
-        "source": "https://en.wikipedia.org/wiki/Reggae"
-      },
-      {
-        "text": "Its capital is Kingston, and sprinter Usain Bolt is its most famous athlete.",
-        "source": "https://en.wikipedia.org/wiki/Kingston,_Jamaica"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its national dish is ackee and saltfish, made with a fruit that's poisonous if eaten before it ripens.",
-      "source": "https://en.wikipedia.org/wiki/Ackee_and_saltfish"
-    }
-  },
-  "2026-12-03": {
-    "answer": "Fiji",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "The 180th meridian, opposite the prime meridian, crosses its island of Taveuni.",
-        "source": "https://en.wikipedia.org/wiki/Taveuni"
-      },
-      {
-        "text": "Its rugby sevens team won the country's first Olympic gold medal, in 2016.",
-        "source": "https://en.wikipedia.org/wiki/Fiji_national_rugby_sevens_team"
-      },
-      {
-        "text": "Many of its people descend from Indian laborers brought to its sugar plantations in the 1800s.",
-        "source": "https://en.wikipedia.org/wiki/Indo-Fijians"
-      },
-      {
-        "text": "It's an archipelago of more than 300 islands in the South Pacific.",
-        "source": "https://en.wikipedia.org/wiki/Geography_of_Fiji"
-      },
-      {
-        "text": "Its capital is Suva, on the island of Viti Levu.",
-        "source": "https://en.wikipedia.org/wiki/Suva"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its rugby sevens team won Olympic gold again at the Tokyo Games, held in 2021.",
-      "source": "https://en.wikipedia.org/wiki/Rugby_sevens_at_the_2020_Summer_Olympics"
-    }
-  },
-  "2026-12-04": {
-    "answer": "Rwanda",
-    "difficulty": "hard",
-    "clues": [
-      {
-        "text": "In 2008 it became the first country to elect a parliament where women hold the majority of seats.",
-        "source": "https://en.wikipedia.org/wiki/Women_in_Rwanda"
-      },
-      {
-        "text": "On the last Saturday of every month, citizens join a nationwide community clean-up called umuganda.",
-        "source": "https://en.wikipedia.org/wiki/Umuganda"
-      },
-      {
-        "text": "It banned plastic bags in 2008, years before most of the world.",
-        "source": "https://en.wikipedia.org/wiki/Phase-out_of_lightweight_plastic_bags"
-      },
-      {
-        "text": "Nicknamed the \"land of a thousand hills,\" it's home to mountain gorillas in Volcanoes National Park.",
-        "source": "https://en.wikipedia.org/wiki/Volcanoes_National_Park"
-      },
-      {
-        "text": "Its capital is Kigali, and it borders Uganda, Tanzania, Burundi and DR Congo.",
-        "source": "https://en.wikipedia.org/wiki/Kigali"
-      }
-    ],
-    "didYouKnow": {
-      "text": "In 2016 it launched the world's first national drone delivery service, flying blood to hospitals.",
-      "source": "https://en.wikipedia.org/wiki/Zipline_(drone_delivery_company)"
-    }
-  },
-  "2026-12-05": {
-    "answer": "Uruguay",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "It has about three cattle for every person.",
-        "source": "https://en.wikipedia.org/wiki/Agriculture_in_Uruguay"
-      },
-      {
-        "text": "In 2013 it became the first country to fully legalize recreational cannabis.",
-        "source": "https://en.wikipedia.org/wiki/Cannabis_in_Uruguay"
-      },
-      {
-        "text": "It hosted and won the first FIFA World Cup, in 1930.",
-        "source": "https://en.wikipedia.org/wiki/1930_FIFA_World_Cup"
-      },
-      {
-        "text": "It's the second-smallest country in South America, tucked between Argentina and Brazil.",
-        "source": "https://en.wikipedia.org/wiki/Geography_of_Uruguay"
-      },
-      {
-        "text": "Its capital is Montevideo, on the Río de la Plata.",
-        "source": "https://en.wikipedia.org/wiki/Montevideo"
-      }
-    ],
-    "didYouKnow": {
-      "text": "In most years more than 90% of its electricity comes from renewable sources.",
-      "source": "https://en.wikipedia.org/wiki/Electricity_sector_in_Uruguay"
-    }
-  },
-  "2026-12-06": {
-    "answer": "Thailand",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "It's the only Southeast Asian country never colonized by a European power.",
-        "source": "https://en.wikipedia.org/wiki/History_of_Thailand"
-      },
-      {
-        "text": "Its national martial art is known as \"the art of eight limbs.\"",
-        "source": "https://en.wikipedia.org/wiki/Muay_Thai"
-      },
-      {
-        "text": "Each April its Songkran New Year festival turns into a nationwide water fight.",
-        "source": "https://en.wikipedia.org/wiki/Songkran_(Thailand)"
-      },
-      {
-        "text": "It was known as Siam until 1939.",
-        "source": "https://en.wikipedia.org/wiki/Names_of_Thailand"
-      },
-      {
-        "text": "Its capital is Bangkok, and its islands include Phuket.",
-        "source": "https://en.wikipedia.org/wiki/Bangkok"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its capital's full ceremonial name is 168 letters long, one of the longest place names in the world.",
-      "source": "https://en.wikipedia.org/wiki/Bangkok"
-    }
-  },
-  "2026-12-07": {
-    "answer": "Peru",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "The potato was first domesticated here, and thousands of varieties still grow.",
-        "source": "https://en.wikipedia.org/wiki/History_of_the_potato"
-      },
-      {
-        "text": "Its currency is the sol.",
-        "source": "https://en.wikipedia.org/wiki/Peruvian_sol"
-      },
-      {
-        "text": "It shares Lake Titicaca, a very high navigable lake, with its neighbor.",
-        "source": "https://en.wikipedia.org/wiki/Lake_Titicaca"
-      },
-      {
-        "text": "The farthest source of the Amazon River is in its Andes mountains.",
-        "source": "https://en.wikipedia.org/wiki/Amazon_River"
-      },
-      {
-        "text": "Its capital is Lima, and it's home to Machu Picchu.",
-        "source": "https://en.wikipedia.org/wiki/Machu_Picchu"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its capital, Lima, was founded by the Spanish conquistador Francisco Pizarro in 1535.",
-      "source": "https://en.wikipedia.org/wiki/Lima"
-    }
-  },
-  "2026-12-08": {
-    "answer": "Oman",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "Frankincense trees in its Dhofar region have been tapped for their resin for thousands of years.",
-        "source": "https://en.wikipedia.org/wiki/Land_of_Frankincense"
-      },
-      {
-        "text": "In the 1800s its sultans also ruled Zanzibar and moved their court there.",
-        "source": "https://en.wikipedia.org/wiki/Sultanate_of_Zanzibar"
-      },
-      {
-        "text": "Its Musandam exclave juts into the Strait of Hormuz.",
-        "source": "https://en.wikipedia.org/wiki/Musandam_Governorate"
-      },
-      {
-        "text": "It sits on the southeastern corner of the Arabian Peninsula, facing the Arabian Sea.",
-        "source": "https://en.wikipedia.org/wiki/Geography_of_Oman"
-      },
-      {
-        "text": "Its capital is Muscat.",
-        "source": "https://en.wikipedia.org/wiki/Muscat"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its Sultan Qaboos Grand Mosque holds one of the largest hand-woven carpets in the world.",
-      "source": "https://en.wikipedia.org/wiki/Sultan_Qaboos_Grand_Mosque"
-    }
-  },
-  "2026-12-09": {
-    "answer": "Tanzania",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "Olduvai Gorge, one of the most important sites for early human fossils, is here.",
-        "source": "https://en.wikipedia.org/wiki/Olduvai_Gorge"
-      },
-      {
-        "text": "Its island of Zanzibar is famous for cloves and other spices.",
-        "source": "https://en.wikipedia.org/wiki/Zanzibar"
-      },
-      {
-        "text": "Most of the Great Migration of wildebeest takes place on its Serengeti plains.",
-        "source": "https://en.wikipedia.org/wiki/Serengeti"
-      },
-      {
-        "text": "Africa's highest mountain, Kilimanjaro, rises here.",
-        "source": "https://en.wikipedia.org/wiki/Mount_Kilimanjaro"
-      },
-      {
-        "text": "Its official capital is Dodoma, and its largest city is Dar es Salaam.",
-        "source": "https://en.wikipedia.org/wiki/Dodoma"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Queen singer Freddie Mercury was born in Zanzibar, now part of this country, in 1946.",
-      "source": "https://en.wikipedia.org/wiki/Freddie_Mercury"
-    }
-  },
-  "2026-12-10": {
-    "answer": "Iceland",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "Its parliament, founded in the year 930, is one of the oldest in the world.",
-        "source": "https://en.wikipedia.org/wiki/Althing"
-      },
-      {
-        "text": "It has no standing army.",
-        "source": "https://en.wikipedia.org/wiki/Military_of_Iceland"
-      },
-      {
-        "text": "Most people's last names are based on a parent's first name, not a family name.",
-        "source": "https://en.wikipedia.org/wiki/Icelandic_name"
-      },
-      {
-        "text": "It sits on the Mid-Atlantic Ridge, with geysers, glaciers and volcanoes.",
-        "source": "https://en.wikipedia.org/wiki/Mid-Atlantic_Ridge"
-      },
-      {
-        "text": "Its capital is Reykjavík, the northernmost capital of a sovereign nation.",
-        "source": "https://en.wikipedia.org/wiki/Reykjav%C3%ADk"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It has no native mosquitoes, one of the very few places on Earth without them.",
-      "source": "https://en.wikipedia.org/wiki/Mosquito"
-    }
-  },
-  "2026-12-11": {
-    "answer": "Uzbekistan",
-    "difficulty": "hard",
-    "clues": [
-      {
-        "text": "It's one of only two doubly landlocked countries in the world, along with Liechtenstein.",
-        "source": "https://en.wikipedia.org/wiki/Landlocked_country"
-      },
-      {
-        "text": "The Aral Sea, once among the world's largest lakes, has mostly dried up on its territory.",
-        "source": "https://en.wikipedia.org/wiki/Aral_Sea"
-      },
-      {
-        "text": "Timur (Tamerlane), the 14th-century conqueror, is its national hero.",
-        "source": "https://en.wikipedia.org/wiki/Timur"
-      },
-      {
-        "text": "Its cities Samarkand, Bukhara and Khiva were great stops on the Silk Road.",
-        "source": "https://en.wikipedia.org/wiki/Samarkand"
-      },
-      {
-        "text": "Its capital is Tashkent, the largest city in Central Asia.",
-        "source": "https://en.wikipedia.org/wiki/Tashkent"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Samarkand's Registan square is framed by three tiled madrasas built between the 1400s and 1600s.",
-      "source": "https://en.wikipedia.org/wiki/Registan"
-    }
-  },
-  "2026-12-12": {
-    "answer": "Norway",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "The cheese slicer was invented here in 1925.",
-        "source": "https://en.wikipedia.org/wiki/Cheese_slicer"
-      },
-      {
-        "text": "Its sovereign wealth fund is the largest in the world.",
-        "source": "https://en.wikipedia.org/wiki/Government_Pension_Fund_of_Norway"
-      },
-      {
-        "text": "The Nobel Peace Prize is awarded in its capital.",
-        "source": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize"
-      },
-      {
-        "text": "Its coastline is cut by deep, glacier-carved inlets called fjords.",
-        "source": "https://en.wikipedia.org/wiki/Fjord"
-      },
-      {
-        "text": "Its capital is Oslo, and it shares the Scandinavian Peninsula with Sweden.",
-        "source": "https://en.wikipedia.org/wiki/Oslo"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its seafood exporters helped popularize raw salmon sushi in Japan in the 1980s.",
-      "source": "https://en.wikipedia.org/wiki/Salmon_as_food"
-    }
-  },
-  "2026-12-13": {
-    "answer": "Mexico",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "Corn was first domesticated here about 9,000 years ago.",
-        "source": "https://en.wikipedia.org/wiki/Maize"
-      },
-      {
-        "text": "It has the largest Spanish-speaking population in the world.",
-        "source": "https://en.wikipedia.org/wiki/Hispanophone"
-      },
-      {
-        "text": "The ancient Maya city of Chichén Itzá is here.",
-        "source": "https://en.wikipedia.org/wiki/Chich%C3%A9n_Itz%C3%A1"
-      },
-      {
-        "text": "It borders the United States to the north and Guatemala and Belize to the south.",
-        "source": "https://en.wikipedia.org/wiki/Mexico%E2%80%93United_States_border"
-      },
-      {
-        "text": "Its capital is Mexico City, and it celebrates Día de los Muertos.",
-        "source": "https://en.wikipedia.org/wiki/Day_of_the_Dead"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its capital is sinking: parts of Mexico City drop by up to about 20 inches a year.",
-      "source": "https://en.wikipedia.org/wiki/Mexico_City"
-    }
-  },
-  "2026-12-14": {
-    "answer": "Ghana",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "Lake Volta, the largest reservoir in the world by surface area, is here.",
-        "source": "https://en.wikipedia.org/wiki/Lake_Volta"
-      },
-      {
-        "text": "Its kente cloth is woven in narrow strips by the Asante and Ewe peoples.",
-        "source": "https://en.wikipedia.org/wiki/Kente_cloth"
-      },
-      {
-        "text": "In 1957 it became the first sub-Saharan African colony to gain independence from Europe.",
-        "source": "https://en.wikipedia.org/wiki/Ghana_Independence_Act_1957"
-      },
-      {
-        "text": "Under British rule it was called the Gold Coast.",
-        "source": "https://en.wikipedia.org/wiki/Gold_Coast_(British_colony)"
-      },
-      {
-        "text": "Its capital is Accra, on the Gulf of Guinea, and Kwame Nkrumah was its first leader.",
-        "source": "https://en.wikipedia.org/wiki/Kwame_Nkrumah"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It is the world's second-largest cocoa producer, after neighboring Ivory Coast.",
-      "source": "https://en.wikipedia.org/wiki/Cocoa_production_in_Ghana"
-    }
-  },
-  "2026-12-15": {
-    "answer": "Netherlands",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "About a quarter of its land lies below sea level.",
-        "source": "https://en.wikipedia.org/wiki/Geography_of_the_Netherlands"
-      },
-      {
-        "text": "It has more bicycles than people.",
-        "source": "https://en.wikipedia.org/wiki/Cycling_in_the_Netherlands"
-      },
-      {
-        "text": "Tulips are its iconic export, even though the flower first came from Central Asia.",
-        "source": "https://en.wikipedia.org/wiki/Tulip"
-      },
-      {
-        "text": "Its capital and its seat of government are in different cities.",
-        "source": "https://en.wikipedia.org/wiki/The_Hague"
-      },
-      {
-        "text": "Its capital is Amsterdam, a city known for canals.",
-        "source": "https://en.wikipedia.org/wiki/Amsterdam"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its Afsluitdijk dam, completed in 1932, turned a saltwater inlet into a freshwater lake.",
-      "source": "https://en.wikipedia.org/wiki/Afsluitdijk"
-    }
-  },
-  "2026-12-16": {
-    "answer": "Turkey",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "Tulips were cultivated here long before the Netherlands made them famous.",
-        "source": "https://en.wikipedia.org/wiki/Tulip_period"
-      },
-      {
-        "text": "Saint Nicholas, the inspiration for Santa Claus, lived here.",
-        "source": "https://en.wikipedia.org/wiki/Saint_Nicholas"
-      },
-      {
-        "text": "Its largest city sits on two continents.",
-        "source": "https://en.wikipedia.org/wiki/Istanbul"
-      },
-      {
-        "text": "It borders eight countries, including Greece, Iran and Syria.",
-        "source": "https://en.wikipedia.org/wiki/Geography_of_Turkey"
-      },
-      {
-        "text": "Its capital is Ankara, and its largest city is Istanbul.",
-        "source": "https://en.wikipedia.org/wiki/Ankara"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Göbekli Tepe, built here around 9500 BC, is roughly 6,000 years older than Stonehenge.",
-      "source": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe"
-    }
-  },
-  "2026-12-17": {
-    "answer": "France",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "Thanks to its overseas territories, it spans 12 time zones, more than any other country.",
-        "source": "https://en.wikipedia.org/wiki/Time_in_France"
-      },
-      {
-        "text": "Its Lascaux cave paintings are about 17,000 years old.",
-        "source": "https://en.wikipedia.org/wiki/Lascaux"
-      },
-      {
-        "text": "It's the most visited country in the world by international tourists.",
-        "source": "https://en.wikipedia.org/wiki/World_Tourism_rankings"
-      },
-      {
-        "text": "The world's most famous bicycle race, held every July, traditionally finishes in its capital.",
-        "source": "https://en.wikipedia.org/wiki/Tour_de_France"
-      },
-      {
-        "text": "Its capital is Paris, home of the Eiffel Tower.",
-        "source": "https://en.wikipedia.org/wiki/Eiffel_Tower"
-      }
-    ],
-    "didYouKnow": {
-      "text": "The Statue of Liberty was a gift from its people to the United States, dedicated in 1886.",
-      "source": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
-    }
-  },
-  "2026-12-18": {
-    "answer": "Ethiopia",
-    "difficulty": "hard",
-    "clues": [
-      {
-        "text": "Its calendar runs about seven to eight years behind the one most of the world uses.",
-        "source": "https://en.wikipedia.org/wiki/Ethiopian_calendar"
-      },
-      {
-        "text": "Apart from a five-year Italian occupation, it was never colonized.",
-        "source": "https://en.wikipedia.org/wiki/Italian_East_Africa"
-      },
-      {
-        "text": "Coffee is believed to have originated here.",
-        "source": "https://en.wikipedia.org/wiki/History_of_coffee"
-      },
-      {
-        "text": "It's the most populous landlocked country in Africa.",
-        "source": "https://en.wikipedia.org/wiki/Landlocked_country"
-      },
-      {
-        "text": "Its capital is Addis Ababa, in the Horn of Africa.",
-        "source": "https://en.wikipedia.org/wiki/Addis_Ababa"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its calendar has 13 months: twelve of 30 days and one of five or six days.",
-      "source": "https://en.wikipedia.org/wiki/Ethiopian_calendar"
-    }
-  },
-  "2026-12-19": {
-    "answer": "Spain",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "Sobrino de Botín, in its capital, is the world's oldest restaurant still operating, founded in 1725.",
-        "source": "https://en.wikipedia.org/wiki/Restaurante_Bot%C3%ADn"
-      },
-      {
-        "text": "Its national anthem has no official lyrics.",
-        "source": "https://en.wikipedia.org/wiki/Marcha_Real"
-      },
-      {
-        "text": "Every August the town of Buñol holds a giant tomato fight, La Tomatina.",
-        "source": "https://en.wikipedia.org/wiki/La_Tomatina"
-      },
-      {
-        "text": "Gaudí's Sagrada Família basilica, under construction since 1882, is here.",
-        "source": "https://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia"
-      },
-      {
-        "text": "Its capital is Madrid, and it shares the Iberian Peninsula with Portugal.",
-        "source": "https://en.wikipedia.org/wiki/Madrid"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It is the world's largest producer of olive oil.",
-      "source": "https://en.wikipedia.org/wiki/Olive_oil"
-    }
-  },
-  "2026-12-20": {
-    "answer": "Tunisia",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "One of its towns gave its name to Tatooine, Luke Skywalker's home planet, and Star Wars was filmed here.",
-        "source": "https://en.wikipedia.org/wiki/Tataouine"
-      },
-      {
-        "text": "The ruins of ancient Carthage lie in its capital's suburbs.",
-        "source": "https://en.wikipedia.org/wiki/Carthage"
-      },
-      {
-        "text": "The 2010–2011 Arab Spring protests began here.",
-        "source": "https://en.wikipedia.org/wiki/Tunisian_revolution"
-      },
-      {
-        "text": "It's the northernmost country in Africa.",
-        "source": "https://en.wikipedia.org/wiki/Extreme_points_of_Africa"
-      },
-      {
-        "text": "Its capital is Tunis, on the Mediterranean between Algeria and Libya.",
-        "source": "https://en.wikipedia.org/wiki/Tunis"
-      }
-    ],
-    "didYouKnow": {
-      "text": "The Roman amphitheatre at El Jem could hold about 35,000 spectators.",
-      "source": "https://en.wikipedia.org/wiki/Amphitheatre_of_El_Jem"
-    }
-  },
-  "2026-12-21": {
-    "answer": "Portugal",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "It produces roughly half of the world's cork.",
-        "source": "https://en.wikipedia.org/wiki/Cork_(material)"
-      },
-      {
-        "text": "It shares a land border with exactly one country.",
-        "source": "https://en.wikipedia.org/wiki/Portugal%E2%80%93Spain_border"
-      },
-      {
-        "text": "Its sailors included Vasco da Gama, first to reach India by sea from Europe.",
-        "source": "https://en.wikipedia.org/wiki/Vasco_da_Gama"
-      },
-      {
-        "text": "Its most famous pastry is the custard tart called pastel de nata.",
-        "source": "https://en.wikipedia.org/wiki/Pastel_de_nata"
-      },
-      {
-        "text": "Its capital is Lisbon, on the western edge of the Iberian Peninsula.",
-        "source": "https://en.wikipedia.org/wiki/Lisbon"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its alliance with England, signed in 1373, is the oldest alliance in the world still in force.",
-      "source": "https://en.wikipedia.org/wiki/Anglo-Portuguese_Alliance"
-    }
-  },
-  "2026-12-22": {
-    "answer": "South Korea",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "Its alphabet, Hangul, was created under a king in the 1440s.",
-        "source": "https://en.wikipedia.org/wiki/Hangul"
-      },
-      {
-        "text": "Its town of Pyeongchang hosted the 2018 Winter Olympics.",
-        "source": "https://en.wikipedia.org/wiki/2018_Winter_Olympics"
-      },
-      {
-        "text": "Its largest company, Samsung, started in 1938 as a small trading business.",
-        "source": "https://en.wikipedia.org/wiki/Samsung"
-      },
-      {
-        "text": "It shares a heavily fortified border with its northern neighbor.",
-        "source": "https://en.wikipedia.org/wiki/Korean_Demilitarized_Zone"
-      },
-      {
-        "text": "Its capital is Seoul, the home of K-pop.",
-        "source": "https://en.wikipedia.org/wiki/Seoul"
-      }
-    ],
-    "didYouKnow": {
-      "text": "In 2023 it officially switched to international age counting; traditionally everyone turned a year older on New Year's Day.",
-      "source": "https://en.wikipedia.org/wiki/East_Asian_age_reckoning"
-    }
-  },
-  "2026-12-23": {
-    "answer": "Egypt",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "It is the most populous country in the Arab world.",
-        "source": "https://en.wikipedia.org/wiki/Arab_world"
-      },
-      {
-        "text": "Its currency is the pound, divided into 100 piastres.",
-        "source": "https://en.wikipedia.org/wiki/Egyptian_pound"
-      },
-      {
-        "text": "Ships traveling between the Mediterranean and the Red Sea pass through a canal here.",
-        "source": "https://en.wikipedia.org/wiki/Suez_Canal"
-      },
-      {
-        "text": "Nearly all of its people live along one river.",
-        "source": "https://en.wikipedia.org/wiki/Nile"
-      },
-      {
-        "text": "Its capital is Cairo, and it's home to the Great Pyramid of Giza.",
-        "source": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza"
-      }
-    ],
-    "didYouKnow": {
-      "text": "About 95% of its people live on roughly 5% of its land, along the Nile and its delta.",
-      "source": "https://en.wikipedia.org/wiki/Demographics_of_Egypt"
-    }
-  },
-  "2026-12-24": {
-    "answer": "Argentina",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "It's home to Aconcagua, the highest mountain outside Asia.",
-        "source": "https://en.wikipedia.org/wiki/Aconcagua"
-      },
-      {
-        "text": "Its people eat some of the most beef per person in the world.",
-        "source": "https://en.wikipedia.org/wiki/List_of_countries_by_meat_consumption"
-      },
-      {
-        "text": "Tango was born in the Río de la Plata region, including its capital.",
-        "source": "https://en.wikipedia.org/wiki/Tango"
-      },
-      {
-        "text": "It stretches from the subtropics down to Tierra del Fuego, near Antarctica.",
-        "source": "https://en.wikipedia.org/wiki/Tierra_del_Fuego"
-      },
-      {
-        "text": "Its capital is Buenos Aires, and it's Lionel Messi's homeland.",
-        "source": "https://en.wikipedia.org/wiki/Buenos_Aires"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Ushuaia, in its far south, bills itself as the southernmost city in the world.",
-      "source": "https://en.wikipedia.org/wiki/Ushuaia"
-    }
-  },
-  "2026-12-25": {
-    "answer": "Bhutan",
-    "difficulty": "hard",
-    "clues": [
-      {
-        "text": "Its national animal is the takin, a shaggy goat-antelope.",
-        "source": "https://en.wikipedia.org/wiki/Takin"
-      },
-      {
-        "text": "It was one of the last countries in the world to allow television, in 1999.",
-        "source": "https://en.wikipedia.org/wiki/Television_in_Bhutan"
-      },
-      {
-        "text": "It measures progress with \"Gross National Happiness.\"",
-        "source": "https://en.wikipedia.org/wiki/Gross_National_Happiness"
-      },
-      {
-        "text": "It's a landlocked Himalayan kingdom wedged between India and China.",
-        "source": "https://en.wikipedia.org/wiki/Geography_of_Bhutan"
-      },
-      {
-        "text": "Its capital is Thimphu, and its flag shows a white dragon.",
-        "source": "https://en.wikipedia.org/wiki/Flag_of_Bhutan"
-      }
-    ],
-    "didYouKnow": {
-      "text": "It is often described as the world's first carbon-negative country, thanks to forests covering most of its land.",
-      "source": "https://en.wikipedia.org/wiki/Environment_of_Bhutan"
-    }
-  },
-  "2026-12-26": {
-    "answer": "Brazil",
-    "difficulty": "easy",
-    "clues": [
-      {
-        "text": "It has been the world's largest coffee producer for more than 150 years.",
-        "source": "https://en.wikipedia.org/wiki/Coffee_production_in_Brazil"
-      },
-      {
-        "text": "It's the only country in the Americas with Portuguese as its official language.",
-        "source": "https://en.wikipedia.org/wiki/Portuguese_language"
-      },
-      {
-        "text": "Its men's team has won the FIFA World Cup five times, more than any other country.",
-        "source": "https://en.wikipedia.org/wiki/FIFA_World_Cup"
-      },
-      {
-        "text": "Most of the Amazon rainforest lies within its borders.",
-        "source": "https://en.wikipedia.org/wiki/Amazon_rainforest"
-      },
-      {
-        "text": "Its capital is Brasília, and Rio de Janeiro hosts its famous Carnival.",
-        "source": "https://en.wikipedia.org/wiki/Bras%C3%ADlia"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Its capital, Brasília, was built from scratch and inaugurated in 1960.",
-      "source": "https://en.wikipedia.org/wiki/Bras%C3%ADlia"
-    }
-  },
-  "2026-12-27": {
-    "answer": "Jordan",
-    "difficulty": "medium",
-    "clues": [
-      {
-        "text": "Its city of Jerash has some of the best-preserved Roman ruins outside Italy.",
-        "source": "https://en.wikipedia.org/wiki/Jerash"
-      },
-      {
-        "text": "Its Wadi Rum desert stood in for Mars in the film The Martian.",
-        "source": "https://en.wikipedia.org/wiki/Wadi_Rum"
-      },
-      {
-        "text": "The Dead Sea, on its western border, is the lowest point on land on Earth.",
-        "source": "https://en.wikipedia.org/wiki/Dead_Sea"
-      },
-      {
-        "text": "Petra, a city carved into rose-red cliffs, is here.",
-        "source": "https://en.wikipedia.org/wiki/Petra"
-      },
-      {
-        "text": "Its capital is Amman, and its only seaport is Aqaba on the Red Sea.",
-        "source": "https://en.wikipedia.org/wiki/Amman"
-      }
-    ],
-    "didYouKnow": {
-      "text": "Petra was carved by the Nabataeans more than 2,000 years ago.",
-      "source": "https://en.wikipedia.org/wiki/Nabataeans"
-    }
-  },
-  "2026-12-28": {
+  "2026-10-22": {
     "answer": "Ireland",
     "difficulty": "medium",
     "clues": [
@@ -1739,7 +299,967 @@
       "source": "https://en.wikipedia.org/wiki/Bram_Stoker"
     }
   },
-  "2026-12-29": {
+  "2026-10-23": {
+    "answer": "Madagascar",
+    "difficulty": "hard",
+    "clues": [
+      {
+        "text": "Its currency is the ariary.",
+        "source": "https://en.wikipedia.org/wiki/Malagasy_ariary"
+      },
+      {
+        "text": "It is the world's top producer of vanilla.",
+        "source": "https://en.wikipedia.org/wiki/Vanilla"
+      },
+      {
+        "text": "About 90% of its plants and animals live nowhere else on Earth.",
+        "source": "https://en.wikipedia.org/wiki/Wildlife_of_Madagascar"
+      },
+      {
+        "text": "It's home to lemurs and the famous Avenue of the Baobabs.",
+        "source": "https://en.wikipedia.org/wiki/Avenue_of_the_Baobabs"
+      },
+      {
+        "text": "It's the fourth-largest island in the world, off Africa's southeast coast.",
+        "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It broke away from the Indian subcontinent around 88 million years ago, which is why its wildlife evolved in isolation.",
+      "source": "https://en.wikipedia.org/wiki/Madagascar"
+    }
+  },
+  "2026-10-24": {
+    "answer": "Indonesia",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "The 1883 eruption of its volcano Krakatoa was heard nearly 3,000 miles away.",
+        "source": "https://en.wikipedia.org/wiki/1883_eruption_of_Krakatoa"
+      },
+      {
+        "text": "Komodo dragons, the world's largest living lizards, live only here.",
+        "source": "https://en.wikipedia.org/wiki/Komodo_dragon"
+      },
+      {
+        "text": "It has more Muslims than any other country.",
+        "source": "https://en.wikipedia.org/wiki/Islam_in_Indonesia"
+      },
+      {
+        "text": "It's the world's largest archipelago nation, with more than 17,000 islands.",
+        "source": "https://en.wikipedia.org/wiki/List_of_islands_of_Indonesia"
+      },
+      {
+        "text": "Its largest city is Jakarta, and its island of Bali draws millions of visitors.",
+        "source": "https://en.wikipedia.org/wiki/Jakarta"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It is building a new capital city, Nusantara, on the island of Borneo.",
+      "source": "https://en.wikipedia.org/wiki/Nusantara_(city)"
+    }
+  },
+  "2026-10-25": {
+    "answer": "Croatia",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "The necktie, or cravat, is named after its 17th-century soldiers.",
+        "source": "https://en.wikipedia.org/wiki/Cravat"
+      },
+      {
+        "text": "The Dalmatian dog is named after its coastal region.",
+        "source": "https://en.wikipedia.org/wiki/Dalmatian_dog"
+      },
+      {
+        "text": "Its walled city of Dubrovnik stood in for King's Landing in Game of Thrones.",
+        "source": "https://en.wikipedia.org/wiki/Dubrovnik"
+      },
+      {
+        "text": "Plitvice Lakes, 16 turquoise lakes linked by waterfalls, are here.",
+        "source": "https://en.wikipedia.org/wiki/Plitvice_Lakes_National_Park"
+      },
+      {
+        "text": "Its capital is Zagreb, and its football team reached the 2018 World Cup final.",
+        "source": "https://en.wikipedia.org/wiki/Zagreb"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It adopted the euro and joined the Schengen passport-free area on the same day, January 1, 2023.",
+      "source": "https://en.wikipedia.org/wiki/Croatia_and_the_euro"
+    }
+  },
+  "2026-10-26": {
+    "answer": "Namibia",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "The Hoba meteorite, the largest known meteorite on Earth, still lies where it fell here.",
+        "source": "https://en.wikipedia.org/wiki/Hoba_meteorite"
+      },
+      {
+        "text": "Some of the world's tallest sand dunes rise around its Sossusvlei salt pan.",
+        "source": "https://en.wikipedia.org/wiki/Sossusvlei"
+      },
+      {
+        "text": "Its Skeleton Coast is littered with shipwrecks.",
+        "source": "https://en.wikipedia.org/wiki/Skeleton_Coast"
+      },
+      {
+        "text": "It's named after a coastal desert often called the oldest in the world.",
+        "source": "https://en.wikipedia.org/wiki/Namib"
+      },
+      {
+        "text": "Its capital is Windhoek, and it won independence from South Africa in 1990.",
+        "source": "https://en.wikipedia.org/wiki/Windhoek"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its Fish River Canyon is the largest canyon in Africa.",
+      "source": "https://en.wikipedia.org/wiki/Fish_River_Canyon"
+    }
+  },
+  "2026-10-27": {
+    "answer": "Japan",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "A 2023 government recount found it has more than 14,000 islands.",
+        "source": "https://en.wikipedia.org/wiki/List_of_islands_of_Japan"
+      },
+      {
+        "text": "Its imperial family is the oldest continuous hereditary monarchy in the world.",
+        "source": "https://en.wikipedia.org/wiki/Imperial_House_of_Japan"
+      },
+      {
+        "text": "It opened the world's first high-speed rail line in 1964.",
+        "source": "https://en.wikipedia.org/wiki/Shinkansen"
+      },
+      {
+        "text": "Its highest peak is a volcano that last erupted in 1707.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Fuji"
+      },
+      {
+        "text": "Its capital is Tokyo, and its flag is a red circle on white.",
+        "source": "https://en.wikipedia.org/wiki/Flag_of_Japan"
+      }
+    ],
+    "didYouKnow": {
+      "text": "In 2017 a rail company publicly apologized after a train left 20 seconds early.",
+      "source": "https://en.wikipedia.org/wiki/Tsukuba_Express"
+    }
+  },
+  "2026-10-28": {
+    "answer": "Kenya",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Its runners have won the Olympic men's 3,000 m steeplechase more than any other nation.",
+        "source": "https://en.wikipedia.org/wiki/3000_metres_steeplechase"
+      },
+      {
+        "text": "The equator runs straight through it.",
+        "source": "https://en.wikipedia.org/wiki/Equator"
+      },
+      {
+        "text": "Its highest mountain shares the country's name.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Kenya"
+      },
+      {
+        "text": "The Great Migration of wildebeest crosses into its Maasai Mara reserve.",
+        "source": "https://en.wikipedia.org/wiki/Maasai_Mara"
+      },
+      {
+        "text": "Its capital is Nairobi, in East Africa.",
+        "source": "https://en.wikipedia.org/wiki/Nairobi"
+      }
+    ],
+    "didYouKnow": {
+      "text": "M-Pesa, one of the world's first mass-market mobile money services, launched here in 2007.",
+      "source": "https://en.wikipedia.org/wiki/M-Pesa"
+    }
+  },
+  "2026-10-29": {
+    "answer": "Vietnam",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "It is the world's second-largest coffee producer.",
+        "source": "https://en.wikipedia.org/wiki/Coffee_production_in_Vietnam"
+      },
+      {
+        "text": "Its currency is the đồng.",
+        "source": "https://en.wikipedia.org/wiki/Vietnamese_%C4%91%E1%BB%93ng"
+      },
+      {
+        "text": "Ha Long Bay holds around 1,600 limestone islands and islets.",
+        "source": "https://en.wikipedia.org/wiki/H%E1%BA%A1_Long_Bay"
+      },
+      {
+        "text": "The country forms a long S-shape along the South China Sea.",
+        "source": "https://en.wikipedia.org/wiki/Geography_of_Vietnam"
+      },
+      {
+        "text": "Its capital is Hanoi, and its largest city is Ho Chi Minh City.",
+        "source": "https://en.wikipedia.org/wiki/Hanoi"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its noodle soup phở took shape in the early 1900s in the north, around Hanoi.",
+      "source": "https://en.wikipedia.org/wiki/Ph%E1%BB%9F"
+    }
+  },
+  "2026-10-30": {
+    "answer": "Finland",
+    "difficulty": "hard",
+    "clues": [
+      {
+        "text": "It has roughly 3 million saunas for about 5.6 million people.",
+        "source": "https://en.wikipedia.org/wiki/Finnish_sauna"
+      },
+      {
+        "text": "It has about 188,000 lakes.",
+        "source": "https://en.wikipedia.org/wiki/Geography_of_Finland"
+      },
+      {
+        "text": "It hosts the annual Wife Carrying World Championships.",
+        "source": "https://en.wikipedia.org/wiki/Wife-carrying"
+      },
+      {
+        "text": "Nokia and the game Angry Birds both come from here.",
+        "source": "https://en.wikipedia.org/wiki/Nokia"
+      },
+      {
+        "text": "Its capital is Helsinki, and it borders Sweden, Norway and Russia.",
+        "source": "https://en.wikipedia.org/wiki/Helsinki"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It has topped the World Happiness Report every year since 2018.",
+      "source": "https://en.wikipedia.org/wiki/World_Happiness_Report"
+    }
+  },
+  "2026-10-31": {
+    "answer": "Canada",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "It has the longest coastline of any country.",
+        "source": "https://en.wikipedia.org/wiki/List_of_countries_by_length_of_coastline"
+      },
+      {
+        "text": "It has more lakes than any other country.",
+        "source": "https://en.wikipedia.org/wiki/List_of_lakes_of_Canada"
+      },
+      {
+        "text": "Basketball was invented by one of its citizens, James Naismith.",
+        "source": "https://en.wikipedia.org/wiki/James_Naismith"
+      },
+      {
+        "text": "It's the world's second-largest country by area.",
+        "source": "https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_area"
+      },
+      {
+        "text": "Its capital is Ottawa, and a red maple leaf is on its flag.",
+        "source": "https://en.wikipedia.org/wiki/Flag_of_Canada"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its border with the United States is the longest international border in the world, about 5,500 miles.",
+      "source": "https://en.wikipedia.org/wiki/Canada%E2%80%93United_States_border"
+    }
+  },
+  "2026-11-01": {
+    "answer": "Mauritius",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "The dodo lived only here, and was extinct by the late 1600s.",
+        "source": "https://en.wikipedia.org/wiki/Dodo"
+      },
+      {
+        "text": "An \"underwater waterfall\" off its Le Morne peninsula is really an optical illusion made by sand.",
+        "source": "https://en.wikipedia.org/wiki/Le_Morne_Brabant"
+      },
+      {
+        "text": "The Seven Coloured Earths at Chamarel are sand dunes in shades of red, brown and purple.",
+        "source": "https://en.wikipedia.org/wiki/Chamarel"
+      },
+      {
+        "text": "It's an Indian Ocean island nation east of Madagascar.",
+        "source": "https://en.wikipedia.org/wiki/Mascarene_Islands"
+      },
+      {
+        "text": "Its capital is Port Louis, and most of its people are of Indian descent.",
+        "source": "https://en.wikipedia.org/wiki/Port_Louis"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its 1847 \"Post Office\" stamps are among the rarest and most valuable stamps in the world.",
+      "source": "https://en.wikipedia.org/wiki/Mauritius_%22Post_Office%22_stamps"
+    }
+  },
+  "2026-11-02": {
+    "answer": "Panama",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Its Guna people are known for brightly layered textile panels called molas.",
+        "source": "https://en.wikipedia.org/wiki/Mola_(art_form)"
+      },
+      {
+        "text": "Its own currency, the balboa, is pegged one-to-one to the U.S. dollar, which is used alongside it.",
+        "source": "https://en.wikipedia.org/wiki/Panamanian_balboa"
+      },
+      {
+        "text": "The Darién Gap, a roadless jungle on its border, is the only break in the Pan-American Highway.",
+        "source": "https://en.wikipedia.org/wiki/Dari%C3%A9n_Gap"
+      },
+      {
+        "text": "Its canal, opened in 1914, links the Atlantic and Pacific Oceans.",
+        "source": "https://en.wikipedia.org/wiki/Panama_Canal"
+      },
+      {
+        "text": "Its capital shares the country's name, and it joins Central and South America.",
+        "source": "https://en.wikipedia.org/wiki/Panama_City"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Ships crossing its canal are lifted about 85 feet by locks to Gatun Lake and lowered again on the other side.",
+      "source": "https://en.wikipedia.org/wiki/Gatun_Lake"
+    }
+  },
+  "2026-11-03": {
+    "answer": "South Africa",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "The world's first human-to-human heart transplant was performed here, in 1967.",
+        "source": "https://en.wikipedia.org/wiki/Christiaan_Barnard"
+      },
+      {
+        "text": "Since 2023 it has had 12 official languages, including sign language.",
+        "source": "https://en.wikipedia.org/wiki/Languages_of_South_Africa"
+      },
+      {
+        "text": "It completely surrounds another country, Lesotho.",
+        "source": "https://en.wikipedia.org/wiki/Lesotho"
+      },
+      {
+        "text": "Flat-topped Table Mountain overlooks its city of Cape Town.",
+        "source": "https://en.wikipedia.org/wiki/Table_Mountain"
+      },
+      {
+        "text": "It has three capital cities, including Pretoria and Cape Town, and Nelson Mandela was its president.",
+        "source": "https://en.wikipedia.org/wiki/South_Africa"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It is the only country to have built nuclear weapons and then voluntarily dismantled all of them.",
+      "source": "https://en.wikipedia.org/wiki/South_Africa_and_weapons_of_mass_destruction"
+    }
+  },
+  "2026-11-04": {
+    "answer": "Poland",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Its constitution of May 3, 1791, was Europe's first modern written national constitution.",
+        "source": "https://en.wikipedia.org/wiki/Constitution_of_3_May_1791"
+      },
+      {
+        "text": "Its Białowieża Forest, shared with a neighbor, is home to free-roaming European bison.",
+        "source": "https://en.wikipedia.org/wiki/Bia%C5%82owie%C5%BCa_Forest"
+      },
+      {
+        "text": "Its Wieliczka Salt Mine contains chapels carved entirely out of salt.",
+        "source": "https://en.wikipedia.org/wiki/Wieliczka_Salt_Mine"
+      },
+      {
+        "text": "Marie Curie and Nicolaus Copernicus were both born here.",
+        "source": "https://en.wikipedia.org/wiki/Marie_Curie"
+      },
+      {
+        "text": "Its capital is Warsaw, and pierogi dumplings are its best-known dish.",
+        "source": "https://en.wikipedia.org/wiki/Warsaw"
+      }
+    ],
+    "didYouKnow": {
+      "text": "After World War II its capital's Old Town was rebuilt so faithfully that it became a UNESCO World Heritage Site.",
+      "source": "https://en.wikipedia.org/wiki/Warsaw_Old_Town"
+    }
+  },
+  "2026-11-05": {
+    "answer": "Costa Rica",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "Hundreds of near-perfect stone spheres, some over 6 feet across, were carved here more than 1,000 years ago.",
+        "source": "https://en.wikipedia.org/wiki/Stone_spheres_of_Costa_Rica"
+      },
+      {
+        "text": "It abolished its army in 1948.",
+        "source": "https://en.wikipedia.org/wiki/Military_of_Costa_Rica"
+      },
+      {
+        "text": "It holds about 5% of the world's species on roughly 0.03% of Earth's surface.",
+        "source": "https://en.wikipedia.org/wiki/Wildlife_of_Costa_Rica"
+      },
+      {
+        "text": "Its people greet each other with \"pura vida\" (\"pure life\").",
+        "source": "https://en.wikipedia.org/wiki/Pura_vida"
+      },
+      {
+        "text": "Its capital is San José, between Nicaragua and Panama.",
+        "source": "https://en.wikipedia.org/wiki/San_Jos%C3%A9,_Costa_Rica"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its Nicoya Peninsula is one of the world's \"Blue Zones,\" where unusually many people live past 100.",
+      "source": "https://en.wikipedia.org/wiki/Blue_zone"
+    }
+  },
+  "2026-11-06": {
+    "answer": "Mongolia",
+    "difficulty": "hard",
+    "clues": [
+      {
+        "text": "It is the most sparsely populated sovereign country in the world.",
+        "source": "https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population_density"
+      },
+      {
+        "text": "Its Naadam festival features wrestling, archery and horse racing.",
+        "source": "https://en.wikipedia.org/wiki/Naadam"
+      },
+      {
+        "text": "Many families live in round felt tents called gers.",
+        "source": "https://en.wikipedia.org/wiki/Yurt"
+      },
+      {
+        "text": "It's landlocked between just two countries: Russia and China.",
+        "source": "https://en.wikipedia.org/wiki/Geography_of_Mongolia"
+      },
+      {
+        "text": "Its capital is Ulaanbaatar, and Genghis Khan founded an empire here.",
+        "source": "https://en.wikipedia.org/wiki/Ulaanbaatar"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Horses outnumber people here.",
+      "source": "https://en.wikipedia.org/wiki/Mongolian_horse"
+    }
+  },
+  "2026-11-07": {
+    "answer": "Malta",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Its megalithic temples are older than Stonehenge and the pyramids of Giza.",
+        "source": "https://en.wikipedia.org/wiki/Megalithic_Temples_of_Malta"
+      },
+      {
+        "text": "Its national language is the only Semitic language that is an official language of the EU.",
+        "source": "https://en.wikipedia.org/wiki/Maltese_language"
+      },
+      {
+        "text": "It was awarded the George Cross for bravery in World War II, and the medal appears on its flag.",
+        "source": "https://en.wikipedia.org/wiki/Flag_of_Malta"
+      },
+      {
+        "text": "It's the smallest country in the European Union, by both area and population.",
+        "source": "https://en.wikipedia.org/wiki/Member_state_of_the_European_Union"
+      },
+      {
+        "text": "Its capital is Valletta, on a small island south of Sicily.",
+        "source": "https://en.wikipedia.org/wiki/Valletta"
+      }
+    ],
+    "didYouKnow": {
+      "text": "The Knights of St. John ruled it from 1530 until Napoleon took it in 1798.",
+      "source": "https://en.wikipedia.org/wiki/Hospitaller_Malta"
+    }
+  },
+  "2026-11-08": {
+    "answer": "Bolivia",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "It still has a navy that patrols lakes and rivers, even though it lost its seacoast in the 1880s.",
+        "source": "https://en.wikipedia.org/wiki/Bolivian_Navy"
+      },
+      {
+        "text": "Silver from the Cerro Rico mountain made its city of Potosí one of the richest in the world in the 1600s.",
+        "source": "https://en.wikipedia.org/wiki/Cerro_Rico"
+      },
+      {
+        "text": "Its Salar de Uyuni is the world's largest salt flat.",
+        "source": "https://en.wikipedia.org/wiki/Salar_de_Uyuni"
+      },
+      {
+        "text": "Its seat of government, La Paz, sits at about 11,900 feet, higher than any other.",
+        "source": "https://en.wikipedia.org/wiki/La_Paz"
+      },
+      {
+        "text": "Its constitutional capital is Sucre, and it's landlocked in the heart of South America.",
+        "source": "https://en.wikipedia.org/wiki/Sucre"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It holds some of the largest known lithium resources in the world, much of it beneath its salt flats.",
+      "source": "https://en.wikipedia.org/wiki/Salar_de_Uyuni"
+    }
+  },
+  "2026-11-09": {
+    "answer": "Tunisia",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "One of its towns gave its name to Tatooine, Luke Skywalker's home planet, and Star Wars was filmed here.",
+        "source": "https://en.wikipedia.org/wiki/Tataouine"
+      },
+      {
+        "text": "The ruins of ancient Carthage lie in its capital's suburbs.",
+        "source": "https://en.wikipedia.org/wiki/Carthage"
+      },
+      {
+        "text": "The 2010–2011 Arab Spring protests began here.",
+        "source": "https://en.wikipedia.org/wiki/Tunisian_revolution"
+      },
+      {
+        "text": "It's the northernmost country in Africa.",
+        "source": "https://en.wikipedia.org/wiki/Extreme_points_of_Africa"
+      },
+      {
+        "text": "Its capital is Tunis, on the Mediterranean between Algeria and Libya.",
+        "source": "https://en.wikipedia.org/wiki/Tunis"
+      }
+    ],
+    "didYouKnow": {
+      "text": "The Roman amphitheatre at El Jem could hold about 35,000 spectators.",
+      "source": "https://en.wikipedia.org/wiki/Amphitheatre_of_El_Jem"
+    }
+  },
+  "2026-11-10": {
+    "answer": "India",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "Chess is traced back to a game called chaturanga played here around the 6th century.",
+        "source": "https://en.wikipedia.org/wiki/Chaturanga"
+      },
+      {
+        "text": "Its constitution lists 22 \"scheduled\" languages.",
+        "source": "https://en.wikipedia.org/wiki/Languages_with_official_status_in_India"
+      },
+      {
+        "text": "It became the world's most populous country in 2023, passing China.",
+        "source": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)"
+      },
+      {
+        "text": "The Ganges River and the Taj Mahal are found here.",
+        "source": "https://en.wikipedia.org/wiki/Taj_Mahal"
+      },
+      {
+        "text": "Its capital is New Delhi, on a large South Asian peninsula.",
+        "source": "https://en.wikipedia.org/wiki/New_Delhi"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its postal service runs a floating post office on a houseboat on Dal Lake in Srinagar.",
+      "source": "https://en.wikipedia.org/wiki/Dal_Lake"
+    }
+  },
+  "2026-11-11": {
+    "answer": "Greece",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "It has about 6,000 islands and islets, but only around 200 are inhabited.",
+        "source": "https://en.wikipedia.org/wiki/List_of_islands_of_Greece"
+      },
+      {
+        "text": "No spot on its mainland is more than about 85 miles from the sea.",
+        "source": "https://en.wikipedia.org/wiki/Geography_of_Greece"
+      },
+      {
+        "text": "Its national anthem has 158 verses, one of the longest in the world.",
+        "source": "https://en.wikipedia.org/wiki/Hymn_to_Liberty"
+      },
+      {
+        "text": "The ancient Olympic Games began here.",
+        "source": "https://en.wikipedia.org/wiki/Ancient_Olympic_Games"
+      },
+      {
+        "text": "Its capital is Athens, home of the Parthenon.",
+        "source": "https://en.wikipedia.org/wiki/Parthenon"
+      }
+    ],
+    "didYouKnow": {
+      "text": "At every modern Olympics opening ceremony, its team marches in first.",
+      "source": "https://en.wikipedia.org/wiki/Parade_of_Nations"
+    }
+  },
+  "2026-11-12": {
+    "answer": "Ecuador",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "In 2008 it became the first country to give nature legal rights in its constitution.",
+        "source": "https://en.wikipedia.org/wiki/Rights_of_nature"
+      },
+      {
+        "text": "The so-called Panama hat is actually made here.",
+        "source": "https://en.wikipedia.org/wiki/Panama_hat"
+      },
+      {
+        "text": "The summit of its volcano Chimborazo is the point on Earth's surface farthest from Earth's center.",
+        "source": "https://en.wikipedia.org/wiki/Chimborazo"
+      },
+      {
+        "text": "The Galápagos Islands belong to it.",
+        "source": "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_Islands"
+      },
+      {
+        "text": "Its capital is Quito, and the country is named after the imaginary line that crosses it.",
+        "source": "https://en.wikipedia.org/wiki/Quito"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It has used the U.S. dollar as its official currency since 2000.",
+      "source": "https://en.wikipedia.org/wiki/Dollarization"
+    }
+  },
+  "2026-11-13": {
+    "answer": "Rwanda",
+    "difficulty": "hard",
+    "clues": [
+      {
+        "text": "In 2008 it became the first country to elect a parliament where women hold the majority of seats.",
+        "source": "https://en.wikipedia.org/wiki/Women_in_Rwanda"
+      },
+      {
+        "text": "On the last Saturday of every month, citizens join a nationwide community clean-up called umuganda.",
+        "source": "https://en.wikipedia.org/wiki/Umuganda"
+      },
+      {
+        "text": "It banned plastic bags in 2008, years before most of the world.",
+        "source": "https://en.wikipedia.org/wiki/Phase-out_of_lightweight_plastic_bags"
+      },
+      {
+        "text": "Nicknamed the \"land of a thousand hills,\" it's home to mountain gorillas in Volcanoes National Park.",
+        "source": "https://en.wikipedia.org/wiki/Volcanoes_National_Park"
+      },
+      {
+        "text": "Its capital is Kigali, and it borders Uganda, Tanzania, Burundi and DR Congo.",
+        "source": "https://en.wikipedia.org/wiki/Kigali"
+      }
+    ],
+    "didYouKnow": {
+      "text": "In 2016 it launched the world's first national drone delivery service, flying blood to hospitals.",
+      "source": "https://en.wikipedia.org/wiki/Zipline_(drone_delivery_company)"
+    }
+  },
+  "2026-11-14": {
+    "answer": "Jamaica",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "Its Blue Mountains grow one of the world's most prized coffees.",
+        "source": "https://en.wikipedia.org/wiki/Jamaican_Blue_Mountain_Coffee"
+      },
+      {
+        "text": "Its old pirate haven of Port Royal, once called \"the wickedest city on Earth,\" sank in a 1692 earthquake.",
+        "source": "https://en.wikipedia.org/wiki/Port_Royal"
+      },
+      {
+        "text": "Its bobsled team at the 1988 Winter Olympics inspired the film Cool Runnings.",
+        "source": "https://en.wikipedia.org/wiki/Jamaica_national_bobsleigh_team"
+      },
+      {
+        "text": "Reggae music and Bob Marley come from here.",
+        "source": "https://en.wikipedia.org/wiki/Reggae"
+      },
+      {
+        "text": "Its capital is Kingston, and sprinter Usain Bolt is its most famous athlete.",
+        "source": "https://en.wikipedia.org/wiki/Kingston,_Jamaica"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its national dish is ackee and saltfish, made with a fruit that's poisonous if eaten before it ripens.",
+      "source": "https://en.wikipedia.org/wiki/Ackee_and_saltfish"
+    }
+  },
+  "2026-11-15": {
+    "answer": "Portugal",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "It produces roughly half of the world's cork.",
+        "source": "https://en.wikipedia.org/wiki/Cork_(material)"
+      },
+      {
+        "text": "It shares a land border with exactly one country.",
+        "source": "https://en.wikipedia.org/wiki/Portugal%E2%80%93Spain_border"
+      },
+      {
+        "text": "Its sailors included Vasco da Gama, first to reach India by sea from Europe.",
+        "source": "https://en.wikipedia.org/wiki/Vasco_da_Gama"
+      },
+      {
+        "text": "Its most famous pastry is the custard tart called pastel de nata.",
+        "source": "https://en.wikipedia.org/wiki/Pastel_de_nata"
+      },
+      {
+        "text": "Its capital is Lisbon, on the western edge of the Iberian Peninsula.",
+        "source": "https://en.wikipedia.org/wiki/Lisbon"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its alliance with England, signed in 1373, is the oldest alliance in the world still in force.",
+      "source": "https://en.wikipedia.org/wiki/Anglo-Portuguese_Alliance"
+    }
+  },
+  "2026-11-16": {
+    "answer": "Uruguay",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "It has about three cattle for every person.",
+        "source": "https://en.wikipedia.org/wiki/Agriculture_in_Uruguay"
+      },
+      {
+        "text": "In 2013 it became the first country to fully legalize recreational cannabis.",
+        "source": "https://en.wikipedia.org/wiki/Cannabis_in_Uruguay"
+      },
+      {
+        "text": "It hosted and won the first FIFA World Cup, in 1930.",
+        "source": "https://en.wikipedia.org/wiki/1930_FIFA_World_Cup"
+      },
+      {
+        "text": "It's the second-smallest country in South America, tucked between Argentina and Brazil.",
+        "source": "https://en.wikipedia.org/wiki/Geography_of_Uruguay"
+      },
+      {
+        "text": "Its capital is Montevideo, on the Río de la Plata.",
+        "source": "https://en.wikipedia.org/wiki/Montevideo"
+      }
+    ],
+    "didYouKnow": {
+      "text": "In most years more than 90% of its electricity comes from renewable sources.",
+      "source": "https://en.wikipedia.org/wiki/Electricity_sector_in_Uruguay"
+    }
+  },
+  "2026-11-17": {
+    "answer": "Thailand",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "It's the only Southeast Asian country never colonized by a European power.",
+        "source": "https://en.wikipedia.org/wiki/History_of_Thailand"
+      },
+      {
+        "text": "Its national martial art is known as \"the art of eight limbs.\"",
+        "source": "https://en.wikipedia.org/wiki/Muay_Thai"
+      },
+      {
+        "text": "Each April its Songkran New Year festival turns into a nationwide water fight.",
+        "source": "https://en.wikipedia.org/wiki/Songkran_(Thailand)"
+      },
+      {
+        "text": "It was known as Siam until 1939.",
+        "source": "https://en.wikipedia.org/wiki/Names_of_Thailand"
+      },
+      {
+        "text": "Its capital is Bangkok, and its islands include Phuket.",
+        "source": "https://en.wikipedia.org/wiki/Bangkok"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its capital's full ceremonial name is 168 letters long, one of the longest place names in the world.",
+      "source": "https://en.wikipedia.org/wiki/Bangkok"
+    }
+  },
+  "2026-11-18": {
+    "answer": "Norway",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "The cheese slicer was invented here in 1925.",
+        "source": "https://en.wikipedia.org/wiki/Cheese_slicer"
+      },
+      {
+        "text": "Its sovereign wealth fund is the largest in the world.",
+        "source": "https://en.wikipedia.org/wiki/Government_Pension_Fund_of_Norway"
+      },
+      {
+        "text": "The Nobel Peace Prize is awarded in its capital.",
+        "source": "https://en.wikipedia.org/wiki/Nobel_Peace_Prize"
+      },
+      {
+        "text": "Its coastline is cut by deep, glacier-carved inlets called fjords.",
+        "source": "https://en.wikipedia.org/wiki/Fjord"
+      },
+      {
+        "text": "Its capital is Oslo, and it shares the Scandinavian Peninsula with Sweden.",
+        "source": "https://en.wikipedia.org/wiki/Oslo"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its seafood exporters helped popularize raw salmon sushi in Japan in the 1980s.",
+      "source": "https://en.wikipedia.org/wiki/Salmon_as_food"
+    }
+  },
+  "2026-11-19": {
+    "answer": "Tanzania",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "Olduvai Gorge, one of the most important sites for early human fossils, is here.",
+        "source": "https://en.wikipedia.org/wiki/Olduvai_Gorge"
+      },
+      {
+        "text": "Its island of Zanzibar is famous for cloves and other spices.",
+        "source": "https://en.wikipedia.org/wiki/Zanzibar"
+      },
+      {
+        "text": "Most of the Great Migration of wildebeest takes place on its Serengeti plains.",
+        "source": "https://en.wikipedia.org/wiki/Serengeti"
+      },
+      {
+        "text": "Africa's highest mountain, Kilimanjaro, rises here.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Kilimanjaro"
+      },
+      {
+        "text": "Its official capital is Dodoma, and its largest city is Dar es Salaam.",
+        "source": "https://en.wikipedia.org/wiki/Dodoma"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Queen singer Freddie Mercury was born in Zanzibar, now part of this country, in 1946.",
+      "source": "https://en.wikipedia.org/wiki/Freddie_Mercury"
+    }
+  },
+  "2026-11-20": {
+    "answer": "Estonia",
+    "difficulty": "hard",
+    "clues": [
+      {
+        "text": "The software behind Skype was written by programmers here.",
+        "source": "https://en.wikipedia.org/wiki/Skype"
+      },
+      {
+        "text": "In 2007 it became the first country to let people vote online in a national parliamentary election.",
+        "source": "https://en.wikipedia.org/wiki/Electronic_voting_in_Estonia"
+      },
+      {
+        "text": "Mass song festivals in its \"Singing Revolution\" helped it regain independence in 1991.",
+        "source": "https://en.wikipedia.org/wiki/Singing_Revolution"
+      },
+      {
+        "text": "It's the northernmost of the three Baltic states.",
+        "source": "https://en.wikipedia.org/wiki/Baltic_states"
+      },
+      {
+        "text": "Its capital is Tallinn, a medieval walled city on the Gulf of Finland.",
+        "source": "https://en.wikipedia.org/wiki/Tallinn"
+      }
+    ],
+    "didYouKnow": {
+      "text": "About half of its land is covered by forest.",
+      "source": "https://en.wikipedia.org/wiki/Geography_of_Estonia"
+    }
+  },
+  "2026-11-21": {
+    "answer": "Fiji",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "The 180th meridian, opposite the prime meridian, crosses its island of Taveuni.",
+        "source": "https://en.wikipedia.org/wiki/Taveuni"
+      },
+      {
+        "text": "Its rugby sevens team won the country's first Olympic gold medal, in 2016.",
+        "source": "https://en.wikipedia.org/wiki/Fiji_national_rugby_sevens_team"
+      },
+      {
+        "text": "Many of its people descend from Indian laborers brought to its sugar plantations in the 1800s.",
+        "source": "https://en.wikipedia.org/wiki/Indo-Fijians"
+      },
+      {
+        "text": "It's an archipelago of more than 300 islands in the South Pacific.",
+        "source": "https://en.wikipedia.org/wiki/Geography_of_Fiji"
+      },
+      {
+        "text": "Its capital is Suva, on the island of Viti Levu.",
+        "source": "https://en.wikipedia.org/wiki/Suva"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its rugby sevens team won Olympic gold again at the Tokyo Games, held in 2021.",
+      "source": "https://en.wikipedia.org/wiki/Rugby_sevens_at_the_2020_Summer_Olympics"
+    }
+  },
+  "2026-11-22": {
+    "answer": "Iceland",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Its parliament, founded in the year 930, is one of the oldest in the world.",
+        "source": "https://en.wikipedia.org/wiki/Althing"
+      },
+      {
+        "text": "It has no standing army.",
+        "source": "https://en.wikipedia.org/wiki/Military_of_Iceland"
+      },
+      {
+        "text": "Most people's last names are based on a parent's first name, not a family name.",
+        "source": "https://en.wikipedia.org/wiki/Icelandic_name"
+      },
+      {
+        "text": "It sits on the Mid-Atlantic Ridge, with geysers, glaciers and volcanoes.",
+        "source": "https://en.wikipedia.org/wiki/Mid-Atlantic_Ridge"
+      },
+      {
+        "text": "Its capital is Reykjavík, the northernmost capital of a sovereign nation.",
+        "source": "https://en.wikipedia.org/wiki/Reykjav%C3%ADk"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It has no native mosquitoes, one of the very few places on Earth without them.",
+      "source": "https://en.wikipedia.org/wiki/Mosquito"
+    }
+  },
+  "2026-11-23": {
+    "answer": "Peru",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "The potato was first domesticated here, and thousands of varieties still grow.",
+        "source": "https://en.wikipedia.org/wiki/History_of_the_potato"
+      },
+      {
+        "text": "Its currency is the sol.",
+        "source": "https://en.wikipedia.org/wiki/Peruvian_sol"
+      },
+      {
+        "text": "It shares Lake Titicaca, a very high navigable lake, with its neighbor.",
+        "source": "https://en.wikipedia.org/wiki/Lake_Titicaca"
+      },
+      {
+        "text": "The farthest source of the Amazon River is in its Andes mountains.",
+        "source": "https://en.wikipedia.org/wiki/Amazon_River"
+      },
+      {
+        "text": "Its capital is Lima, and it's home to Machu Picchu.",
+        "source": "https://en.wikipedia.org/wiki/Machu_Picchu"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its capital, Lima, was founded by the Spanish conquistador Francisco Pizarro in 1535.",
+      "source": "https://en.wikipedia.org/wiki/Lima"
+    }
+  },
+  "2026-11-24": {
     "answer": "Sri Lanka",
     "difficulty": "medium",
     "clues": [
@@ -1769,34 +1289,514 @@
       "source": "https://en.wikipedia.org/wiki/Sri_Jayawardenepura_Kotte"
     }
   },
-  "2026-12-30": {
-    "answer": "Senegal",
-    "difficulty": "medium",
+  "2026-11-25": {
+    "answer": "Mexico",
+    "difficulty": "easy",
     "clues": [
       {
-        "text": "Its Lake Retba often turns pink because of salt-loving algae.",
-        "source": "https://en.wikipedia.org/wiki/Lake_Retba"
+        "text": "Corn was first domesticated here about 9,000 years ago.",
+        "source": "https://en.wikipedia.org/wiki/Maize"
       },
       {
-        "text": "The 160-foot African Renaissance Monument, the tallest statue in Africa, stands in its capital.",
-        "source": "https://en.wikipedia.org/wiki/African_Renaissance_Monument"
+        "text": "It has the largest Spanish-speaking population in the world.",
+        "source": "https://en.wikipedia.org/wiki/Hispanophone"
       },
       {
-        "text": "Its Cap-Vert peninsula is the westernmost point of mainland Africa.",
-        "source": "https://en.wikipedia.org/wiki/Cap-Vert"
+        "text": "The ancient Maya city of Chichén Itzá is here.",
+        "source": "https://en.wikipedia.org/wiki/Chich%C3%A9n_Itz%C3%A1"
       },
       {
-        "text": "It almost completely surrounds The Gambia.",
-        "source": "https://en.wikipedia.org/wiki/Gambia%E2%80%93Senegal_border"
+        "text": "It borders the United States to the north and Guatemala and Belize to the south.",
+        "source": "https://en.wikipedia.org/wiki/Mexico%E2%80%93United_States_border"
       },
       {
-        "text": "Its capital is Dakar, long the finish line of the Paris–Dakar Rally.",
-        "source": "https://en.wikipedia.org/wiki/Dakar_Rally"
+        "text": "Its capital is Mexico City, and it celebrates Día de los Muertos.",
+        "source": "https://en.wikipedia.org/wiki/Day_of_the_Dead"
       }
     ],
     "didYouKnow": {
-      "text": "Gorée Island, just off its capital, is a UNESCO World Heritage Site that remembers the Atlantic slave trade.",
-      "source": "https://en.wikipedia.org/wiki/Gor%C3%A9e"
+      "text": "Its capital is sinking: parts of Mexico City drop by up to about 20 inches a year.",
+      "source": "https://en.wikipedia.org/wiki/Mexico_City"
+    }
+  },
+  "2026-11-26": {
+    "answer": "France",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "Thanks to its overseas territories, it spans 12 time zones, more than any other country.",
+        "source": "https://en.wikipedia.org/wiki/Time_in_France"
+      },
+      {
+        "text": "Its Lascaux cave paintings are about 17,000 years old.",
+        "source": "https://en.wikipedia.org/wiki/Lascaux"
+      },
+      {
+        "text": "It's the most visited country in the world by international tourists.",
+        "source": "https://en.wikipedia.org/wiki/World_Tourism_rankings"
+      },
+      {
+        "text": "The world's most famous bicycle race, held every July, traditionally finishes in its capital.",
+        "source": "https://en.wikipedia.org/wiki/Tour_de_France"
+      },
+      {
+        "text": "Its capital is Paris, home of the Eiffel Tower.",
+        "source": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+      }
+    ],
+    "didYouKnow": {
+      "text": "The Statue of Liberty was a gift from its people to the United States, dedicated in 1886.",
+      "source": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
+    }
+  },
+  "2026-11-27": {
+    "answer": "Uzbekistan",
+    "difficulty": "hard",
+    "clues": [
+      {
+        "text": "It's one of only two doubly landlocked countries in the world, along with Liechtenstein.",
+        "source": "https://en.wikipedia.org/wiki/Landlocked_country"
+      },
+      {
+        "text": "The Aral Sea, once among the world's largest lakes, has mostly dried up on its territory.",
+        "source": "https://en.wikipedia.org/wiki/Aral_Sea"
+      },
+      {
+        "text": "Timur (Tamerlane), the 14th-century conqueror, is its national hero.",
+        "source": "https://en.wikipedia.org/wiki/Timur"
+      },
+      {
+        "text": "Its cities Samarkand, Bukhara and Khiva were great stops on the Silk Road.",
+        "source": "https://en.wikipedia.org/wiki/Samarkand"
+      },
+      {
+        "text": "Its capital is Tashkent, the largest city in Central Asia.",
+        "source": "https://en.wikipedia.org/wiki/Tashkent"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Samarkand's Registan square is framed by three tiled madrasas built between the 1400s and 1600s.",
+      "source": "https://en.wikipedia.org/wiki/Registan"
+    }
+  },
+  "2026-11-28": {
+    "answer": "Ghana",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Lake Volta, the largest reservoir in the world by surface area, is here.",
+        "source": "https://en.wikipedia.org/wiki/Lake_Volta"
+      },
+      {
+        "text": "Its kente cloth is woven in narrow strips by the Asante and Ewe peoples.",
+        "source": "https://en.wikipedia.org/wiki/Kente_cloth"
+      },
+      {
+        "text": "In 1957 it became the first sub-Saharan African colony to gain independence from Europe.",
+        "source": "https://en.wikipedia.org/wiki/Ghana_Independence_Act_1957"
+      },
+      {
+        "text": "Under British rule it was called the Gold Coast.",
+        "source": "https://en.wikipedia.org/wiki/Gold_Coast_(British_colony)"
+      },
+      {
+        "text": "Its capital is Accra, on the Gulf of Guinea, and Kwame Nkrumah was its first leader.",
+        "source": "https://en.wikipedia.org/wiki/Kwame_Nkrumah"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It is the world's second-largest cocoa producer, after neighboring Ivory Coast.",
+      "source": "https://en.wikipedia.org/wiki/Cocoa_production_in_Ghana"
+    }
+  },
+  "2026-11-29": {
+    "answer": "Philippines",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Its Chocolate Hills are more than 1,200 cone-shaped hills that turn brown in the dry season.",
+        "source": "https://en.wikipedia.org/wiki/Chocolate_Hills"
+      },
+      {
+        "text": "It's named after a 16th-century Spanish king, Philip II.",
+        "source": "https://en.wikipedia.org/wiki/Philip_II_of_Spain"
+      },
+      {
+        "text": "Its colorful jeepney buses grew out of U.S. military jeeps left behind after World War II.",
+        "source": "https://en.wikipedia.org/wiki/Jeepney"
+      },
+      {
+        "text": "It's made up of more than 7,000 islands in the western Pacific.",
+        "source": "https://en.wikipedia.org/wiki/List_of_islands_of_the_Philippines"
+      },
+      {
+        "text": "Its capital is Manila, and Filipino is its national language.",
+        "source": "https://en.wikipedia.org/wiki/Manila"
+      }
+    ],
+    "didYouKnow": {
+      "text": "The tarsier, one of the world's smallest primates, lives on several of its islands.",
+      "source": "https://en.wikipedia.org/wiki/Philippine_tarsier"
+    }
+  },
+  "2026-11-30": {
+    "answer": "Spain",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "Sobrino de Botín, in its capital, is the world's oldest restaurant still operating, founded in 1725.",
+        "source": "https://en.wikipedia.org/wiki/Restaurante_Bot%C3%ADn"
+      },
+      {
+        "text": "Its national anthem has no official lyrics.",
+        "source": "https://en.wikipedia.org/wiki/Marcha_Real"
+      },
+      {
+        "text": "Every August the town of Buñol holds a giant tomato fight, La Tomatina.",
+        "source": "https://en.wikipedia.org/wiki/La_Tomatina"
+      },
+      {
+        "text": "Gaudí's Sagrada Família basilica, under construction since 1882, is here.",
+        "source": "https://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia"
+      },
+      {
+        "text": "Its capital is Madrid, and it shares the Iberian Peninsula with Portugal.",
+        "source": "https://en.wikipedia.org/wiki/Madrid"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It is the world's largest producer of olive oil.",
+      "source": "https://en.wikipedia.org/wiki/Olive_oil"
+    }
+  },
+  "2026-12-01": {
+    "answer": "South Korea",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Its alphabet, Hangul, was created under a king in the 1440s.",
+        "source": "https://en.wikipedia.org/wiki/Hangul"
+      },
+      {
+        "text": "Its town of Pyeongchang hosted the 2018 Winter Olympics.",
+        "source": "https://en.wikipedia.org/wiki/2018_Winter_Olympics"
+      },
+      {
+        "text": "Its largest company, Samsung, started in 1938 as a small trading business.",
+        "source": "https://en.wikipedia.org/wiki/Samsung"
+      },
+      {
+        "text": "It shares a heavily fortified border with its northern neighbor.",
+        "source": "https://en.wikipedia.org/wiki/Korean_Demilitarized_Zone"
+      },
+      {
+        "text": "Its capital is Seoul, the home of K-pop.",
+        "source": "https://en.wikipedia.org/wiki/Seoul"
+      }
+    ],
+    "didYouKnow": {
+      "text": "In 2023 it officially switched to international age counting; traditionally everyone turned a year older on New Year's Day.",
+      "source": "https://en.wikipedia.org/wiki/East_Asian_age_reckoning"
+    }
+  },
+  "2026-12-02": {
+    "answer": "Netherlands",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "About a quarter of its land lies below sea level.",
+        "source": "https://en.wikipedia.org/wiki/Geography_of_the_Netherlands"
+      },
+      {
+        "text": "It has more bicycles than people.",
+        "source": "https://en.wikipedia.org/wiki/Cycling_in_the_Netherlands"
+      },
+      {
+        "text": "Tulips are its iconic export, even though the flower first came from Central Asia.",
+        "source": "https://en.wikipedia.org/wiki/Tulip"
+      },
+      {
+        "text": "Its capital and its seat of government are in different cities.",
+        "source": "https://en.wikipedia.org/wiki/The_Hague"
+      },
+      {
+        "text": "Its capital is Amsterdam, a city known for canals.",
+        "source": "https://en.wikipedia.org/wiki/Amsterdam"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its Afsluitdijk dam, completed in 1932, turned a saltwater inlet into a freshwater lake.",
+      "source": "https://en.wikipedia.org/wiki/Afsluitdijk"
+    }
+  },
+  "2026-12-03": {
+    "answer": "Argentina",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "It's home to Aconcagua, the highest mountain outside Asia.",
+        "source": "https://en.wikipedia.org/wiki/Aconcagua"
+      },
+      {
+        "text": "Its people eat some of the most beef per person in the world.",
+        "source": "https://en.wikipedia.org/wiki/List_of_countries_by_meat_consumption"
+      },
+      {
+        "text": "Tango was born in the Río de la Plata region, including its capital.",
+        "source": "https://en.wikipedia.org/wiki/Tango"
+      },
+      {
+        "text": "It stretches from the subtropics down to Tierra del Fuego, near Antarctica.",
+        "source": "https://en.wikipedia.org/wiki/Tierra_del_Fuego"
+      },
+      {
+        "text": "Its capital is Buenos Aires, and it's Lionel Messi's homeland.",
+        "source": "https://en.wikipedia.org/wiki/Buenos_Aires"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Ushuaia, in its far south, bills itself as the southernmost city in the world.",
+      "source": "https://en.wikipedia.org/wiki/Ushuaia"
+    }
+  },
+  "2026-12-04": {
+    "answer": "Ethiopia",
+    "difficulty": "hard",
+    "clues": [
+      {
+        "text": "Its calendar runs about seven to eight years behind the one most of the world uses.",
+        "source": "https://en.wikipedia.org/wiki/Ethiopian_calendar"
+      },
+      {
+        "text": "Apart from a five-year Italian occupation, it was never colonized.",
+        "source": "https://en.wikipedia.org/wiki/Italian_East_Africa"
+      },
+      {
+        "text": "Coffee is believed to have originated here.",
+        "source": "https://en.wikipedia.org/wiki/History_of_coffee"
+      },
+      {
+        "text": "It's the most populous landlocked country in Africa.",
+        "source": "https://en.wikipedia.org/wiki/Landlocked_country"
+      },
+      {
+        "text": "Its capital is Addis Ababa, in the Horn of Africa.",
+        "source": "https://en.wikipedia.org/wiki/Addis_Ababa"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its calendar has 13 months: twelve of 30 days and one of five or six days.",
+      "source": "https://en.wikipedia.org/wiki/Ethiopian_calendar"
+    }
+  },
+  "2026-12-05": {
+    "answer": "Oman",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Frankincense trees in its Dhofar region have been tapped for their resin for thousands of years.",
+        "source": "https://en.wikipedia.org/wiki/Land_of_Frankincense"
+      },
+      {
+        "text": "In the 1800s its sultans also ruled Zanzibar and moved their court there.",
+        "source": "https://en.wikipedia.org/wiki/Sultanate_of_Zanzibar"
+      },
+      {
+        "text": "Its Musandam exclave juts into the Strait of Hormuz.",
+        "source": "https://en.wikipedia.org/wiki/Musandam_Governorate"
+      },
+      {
+        "text": "It sits on the southeastern corner of the Arabian Peninsula, facing the Arabian Sea.",
+        "source": "https://en.wikipedia.org/wiki/Geography_of_Oman"
+      },
+      {
+        "text": "Its capital is Muscat.",
+        "source": "https://en.wikipedia.org/wiki/Muscat"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its Sultan Qaboos Grand Mosque holds one of the largest hand-woven carpets in the world.",
+      "source": "https://en.wikipedia.org/wiki/Sultan_Qaboos_Grand_Mosque"
+    }
+  },
+  "2026-12-06": {
+    "answer": "Egypt",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "It is the most populous country in the Arab world.",
+        "source": "https://en.wikipedia.org/wiki/Arab_world"
+      },
+      {
+        "text": "Its currency is the pound, divided into 100 piastres.",
+        "source": "https://en.wikipedia.org/wiki/Egyptian_pound"
+      },
+      {
+        "text": "Ships traveling between the Mediterranean and the Red Sea pass through a canal here.",
+        "source": "https://en.wikipedia.org/wiki/Suez_Canal"
+      },
+      {
+        "text": "Nearly all of its people live along one river.",
+        "source": "https://en.wikipedia.org/wiki/Nile"
+      },
+      {
+        "text": "Its capital is Cairo, and it's home to the Great Pyramid of Giza.",
+        "source": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza"
+      }
+    ],
+    "didYouKnow": {
+      "text": "About 95% of its people live on roughly 5% of its land, along the Nile and its delta.",
+      "source": "https://en.wikipedia.org/wiki/Demographics_of_Egypt"
+    }
+  },
+  "2026-12-07": {
+    "answer": "Turkey",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Tulips were cultivated here long before the Netherlands made them famous.",
+        "source": "https://en.wikipedia.org/wiki/Tulip_period"
+      },
+      {
+        "text": "Saint Nicholas, the inspiration for Santa Claus, lived here.",
+        "source": "https://en.wikipedia.org/wiki/Saint_Nicholas"
+      },
+      {
+        "text": "Its largest city sits on two continents.",
+        "source": "https://en.wikipedia.org/wiki/Istanbul"
+      },
+      {
+        "text": "It borders eight countries, including Greece, Iran and Syria.",
+        "source": "https://en.wikipedia.org/wiki/Geography_of_Turkey"
+      },
+      {
+        "text": "Its capital is Ankara, and its largest city is Istanbul.",
+        "source": "https://en.wikipedia.org/wiki/Ankara"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Göbekli Tepe, built here around 9500 BC, is roughly 6,000 years older than Stonehenge.",
+      "source": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe"
+    }
+  },
+  "2026-12-08": {
+    "answer": "Brazil",
+    "difficulty": "easy",
+    "clues": [
+      {
+        "text": "It has been the world's largest coffee producer for more than 150 years.",
+        "source": "https://en.wikipedia.org/wiki/Coffee_production_in_Brazil"
+      },
+      {
+        "text": "It's the only country in the Americas with Portuguese as its official language.",
+        "source": "https://en.wikipedia.org/wiki/Portuguese_language"
+      },
+      {
+        "text": "Its men's team has won the FIFA World Cup five times, more than any other country.",
+        "source": "https://en.wikipedia.org/wiki/FIFA_World_Cup"
+      },
+      {
+        "text": "Most of the Amazon rainforest lies within its borders.",
+        "source": "https://en.wikipedia.org/wiki/Amazon_rainforest"
+      },
+      {
+        "text": "Its capital is Brasília, and Rio de Janeiro hosts its famous Carnival.",
+        "source": "https://en.wikipedia.org/wiki/Bras%C3%ADlia"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its capital, Brasília, was built from scratch and inaugurated in 1960.",
+      "source": "https://en.wikipedia.org/wiki/Bras%C3%ADlia"
+    }
+  },
+  "2026-12-09": {
+    "answer": "Jordan",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "Its city of Jerash has some of the best-preserved Roman ruins outside Italy.",
+        "source": "https://en.wikipedia.org/wiki/Jerash"
+      },
+      {
+        "text": "Its Wadi Rum desert stood in for Mars in the film The Martian.",
+        "source": "https://en.wikipedia.org/wiki/Wadi_Rum"
+      },
+      {
+        "text": "The Dead Sea, on its western border, is the lowest point on land on Earth.",
+        "source": "https://en.wikipedia.org/wiki/Dead_Sea"
+      },
+      {
+        "text": "Petra, a city carved into rose-red cliffs, is here.",
+        "source": "https://en.wikipedia.org/wiki/Petra"
+      },
+      {
+        "text": "Its capital is Amman, and its only seaport is Aqaba on the Red Sea.",
+        "source": "https://en.wikipedia.org/wiki/Amman"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Petra was carved by the Nabataeans more than 2,000 years ago.",
+      "source": "https://en.wikipedia.org/wiki/Nabataeans"
+    }
+  },
+  "2026-12-10": {
+    "answer": "Switzerland",
+    "difficulty": "medium",
+    "clues": [
+      {
+        "text": "The World Wide Web was invented here in 1989, at the CERN laboratory near Geneva.",
+        "source": "https://en.wikipedia.org/wiki/CERN"
+      },
+      {
+        "text": "It has four national languages: German, French, Italian and Romansh.",
+        "source": "https://en.wikipedia.org/wiki/Languages_of_Switzerland"
+      },
+      {
+        "text": "Its Gotthard Base Tunnel, about 35 miles long, is the world's longest railway tunnel.",
+        "source": "https://en.wikipedia.org/wiki/Gotthard_Base_Tunnel"
+      },
+      {
+        "text": "The Matterhorn rises on its border with Italy.",
+        "source": "https://en.wikipedia.org/wiki/Matterhorn"
+      },
+      {
+        "text": "Its federal city is Bern, and the Red Cross was founded in its city of Geneva.",
+        "source": "https://en.wikipedia.org/wiki/International_Committee_of_the_Red_Cross"
+      }
+    ],
+    "didYouKnow": {
+      "text": "Its constitution names no capital; Bern is officially called the \"federal city.\"",
+      "source": "https://en.wikipedia.org/wiki/Bern"
+    }
+  },
+  "2026-12-11": {
+    "answer": "Bhutan",
+    "difficulty": "hard",
+    "clues": [
+      {
+        "text": "Its national animal is the takin, a shaggy goat-antelope.",
+        "source": "https://en.wikipedia.org/wiki/Takin"
+      },
+      {
+        "text": "It was one of the last countries in the world to allow television, in 1999.",
+        "source": "https://en.wikipedia.org/wiki/Television_in_Bhutan"
+      },
+      {
+        "text": "It measures progress with \"Gross National Happiness.\"",
+        "source": "https://en.wikipedia.org/wiki/Gross_National_Happiness"
+      },
+      {
+        "text": "It's a landlocked Himalayan kingdom wedged between India and China.",
+        "source": "https://en.wikipedia.org/wiki/Geography_of_Bhutan"
+      },
+      {
+        "text": "Its capital is Thimphu, and its flag shows a white dragon.",
+        "source": "https://en.wikipedia.org/wiki/Flag_of_Bhutan"
+      }
+    ],
+    "didYouKnow": {
+      "text": "It is often described as the world's first carbon-negative country, thanks to forests covering most of its land.",
+      "source": "https://en.wikipedia.org/wiki/Environment_of_Bhutan"
     }
   }
 }

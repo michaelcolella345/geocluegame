@@ -82,7 +82,7 @@ GeoClue has no build step, so most of these fields stay empty.
 
 Click **Save and Deploy**. After about a minute you'll see **Success** and a link like `https://geocluegame.pages.dev`. Open it. The game is live!
 
-> **Before Nov 1** the page will say "GeoClue starts soon". That's expected, because the first puzzle is dated 2026-11-01. To try a puzzle early, see "Testing a future puzzle" below.
+> GeoClue #1 is dated **2026-10-13**, so the site shows a playable puzzle from day one. The puzzles in `data/puzzles.json` run to **2026-12-11**. Add more before then, or players will see "Back tomorrow!".
 
 ### 2.4 Turn on Web Analytics (optional, free, no cookie banner needed)
 
@@ -146,7 +146,7 @@ Both addresses already work. To make `www` *redirect* to the main address:
 - [ ] `https://geocluegame.com` loads with a padlock icon.
 - [ ] On your phone, the "How to play" box shows on first visit.
 - [ ] Share the link in a text message or on Slack and check that the GeoClue preview card appears. Previews can be cached; if an old one shows, paste the link into <https://www.opengraph.xyz> to refresh.
-- [ ] After Nov 1, play a game and tap **Share**.
+- [ ] Play today's game and tap **Share**.
 
 ---
 
