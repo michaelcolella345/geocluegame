@@ -4,6 +4,7 @@ import { loadData, makeMatcher } from "./data.js";
 import { compassWord, BAND_EMOJI, BAND_LABEL } from "./geo.js";
 import * as store from "./storage.js";
 import * as track from "./track.js";
+import { loadShapes, createMap } from "./map.js";
 import "./nav.js";
 import {
   localDateKey, puzzleFor, startGame, applyGuess, scoreGuess, cluesShown,
@@ -14,7 +15,7 @@ const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const fmtMiles = (m) => `${Math.round(m).toLocaleString("en-US")} mi`;
 
-let matcher, puzzles, day, game;
+let matcher, puzzles, day, game, liveMap;
 
 // ---------- Which day is it? ----------
 // On localhost you can test any date with ?date=YYYY-MM-DD.
@@ -44,6 +45,12 @@ async function init() {
   }
   bindEvents();
   loadDay();
+  // The map is extra: if its files don't load, the game works without it.
+  loadShapes().then((shapes) => {
+    liveMap = createMap($("live-map"), matcher.byName, shapes);
+    $("live-map").hidden = false;
+    if (game) render();
+  }).catch((e) => console.warn("Map not available:", e));
   if (!store.hasSeenHelp()) openDialog("help");
   setInterval(tick, 1000);
 }
@@ -69,6 +76,7 @@ function loadDay() {
   $("game").hidden = false;
   showDifficulty(day.puzzle.difficulty);
   game = startGame(day, store.loadProgress());
+  if (liveMap) liveMap.reset();
   store.saveProgress(game);
   render();
 }
@@ -122,6 +130,8 @@ function render(anim = {}) {
     const delay = anim.finishing && bonus ? ` style="--d:${t.firstReveal + (i - seen) * t.stagger}ms"` : "";
     return `<li class="${cls}"${delay}><span class="n" aria-hidden="true">${i + 1}</span><p><span class="sr-only">Clue ${i + 1}: </span>${esc(c.text)}${bonus ? ' <span class="tag">Bonus clue</span>' : ""}</p></li>`;
   }).join("");
+
+  if (liveMap) liveMap.update(rows, { answer: game.answer, done: game.done });
 
   $("slots").innerHTML = Array.from({ length: CONFIG.MAX_GUESSES }, (_, i) =>
     `<div class="slot${anim.newRow && i === rows.length - 1 ? " pop" : ""}"${rows[i] ? ` style="background:var(--${rows[i].band})"` : ""}></div>`).join("");

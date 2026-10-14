@@ -24,8 +24,10 @@ js/config.js          launch date, site URL, distance bands  ← settings live h
 js/*.js               game code
 data/countries.json   every guessable country: name, code, center lat/lon, aliases
 data/puzzles.json     one puzzle per date
-assets/               favicon, social preview image, fonts
+data/map-shapes.json  country outlines for shading guesses on the live map
+assets/               favicon, social preview image, fonts, map/terrain.jpg
 tools/validate.js     checks the data files for mistakes
+tools/map/            scripts that made the map image and outlines
 ```
 
 ## Settings
@@ -89,6 +91,12 @@ The center points come from Google's public [canonical countries dataset](https:
 For countries with far-off territories (the US, France, Norway and Malaysia, for example), the point sits in the main part of the country rather than the mathematical centroid, which tends to land in the sea or pulls toward Alaska or Svalbard.
 
 To accept another spelling for a guess, add it to that country's `aliases` list. Matching ignores capitals, accents, punctuation, a leading "The", and treats "St" as "Saint".
+
+## Live map
+
+Under the clues is a map that shades each guessed country in its hot/warm/mild/cold color and drops a numbered pin on it. The answer turns green once the game is over. Players can drag it (it wraps around sideways like a globe) and pinch, scroll or tap + and − to zoom. The code is `js/map.js`. If the map files fail to load, the game still works without the map.
+
+The background `assets/map/terrain.jpg` is a cartoon-style terrain picture with no country borders, so it doesn't give away country shapes. Only guessed countries get an outline. `data/map-shapes.json` holds those outlines (Natural Earth, public domain). Both are made by the scripts in `tools/map/`, and you only need to rerun them if `data/countries.json` gets a new country or the map style changes. Tuvalu is too small to have an outline, so it only gets a pin.
 
 ## Deploying
 
