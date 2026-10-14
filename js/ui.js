@@ -67,9 +67,23 @@ function loadDay() {
   }
   $("notice").hidden = true;
   $("game").hidden = false;
+  showDifficulty(day.puzzle.difficulty);
   game = startGame(day, store.loadProgress());
   store.saveProgress(game);
   render();
+}
+
+// "Today's difficulty" tag above the clues: three dots, filled up to the level.
+const LEVELS = ["easy", "medium", "hard"];
+function showDifficulty(level) {
+  const el = $("difficulty");
+  const n = LEVELS.indexOf(level) + 1;
+  el.hidden = !n;
+  if (!n) return;
+  const name = level[0].toUpperCase() + level.slice(1);
+  el.dataset.level = level;
+  el.innerHTML = `<span class="dots" aria-hidden="true">${LEVELS.map((_, i) => `<i${i < n ? ' class="on"' : ""}></i>`).join("")}</span>` +
+    `<span>Today's difficulty: <b>${name}</b></span>`;
 }
 
 function showNotice(title, text, countdown = false) {

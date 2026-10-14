@@ -77,6 +77,14 @@ button.icon:hover { border-color: var(--accent); }
 }
 
 .lede { margin: 0; color: var(--muted); max-width: 60ch; }
+/* Today's difficulty tag */
+.difficulty { --lvl: var(--win); justify-self: start; margin: -6px 0 0; display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px 4px 10px; border-radius: 999px; font-size: .85rem; color: var(--muted); background: var(--card); border: 1px solid color-mix(in srgb, var(--lvl) 55%, var(--line)); }
+.difficulty[data-level="medium"] { --lvl: var(--warm); }
+.difficulty[data-level="hard"] { --lvl: var(--hot); }
+.difficulty b { color: var(--ink); font-weight: 600; }
+.difficulty .dots { display: inline-flex; gap: 3px; }
+.difficulty .dots i { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--lvl); }
+.difficulty .dots i.on { background: var(--lvl); }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
 
 /* Clues */
