@@ -1,0 +1,8 @@
+# Files in the repo that are not part of the website, so Cloudflare does not publish them.
+.git
+.gitignore
+.assetsignore
+wrangler.jsonc
+*.md
+tools
+node_modules
