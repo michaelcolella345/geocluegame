@@ -11,4 +11,9 @@ export const CONFIG = {
 
   // Distance bands in miles: under HOT is hot, under WARM is warm, under MILD is mild, otherwise cold.
   BANDS: { HOT: 500, WARM: 1500, MILD: 3500 },
+
+  // Your GoatCounter code (the "xxx" in xxx.goatcounter.com) for gameplay stats:
+  // how many people start each puzzle, solve it on each guess, or lose.
+  // Leave it as "" to turn stats off.
+  GOATCOUNTER_CODE: "geocluegame",
 };

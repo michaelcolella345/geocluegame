@@ -92,6 +92,16 @@ Click **Save and Deploy**. After about a minute you'll see **Success** and a lin
 
 You'll see visitors, top countries and page loads under **Analytics & Logs > Web Analytics**.
 
+### 2.5 Turn on gameplay stats (optional, free, no cookie banner needed)
+
+Cloudflare counts visits but can't see how people play. GoatCounter can: for each puzzle it counts how many players **started**, **solved in 1, 2, 3, 4 or 5** guesses, or **lost**.
+
+1. Go to <https://www.goatcounter.com/signup> and pick a code, for example `geoclue`. Your dashboard will be at `https://geoclue.goatcounter.com`.
+2. Open `js/config.js` and put your code between the quotes: `GOATCOUNTER_CODE: "geoclue",`
+3. Commit the change. Cloudflare redeploys on its own.
+
+On the dashboard, gameplay rows look like `Puzzle 2: started`, `Puzzle 2: solved in 3` and `Puzzle 2: lost`. Type `Puzzle 2:` in the filter box to see just one day. A player who reloads or comes back later isn't counted twice. Players with ad blockers aren't counted, so treat the numbers as a good sample rather than an exact total.
+
 ---
 
 ## Part 3: Connect geocluegame.com

@@ -3,6 +3,7 @@ import { CONFIG } from "./config.js";
 import { loadData, makeMatcher } from "./data.js";
 import { compassWord, BAND_EMOJI, BAND_LABEL } from "./geo.js";
 import * as store from "./storage.js";
+import * as track from "./track.js";
 import {
   localDateKey, puzzleFor, startGame, applyGuess, scoreGuess, cluesShown,
   recordResult, displayStreak, shareText, msUntilMidnight,
@@ -30,6 +31,7 @@ function prettyDate(key) {
 
 // ---------- Setup ----------
 async function init() {
+  track.start();
   $("theme-btn").addEventListener("click", toggleTheme);
   updateThemeButton();
   try {
@@ -195,7 +197,11 @@ function submitGuess(raw) {
   setMsg("");
   game = next;
   store.saveProgress(game);
-  if (game.done) store.saveStats(recordResult(store.loadStats(), day.number, game));
+  if (game.guesses.length === 1) track.started(day.number);
+  if (game.done) {
+    store.saveStats(recordResult(store.loadStats(), day.number, game));
+    track.finished(day.number, game);
+  }
   $("guess").value = "";
   hideSugg();
   render({ newRow: true, newClue: game.done ? -1 : game.guesses.length, finishing: game.done });
