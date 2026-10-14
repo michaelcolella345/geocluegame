@@ -3,6 +3,8 @@ import { CONFIG } from "./config.js";
 import { loadData, makeMatcher } from "./data.js";
 import { compassWord, BAND_EMOJI, BAND_LABEL } from "./geo.js";
 import * as store from "./storage.js";
+import * as track from "./track.js";
+import "./nav.js";
 import {
   localDateKey, puzzleFor, startGame, applyGuess, scoreGuess, cluesShown,
   recordResult, displayStreak, shareText, msUntilMidnight,
@@ -30,8 +32,7 @@ function prettyDate(key) {
 
 // ---------- Setup ----------
 async function init() {
-  $("theme-btn").addEventListener("click", toggleTheme);
-  updateThemeButton();
+  track.start();
   try {
     const data = await loadData();
     matcher = makeMatcher(data.countries);
@@ -66,9 +67,23 @@ function loadDay() {
   }
   $("notice").hidden = true;
   $("game").hidden = false;
+  showDifficulty(day.puzzle.difficulty);
   game = startGame(day, store.loadProgress());
   store.saveProgress(game);
   render();
+}
+
+// "Today's difficulty" tag above the clues: three dots, filled up to the level.
+const LEVELS = ["easy", "medium", "hard"];
+function showDifficulty(level) {
+  const el = $("difficulty");
+  const n = LEVELS.indexOf(level) + 1;
+  el.hidden = !n;
+  if (!n) return;
+  const name = level[0].toUpperCase() + level.slice(1);
+  el.dataset.level = level;
+  el.innerHTML = `<span class="dots" aria-hidden="true">${LEVELS.map((_, i) => `<i${i < n ? ' class="on"' : ""}></i>`).join("")}</span>` +
+    `<span>Today's difficulty: <b>${name}</b></span>`;
 }
 
 function showNotice(title, text, countdown = false) {
@@ -195,7 +210,11 @@ function submitGuess(raw) {
   setMsg("");
   game = next;
   store.saveProgress(game);
-  if (game.done) store.saveStats(recordResult(store.loadStats(), day.number, game));
+  if (game.guesses.length === 1) track.started(day.number);
+  if (game.done) {
+    store.saveStats(recordResult(store.loadStats(), day.number, game));
+    track.finished(day.number, game);
+  }
   $("guess").value = "";
   hideSugg();
   render({ newRow: true, newClue: game.done ? -1 : game.guesses.length, finishing: game.done });
@@ -238,7 +257,8 @@ function moveSel(delta) {
 
 // ---------- Share ----------
 async function share() {
-  const text = shareText(day.number, game, scored(), BAND_EMOJI);
+  const streak = displayStreak(store.loadStats(), day.number);
+  const text = shareText(day.number, game, scored(), BAND_EMOJI, streak);
   const out = $("copied");
   // On phones, open the share sheet (Messages, WhatsApp…). Elsewhere, copy to the clipboard.
   if (navigator.share && matchMedia("(pointer: coarse)").matches) {
@@ -260,22 +280,6 @@ function openDialog(id) {
   if (id === "stats") $("stats-body").innerHTML = statsHTML();
   const d = $(id);
   if (!d.open) d.showModal();
-}
-
-// ---------- Light / dark ----------
-// Follows the device setting until the player picks one with the toggle.
-function currentTheme() {
-  return document.documentElement.dataset.theme ||
-    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-}
-function updateThemeButton() {
-  $("theme-btn").setAttribute("aria-label", currentTheme() === "dark" ? "Switch to light mode" : "Switch to dark mode");
-}
-function toggleTheme() {
-  const next = currentTheme() === "dark" ? "light" : "dark";
-  document.documentElement.dataset.theme = next;
-  store.saveTheme(next);
-  updateThemeButton();
 }
 
 // ---------- Countdown + midnight rollover ----------
