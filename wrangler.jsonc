@@ -1,0 +1,10 @@
+{
+  "name": "geocluegame",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  },
+  // Pull request preview builds need this block, even empty. The site has no settings that differ in previews.
+  "previews": {}
+}
