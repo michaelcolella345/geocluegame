@@ -2,7 +2,7 @@
 
 A free daily geography trivia game. Each day there's one mystery country and five clues, ordered from hardest to easiest. Every wrong guess unlocks the next clue and tells you how far off you were and which direction to head.
 
-It's a plain static website (HTML, CSS and JavaScript, with no build step, no backend and no accounts), so it can be hosted free on Cloudflare Pages.
+It's a plain static website (HTML, CSS and JavaScript, with no build step and no accounts), plus one small Cloudflare Worker that tallies "How everyone did", all hosted free on Cloudflare.
 
 ## Run it on your computer
 
@@ -28,6 +28,7 @@ data/map-shapes.json  country outlines for shading guesses on the live map
 assets/               favicon, social preview image, fonts, map/terrain.jpg
 tools/validate.js     checks the data files for mistakes
 tools/map/            scripts that made the map image and outlines
+worker/index.js       the small server that tallies "How everyone did"
 ```
 
 ## Settings
@@ -97,6 +98,12 @@ To accept another spelling for a guess, add it to that country's `aliases` list.
 Under the clues is a map that shades each guessed country in its hot/warm/mild/cold color and drops a numbered pin on it. The answer turns green once the game is over. Players can drag it (it wraps around sideways like a globe) and pinch, scroll or tap + and − to zoom. The code is `js/map.js`. If the map files fail to load, the game still works without the map.
 
 The background `assets/map/terrain.jpg` is a cartoon-style terrain picture with no country borders, so it doesn't give away country shapes. Only guessed countries get an outline. `data/map-shapes.json` holds those outlines (Natural Earth, public domain). Both are made by the scripts in `tools/map/`, and you only need to rerun them if `data/countries.json` gets a new country or the map style changes. Tuvalu is too small to have an outline, so it only gets a pin.
+
+## How everyone did
+
+After a game, the results screen shows what share of players solved today's puzzle and how many guesses they took. It never shows how many people played, and it stays hidden until at least 5 players have finished. Each browser sends its score once (just the puzzle number and 1–5 or X, nothing about the player) to `worker/index.js`, a small Cloudflare Worker that keeps one tally per puzzle in a Durable Object. Cloudflare creates that storage on deploy, so there's nothing to set up. Every other address is served as a plain file, as before. Set `EVERYONE_STATS: false` in `js/config.js` to hide the section. If the server can't be reached, the section simply doesn't appear.
+
+`.assetsignore` keeps the server code from being published as part of the site.
 
 ## Deploying
 

@@ -5,6 +5,7 @@ import { compassWord, BAND_EMOJI, BAND_LABEL } from "./geo.js";
 import * as store from "./storage.js";
 import * as track from "./track.js";
 import { loadShapes, createMap } from "./map.js";
+import { fetchEveryone, everyoneHTML } from "./everyone.js";
 import "./nav.js";
 import {
   localDateKey, puzzleFor, startGame, applyGuess, scoreGuess, cluesShown,
@@ -16,6 +17,7 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&
 const fmtMiles = (m) => `${Math.round(m).toLocaleString("en-US")} mi`;
 
 let matcher, puzzles, day, game, liveMap;
+let everyone = null; // { puzzle, data } once "How everyone did" has loaded
 
 // ---------- Which day is it? ----------
 // On localhost you can test any date with ?date=YYYY-MM-DD.
@@ -153,6 +155,7 @@ function render(anim = {}) {
   play.hidden = game.done;
   if (!game.done) { $("result").hidden = true; return; }
   $("result").innerHTML = resultHTML(rows);
+  loadEveryone();
   if (!anim.finishing) { $("result").hidden = false; return; }
 
   // Keep the guess bar in place (faded, disabled) during the transition so the page doesn't jump.
@@ -183,12 +186,31 @@ function resultHTML(rows) {
   return `<h2 tabindex="-1">${title}</h2>
     <p>${sub}</p>
     <div class="emoji-row" aria-label="Your result">${rows.map((g) => BAND_EMOJI[g.band]).join("")}</div>
+    <section class="everyone" id="everyone"${showEveryone() ? "" : " hidden"}>${showEveryone() ? everyoneHTML(everyone.data, myScore()) : ""}</section>
     <div class="dyk"><h3>Did you know?</h3><p>${esc(p.didYouKnow.text)}</p>
       <a href="${esc(p.didYouKnow.source)}" target="_blank" rel="noopener">Source</a></div>
     ${statsHTML()}
     <div class="btns"><button type="button" id="share-btn">Share</button></div>
     <p class="copied" id="copied" aria-live="polite"></p>
     <p class="countdown-wrap">Next puzzle in <span class="countdown" data-countdown>${countdownText()}</span></p>`;
+}
+
+// ---------- How everyone did ----------
+const myScore = () => (game.won ? String(game.guesses.length) : "X");
+const showEveryone = () => everyone && everyone.puzzle === day.number && everyone.data;
+function loadEveryone() {
+  if (!CONFIG.EVERYONE_STATS || !game || !game.done || day.number < 1) return;
+  if (everyone && everyone.puzzle === day.number) return;
+  const puzzle = day.number;
+  everyone = { puzzle, data: null };
+  fetchEveryone(puzzle, myScore()).then((data) => {
+    if (!data || !day || day.number !== puzzle) return;
+    everyone.data = data;
+    const el = $("everyone");
+    if (!el) return;
+    el.innerHTML = everyoneHTML(data, myScore());
+    el.hidden = false;
+  });
 }
 
 function statsHTML() {

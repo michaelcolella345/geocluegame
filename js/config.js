@@ -19,4 +19,7 @@ export const CONFIG = {
 
   // The live map under the clues. Set to false to hide it and play without a map.
   LIVE_MAP: true,
+
+  // "How everyone did today" on the results screen. Set to false to hide it.
+  EVERYONE_STATS: true,
 };

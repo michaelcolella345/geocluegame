@@ -243,3 +243,26 @@ h1 a.home { color: inherit; text-decoration: none; }
   :root:not([data-theme="light"]) .map-view { background: #4d88ab; }
 }
 @media (prefers-reduced-motion: reduce) { .map-country.new, .map-pin.new { animation: none; } }
+
+/* How everyone did today (js/everyone.js) */
+.everyone { width: 100%; text-align: left; border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 8px; }
+.everyone h3 { margin: 0; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.everyone p { margin: 0; color: var(--ink); }
+.everyone .everyone-wait { color: var(--muted); }
+.everyone-big { font-size: .9rem; }
+.everyone-big b { font-family: var(--display); font-weight: 800; font-size: 1.9rem; line-height: 1; margin-right: 4px; font-variant-numeric: tabular-nums; }
+.everyone-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+.everyone-bars li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr) 2.6rem; gap: 8px; align-items: center; font-family: var(--mono); font-size: .8rem; }
+.everyone-bars .track { position: relative; height: 18px; border-radius: 3px; background: color-mix(in srgb, var(--line) 55%, transparent); }
+.everyone-bars .fill { position: absolute; inset: 0 auto 0 0; width: var(--w); border-radius: 3px; background: var(--muted); animation: everyone-grow .7s cubic-bezier(.2, .8, .2, 1) calc(var(--i) * .1s) both; }
+.everyone-bars li.you .fill { background: var(--win); }
+.everyone-bars li.x .fill { background: color-mix(in srgb, var(--hot) 70%, var(--muted)); }
+.everyone-bars li.you.x .fill { background: var(--hot); }
+.everyone-bars .pct { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+.everyone-bars li.you .pct { color: var(--ink); }
+.everyone-bars .you-label { position: absolute; left: calc(var(--w) + 6px); top: 50%; transform: translateY(-50%); font-family: var(--body); font-size: .72rem; font-weight: 600; color: var(--win); white-space: nowrap; }
+.everyone-bars li.x .you-label { color: var(--hot); }
+.everyone-bars li .you-label.inside { left: auto; right: calc(100% - var(--w) + 6px); color: #fff; }
+.everyone-line { font-size: .9rem; }
+@keyframes everyone-grow { from { width: 0; } }
+@media (prefers-reduced-motion: reduce) { .everyone-bars .fill { animation: none; } }

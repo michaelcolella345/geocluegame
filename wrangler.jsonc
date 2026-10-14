@@ -1,10 +1,19 @@
 {
   "name": "geocluegame",
   "compatibility_date": "2026-10-01",
+  // Small server code for the "How everyone did" results (worker/index.js). Everything else is static files.
+  "main": "worker/index.js",
   "assets": {
     "directory": "./",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
   },
+  // One tally per puzzle. Cloudflare creates the storage on the first deploy; nothing to set up.
+  "durable_objects": {
+    "bindings": [{ "name": "TALLY", "class_name": "PuzzleTally" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["PuzzleTally"] }],
   // Pull request preview builds need this block, even empty. The site has no settings that differ in previews.
   "previews": {}
 }
