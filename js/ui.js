@@ -45,8 +45,9 @@ async function init() {
   }
   bindEvents();
   loadDay();
-  // The map is extra: if its files don't load, the game works without it.
-  loadShapes().then((shapes) => {
+  // The map is extra: it can be switched off in config.js, and if its files don't load,
+  // the game works without it.
+  if (CONFIG.LIVE_MAP !== false) loadShapes().then((shapes) => {
     liveMap = createMap($("live-map"), matcher.byName, shapes);
     $("live-map").hidden = false;
     if (game) render();
