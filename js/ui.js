@@ -4,6 +4,7 @@ import { loadData, makeMatcher } from "./data.js";
 import { compassWord, BAND_EMOJI, BAND_LABEL } from "./geo.js";
 import * as store from "./storage.js";
 import * as track from "./track.js";
+import "./nav.js";
 import {
   localDateKey, puzzleFor, startGame, applyGuess, scoreGuess, cluesShown,
   recordResult, displayStreak, shareText, msUntilMidnight,
@@ -32,8 +33,6 @@ function prettyDate(key) {
 // ---------- Setup ----------
 async function init() {
   track.start();
-  $("theme-btn").addEventListener("click", toggleTheme);
-  updateThemeButton();
   try {
     const data = await loadData();
     matcher = makeMatcher(data.countries);
@@ -266,22 +265,6 @@ function openDialog(id) {
   if (id === "stats") $("stats-body").innerHTML = statsHTML();
   const d = $(id);
   if (!d.open) d.showModal();
-}
-
-// ---------- Light / dark ----------
-// Follows the device setting until the player picks one with the toggle.
-function currentTheme() {
-  return document.documentElement.dataset.theme ||
-    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-}
-function updateThemeButton() {
-  $("theme-btn").setAttribute("aria-label", currentTheme() === "dark" ? "Switch to light mode" : "Switch to dark mode");
-}
-function toggleTheme() {
-  const next = currentTheme() === "dark" ? "light" : "dark";
-  document.documentElement.dataset.theme = next;
-  store.saveTheme(next);
-  updateThemeButton();
 }
 
 // ---------- Countdown + midnight rollover ----------

@@ -18,6 +18,7 @@ To test a specific day, add `?date=2026-11-05` to the address. This only works o
 
 ```
 index.html            the game page
+games.html            the "More games coming soon" page (linked from the ☰ menu)
 css/style.css         all styles
 js/config.js          launch date, site URL, distance bands  ← settings live here
 js/*.js               game code

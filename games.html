@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>More games · GeoClue</title>
+  <meta name="description" content="More free daily games from GeoClue are coming soon.">
+  <script>try{var t=JSON.parse(localStorage.getItem("geoclue:v1:theme"));if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <meta name="theme-color" content="#e8f0ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c1a24" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="canonical" href="https://geocluegame.com/games">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/games.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <h1><a class="home" href="./">Geo<span>Clue</span></a></h1>
+      <div class="top-right">
+        <div class="icons">
+          <button type="button" class="icon theme-btn" id="theme-btn" aria-label="Switch light or dark mode">
+            <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"/></svg>
+          </button>
+          <button type="button" class="icon" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <nav class="menu" id="menu" aria-label="Site menu" hidden>
+          <ul>
+            <li><a href="./">Today's GeoClue</a></li>
+            <li><a href="games.html" aria-current="page">More games</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="card notice soon">
+      <p class="globe" aria-hidden="true">🌍</p>
+      <h2>More games coming soon</h2>
+      <p>We're building new daily puzzles to play alongside GeoClue. Check back soon!</p>
+      <p><a class="button" href="./">Play today's GeoClue</a></p>
+    </main>
+
+    <footer>GeoClue: a new geography puzzle every day.</footer>
+  </div>
+</body>
+</html>
