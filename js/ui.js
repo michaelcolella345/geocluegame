@@ -257,7 +257,8 @@ function moveSel(delta) {
 
 // ---------- Share ----------
 async function share() {
-  const text = shareText(day.number, game, scored(), BAND_EMOJI);
+  const streak = displayStreak(store.loadStats(), day.number);
+  const text = shareText(day.number, game, scored(), BAND_EMOJI, streak);
   const out = $("copied");
   // On phones, open the share sheet (Messages, WhatsApp…). Elsewhere, copy to the clipboard.
   if (navigator.share && matchMedia("(pointer: coarse)").matches) {
