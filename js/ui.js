@@ -47,15 +47,28 @@ async function init() {
   }
   bindEvents();
   loadDay();
-  // The map is extra: it can be switched off in config.js, and if its files don't load,
-  // the game works without it.
-  if (CONFIG.LIVE_MAP !== false) loadShapes().then((shapes) => {
-    liveMap = createMap($("live-map"), matcher.byName, shapes);
-    $("live-map").hidden = false;
-    if (game) render();
-  }).catch((e) => console.warn("Map not available:", e));
+  // The map is extra: it can be switched off for everyone in config.js, each player can
+  // switch it off with the Map switch, and if its files don't load the game works without it.
+  if (CONFIG.LIVE_MAP !== false) {
+    $("map-switch").hidden = false;
+    $("map-switch").addEventListener("click", () => showMap(!store.loadMapOn()));
+    showMap(store.loadMapOn());
+  }
   if (!store.hasSeenHelp()) openDialog("help");
   setInterval(tick, 1000);
+}
+
+let mapLoading = null;
+function showMap(on) {
+  store.saveMapOn(on);
+  $("map-switch").setAttribute("aria-checked", String(on));
+  $("live-map").hidden = !on || !liveMap;
+  if (!on || liveMap || mapLoading) return;
+  mapLoading = loadShapes().then((shapes) => {
+    liveMap = createMap($("live-map"), matcher.byName, shapes);
+    $("live-map").hidden = !store.loadMapOn();
+    if (game) render();
+  }).catch((e) => { console.warn("Map not available:", e); mapLoading = null; });
 }
 
 function loadDay() {
