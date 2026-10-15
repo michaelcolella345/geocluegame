@@ -14,8 +14,20 @@ if missing: sys.exit("No bonus fact in facts.py for: " + "; ".join(missing))
 W = "https://en.wikipedia.org/wiki/"
 def bucket(y):
     return 0 if y < 500 else 1 if y < 1500 else 2 if y < 1800 else 3 if y < 1900 else 4 if y < 1946 else 5 if y < 1990 else 6
-MAXGAP = [160, 70, 35, 14, 7, 7, 6]
-MINGAP = [15, 10, 5, 3, 2, 2, 2]  # closer than this is a coin flip, not a fun guess
+MAXGAP = [200, 90, 50, 25, 15, 15, 12]
+# The smallest gap allowed, by the century of the earlier event (Michael's rule, 2026-10-15):
+# 2000s 2 years, 1900s 5, 1800s 8, 1700s 12, then about 4 more per century going back.
+def mingap(y):
+    if y >= 2000: return 2
+    if y >= 1900: return 5
+    if y >= 1800: return 8
+    if y >= 1700: return 12
+    if y >= 1600: return 16
+    if y >= 1500: return 20
+    if y >= 1400: return 24
+    if y >= 500: return 30
+    if y >= 1: return 40
+    return 50
 for i, e in enumerate(E): e["id"] = i; e["b"] = bucket(e["year"])
 # Candidate pairs: same bucket, different years, different groups, close enough.
 cands = collections.defaultdict(list)
@@ -24,7 +36,7 @@ for a, b in itertools.combinations(E, 2):
     if a["group"] and a["group"] == b["group"]: continue
     if a["slug"] == b["slug"]: continue
     if abs(a["year"] - b["year"]) > MAXGAP[a["b"]]: continue
-    if abs(a["year"] - b["year"]) < MINGAP[a["b"]]: continue
+    if abs(a["year"] - b["year"]) < mingap(min(a["year"], b["year"])): continue
     if (a["label"] or b["label"]) and abs(a["year"] - b["year"]) < 10: continue  # approximate dates need room
     cands[a["b"]].append((a, b))
 rng = random.Random(20261015)
@@ -38,14 +50,15 @@ for d in range(days):
     rounds = []; today = set()
     for bk in bks:
         # Mix it up: some matchups are close calls, some are a bit easier.
-        target = rng.choice([0.2, 0.4, 0.65])
+        target = rng.choice([0.05, 0.2, 0.4])
         def score(p):
             a, b = p
             s = uses[a["id"]] * 4 + uses[b["id"]] * 4
             for x in p:
                 if x["id"] in last: s += max(0, 12 - (d - last[x["id"]]))
             gap = abs(a["year"] - b["year"])
-            s += abs(gap / MAXGAP[bk] - target) * 6
+            lo = mingap(min(a["year"], b["year"]))
+            s += abs((gap - lo) / max(1, MAXGAP[bk] - lo) - target) * 6
             return s + rng.random() * 3
         pool = [p for p in cands[bk] if (p[0]["id"], p[1]["id"]) not in used_pairs
                 and p[0]["id"] not in today and p[1]["id"] not in today
