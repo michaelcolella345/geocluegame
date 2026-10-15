@@ -105,6 +105,8 @@ After a game, the results screen shows what share of players solved today's puzz
 
 `.assetsignore` keeps the server code from being published as part of the site.
 
+If the site is also published as a Cloudflare Pages project (the `pages.dev` address), Pages can't run that Worker, so `functions/api/results.js` passes those requests on to the Worker's own address. Both addresses then share one tally.
+
 ## Deploying
 
 See **[DEPLOY.md](DEPLOY.md)** for step-by-step instructions: putting the files on GitHub, publishing free on Cloudflare Pages, connecting geocluegame.com, and turning on Web Analytics. It also covers everyday tasks like adding puzzles and rolling back a bad change.
