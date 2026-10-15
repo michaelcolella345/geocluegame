@@ -77,3 +77,22 @@ These had a verify note from you (or I looked twice) and I found no problem: Per
 - That range has 9 Fridays, one more than there were hard puzzles, so I made **Estonia** hard as well. The hard puzzles, in order, are Nepal, Madagascar, Finland, Mongolia, Rwanda, Estonia, Uzbekistan, Ethiopia and Bhutan.
 - No two days in a row come from the same region, and launch day is an easy one (Colombia).
 - No country repeats. After Dec 11 the game shows "Back tomorrow!" until more puzzles are added, so **add puzzles from 2026-12-12 onward before then**.
+
+## Hindsight matchups (data/hindsight.json, Oct 15 to 28)
+
+Every matchup's order and years were checked against the linked Wikipedia article. The game only needs the order to be right, so these are the ones where the dates are approximate or a reader could reasonably argue:
+
+| Date | Matchup | Note |
+|---|---|---|
+| Oct 15 | Oxford teaching (by 1096) vs. Tenochtitlan (1325) | Oxford's founding date is unknown. 1096 is the earliest record of teaching. |
+| Oct 15 | Great Pyramid (c. 2560 BC) vs. last mammoths (c. 2000 BC) | Both approximate. The Wrangel Island mammoths are dated to about 4,000 years ago. |
+| Oct 15 | Antarctica sighted (1820) vs. oldest photo (c. 1826) | The Niépce photo is dated 1826 or 1827. |
+| Oct 16 | Harvard (1636) vs. Taj Mahal tomb (c. 1643) | The tomb was finished about 1643, the whole complex about 1653. Either way Harvard is first. |
+| Oct 18 | First Olympics (776 BC) vs. founding of Rome (753 BC) | Both are traditional dates, not proven ones. |
+| Oct 19 | Constantinople falls (1453) vs. Gutenberg Bible (c. 1455) | The Bible was finished around 1454 to 1455. |
+| Oct 20 | Vikings in North America (1021) vs. Norman Conquest (1066) | 1021 is the tree-ring date for wood cut at L'Anse aux Meadows. Vikings may have arrived earlier. |
+| Oct 24 | Angkor Wat begun (early 1100s) vs. Notre-Dame begun (1163) | Angkor Wat was built under Suryavarman II (ruled 1113 to about 1150). |
+| Oct 28 | White Tower begun (c. 1078) vs. First Crusade (1096) | Construction start is approximate. |
+| Oct 28 | Terracotta Army buried (c. 210 BC) vs. Battle of Zama (202 BC) | The burial date is approximate (about 210 to 209 BC). |
+
+Hindsight matchups run out after **October 28, 2026**. Players see "Back tomorrow!" on days without matchups.

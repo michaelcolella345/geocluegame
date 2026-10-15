@@ -18,12 +18,14 @@ To test a specific day, add `?date=2026-11-05` to the address. This only works o
 
 ```
 index.html            the game page
-games.html            the "More games coming soon" page (linked from the ☰ menu)
+games.html            the More games page (linked from the ☰ menu)
+hindsight.html        Hindsight, the "which came first?" game
 css/style.css         all styles
 js/config.js          launch date, site URL, distance bands  ← settings live here
 js/*.js               game code
 data/countries.json   every guessable country: name, code, center lat/lon, aliases
 data/puzzles.json     one puzzle per date
+data/hindsight.json   one set of six Hindsight matchups per date
 data/map-shapes.json  country outlines for shading guesses on the live map
 assets/               favicon, social preview image, fonts, map/terrain.jpg
 tools/validate.js     checks the data files for mistakes
@@ -106,6 +108,31 @@ After a game, the results screen shows what share of players solved today's puzz
 `.assetsignore` keeps the server code from being published as part of the site.
 
 If the site is also published as a Cloudflare Pages project (the `pages.dev` address), Pages can't run that Worker, so `functions/api/results.js` passes those requests on to the Worker's own address. Both addresses then share one tally.
+
+## Hindsight
+
+`hindsight.html` is a second daily game: six matchups of two events from history, and the player taps the one that happened first. After each pick it shows both years on a small timeline, a fact with a source, and the share of players who got that matchup right. It uses GeoClue's layout and fonts with its own "Museum plum" colors (`css/hindsight.css`), keeps its own stats and streak, and shares as `Hindsight #3 5/6 🔥2` plus a 🟩🟥 row. A GeoClue / Hindsight switch sits above the header on both games, and Hindsight is listed on the More games page.
+
+Settings in `js/config.js`:
+
+- `HINDSIGHT`: set to `false` to hide the game, its switch and its menu links.
+- `HINDSIGHT_LAUNCH_DATE`: the date of Hindsight #1.
+- `HINDSIGHT_STATS`: set to `false` to hide "Players who got this right". Like "How everyone did", it stays hidden until 5 players finish and never shows a player count. Each browser sends its six right/wrong answers once to `/api/hindsight` in `worker/index.js`.
+
+Matchups live in `data/hindsight.json`, one entry per date with exactly six rounds, easiest first:
+
+```json
+"2026-10-29": { "rounds": [
+  {
+    "first":  { "event": "The Titanic sinks", "where": "North Atlantic", "year": 1912 },
+    "second": { "event": "The Panama Canal opens", "where": "Panama", "year": 1914 },
+    "fact": "One or two sentences shown after the pick.",
+    "source": "https://en.wikipedia.org/wiki/Panama_Canal"
+  }
+] }
+```
+
+`first` is always the earlier event. The game decides which one is shown on top. Use negative years for BC (`-44` is 44 BC), and add `"label": "c. 1078"` when a date is approximate. `node tools/validate.js` checks this file too.
 
 ## Deploying
 

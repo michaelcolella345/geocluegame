@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" class="hindsight">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hindsight: which came first?</title>
+  <meta name="description" content="Six matchups a day. Tap the event in history that happened first. A free daily game from GeoClue.">
+
+  <!-- Apply the saved light/dark choice before the page draws. Must match index.html exactly (see _headers). -->
+  <script>try{var t=JSON.parse(localStorage.getItem("geoclue:v1:theme"));if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+
+  <meta name="theme-color" content="#efeaf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17111f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="canonical" href="https://geocluegame.com/hindsight">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GeoClue">
+  <meta property="og:url" content="https://geocluegame.com/hindsight">
+  <meta property="og:title" content="Hindsight: which came first?">
+  <meta property="og:description" content="Six matchups a day. Tap the event in history that happened first.">
+
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/hindsight.css">
+  <script type="module" src="js/hindsight.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="game-switch" aria-label="Switch game" data-hindsight>
+      <a href="./">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>GeoClue</a>
+      <a href="hindsight.html" aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12M6 21h12M7 3c0 5 10 5 10 9s-10 4-10 9M17 3c0 5-10 5-10 9s10 4 10 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Hindsight</a>
+    </nav>
+
+    <header class="top">
+      <h1>Hind<span>sight</span></h1>
+      <div class="top-right">
+        <p class="meta" id="meta" aria-live="polite"></p>
+        <div class="icons">
+          <button type="button" class="icon" id="help-btn" aria-label="How to play">?</button>
+          <button type="button" class="icon theme-btn" id="theme-btn" aria-label="Switch light or dark mode">
+            <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"/></svg>
+          </button>
+          <button type="button" class="icon" id="stats-btn" aria-label="Statistics">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10h3v10H4Zm6.5 0V4h3v16h-3ZM17 20v-7h3v7h-3Z" fill="currentColor"/></svg>
+          </button>
+          <button type="button" class="icon" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <nav class="menu" id="menu" aria-label="Site menu" hidden>
+          <ul>
+            <li><a href="./">Today's GeoClue</a></li>
+            <li data-hindsight><a href="hindsight.html" aria-current="page">Today's Hindsight</a></li>
+            <li><a href="games.html">More games</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <noscript><p class="card">Hindsight needs JavaScript turned on to play.</p></noscript>
+
+    <section class="card notice" id="notice" hidden></section>
+
+    <main id="game" hidden>
+      <p class="lede">Six matchups. Tap the event that happened first.</p>
+      <div class="hs-progress" id="progress" aria-hidden="true"></div>
+      <section id="round" aria-live="polite"></section>
+      <section class="card result" id="result" hidden aria-live="polite"></section>
+    </main>
+
+    <footer>Hindsight is a daily game from GeoClue. New matchups every day at midnight.</footer>
+  </div>
+
+  <dialog id="help" aria-labelledby="help-h">
+    <form method="dialog" class="dlg-close"><button class="icon" aria-label="Close">✕</button></form>
+    <h2 id="help-h">How to play</h2>
+    <p>Each day brings <b>six matchups</b> of two events from history. Everyone gets the same ones.</p>
+    <ul>
+      <li>Tap the event you think happened first.</li>
+      <li>Then you'll see both years on a timeline, a quick fact, and how many players got it right.</li>
+      <li>The matchups get trickier as you go. Some are a year apart, others are a surprise across centuries.</li>
+    </ul>
+    <p>Score out of six, share it, and come back tomorrow for a new set.</p>
+    <form method="dialog"><button autofocus>Let's play</button></form>
+  </dialog>
+
+  <dialog id="stats" aria-labelledby="stats-h">
+    <form method="dialog" class="dlg-close"><button class="icon" aria-label="Close">✕</button></form>
+    <h2 id="stats-h">Statistics</h2>
+    <div id="stats-body"></div>
+  </dialog>
+</body>
+</html>

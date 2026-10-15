@@ -17,6 +17,17 @@ export class PuzzleTally extends DurableObject {
   async read() {
     return (await this.ctx.storage.get("tally")) || {};
   }
+  // Hindsight: how many players got each of the six matchups right.
+  async addRounds(picks) {
+    const t = (await this.ctx.storage.get("rounds")) || { players: 0, right: [0, 0, 0, 0, 0, 0] };
+    t.players += 1;
+    picks.forEach((ok, i) => { if (ok) t.right[i] += 1; });
+    await this.ctx.storage.put("rounds", t);
+    return t;
+  }
+  async readRounds() {
+    return (await this.ctx.storage.get("rounds")) || { players: 0, right: [0, 0, 0, 0, 0, 0] };
+  }
 }
 
 const json = (body, status = 200) => new Response(JSON.stringify(body), {
@@ -25,8 +36,8 @@ const json = (body, status = 200) => new Response(JSON.stringify(body), {
 
 // Today's puzzle number in UTC. Players are in every timezone, so a puzzle is accepted from
 // one day before to one day after it.
-const utcPuzzleNumber = () => {
-  const [y, m, d] = CONFIG.LAUNCH_DATE.split("-").map(Number);
+const utcPuzzleNumber = (launch = CONFIG.LAUNCH_DATE) => {
+  const [y, m, d] = launch.split("-").map(Number);
   return Math.floor((Date.now() - Date.UTC(y, m - 1, d)) / 864e5) + 1;
 };
 
@@ -37,9 +48,31 @@ function summary(t) {
   return { enough: true, percent: Object.fromEntries(SCORES.map((s) => [s, Math.round((100 * (t[s] || 0)) / total)])) };
 }
 
+// Hindsight: the share of players who got each matchup right, once enough have finished.
+function roundsSummary(t) {
+  if (t.players < MIN_PLAYERS) return { enough: false };
+  return { enough: true, percent: t.right.map((n) => Math.round((100 * n) / t.players)) };
+}
+
+async function hindsight(request, env, url) {
+  const puzzle = Number(url.searchParams.get("puzzle"));
+  if (!Number.isInteger(puzzle) || Math.abs(puzzle - utcPuzzleNumber(CONFIG.HINDSIGHT_LAUNCH_DATE)) > 1) return json({ error: "Unknown puzzle" }, 400);
+  const tally = env.TALLY.get(env.TALLY.idFromName(`hindsight-${puzzle}`));
+
+  if (request.method === "GET") return json(roundsSummary(await tally.readRounds()));
+  if (request.method === "POST") {
+    const body = await request.json().catch(() => ({}));
+    const picks = body.picks;
+    if (!Array.isArray(picks) || picks.length !== 6 || !picks.every((p) => typeof p === "boolean")) return json({ error: "Unknown picks" }, 400);
+    return json(roundsSummary(await tally.addRounds(picks)));
+  }
+  return json({ error: "Method not allowed" }, 405);
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/api/hindsight") return hindsight(request, env, url);
     if (url.pathname !== "/api/results") return env.ASSETS.fetch(request);
 
     const puzzle = Number(url.searchParams.get("puzzle"));

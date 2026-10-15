@@ -1,0 +1,1246 @@
+{
+ "2026-10-15": {
+  "rounds": [
+   {
+    "first": {
+     "event": "YouTube goes live",
+     "where": "San Mateo, California",
+     "year": 2005
+    },
+    "second": {
+     "event": "The first iPhone goes on sale",
+     "where": "United States",
+     "year": 2007
+    },
+    "fact": "YouTube's first video, \"Me at the zoo\", went up in April 2005. The iPhone arrived in June 2007.",
+    "source": "https://en.wikipedia.org/wiki/History_of_YouTube"
+   },
+   {
+    "first": {
+     "event": "The Titanic sinks",
+     "where": "North Atlantic",
+     "year": 1912
+    },
+    "second": {
+     "event": "The Panama Canal opens",
+     "where": "Panama",
+     "year": 1914
+    },
+    "fact": "The Titanic sank in April 1912. The canal opened to ships in August 1914, just after World War I began.",
+    "source": "https://en.wikipedia.org/wiki/Panama_Canal"
+   },
+   {
+    "first": {
+     "event": "The Statue of Liberty is dedicated",
+     "where": "New York Harbor",
+     "year": 1886
+    },
+    "second": {
+     "event": "The Eiffel Tower is finished",
+     "where": "Paris, France",
+     "year": 1889
+    },
+    "fact": "Gustave Eiffel's company built the statue's iron skeleton three years before finishing his tower.",
+    "source": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
+   },
+   {
+    "first": {
+     "event": "Oxford University is teaching students",
+     "where": "England",
+     "year": 1096,
+     "label": "by 1096"
+    },
+    "second": {
+     "event": "The Aztecs found Tenochtitlan",
+     "where": "Today's Mexico City",
+     "year": 1325
+    },
+    "fact": "Teaching at Oxford is recorded by 1096, more than two centuries before the Aztec capital was founded.",
+    "source": "https://en.wikipedia.org/wiki/University_of_Oxford"
+   },
+   {
+    "first": {
+     "event": "The Great Pyramid of Giza is completed",
+     "where": "Egypt",
+     "year": -2560,
+     "label": "c. 2560 BC"
+    },
+    "second": {
+     "event": "The last woolly mammoths die out",
+     "where": "Wrangel Island, Arctic Russia",
+     "year": -2000,
+     "label": "c. 2000 BC"
+    },
+    "fact": "A small group of mammoths survived on Wrangel Island until about 4,000 years ago, centuries after the pyramid went up.",
+    "source": "https://en.wikipedia.org/wiki/Woolly_mammoth"
+   },
+   {
+    "first": {
+     "event": "Antarctica is first sighted",
+     "where": "Southern Ocean",
+     "year": 1820
+    },
+    "second": {
+     "event": "The oldest surviving photograph is taken",
+     "where": "Burgundy, France",
+     "year": 1826,
+     "label": "c. 1826"
+    },
+    "fact": "Ships first sighted Antarctica in January 1820. Niépce took his \"View from the Window at Le Gras\" around 1826.",
+    "source": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+   }
+  ]
+ },
+ "2026-10-16": {
+  "rounds": [
+   {
+    "first": {
+     "event": "Disneyland opens",
+     "where": "Anaheim, California",
+     "year": 1955
+    },
+    "second": {
+     "event": "The first Barbie doll goes on sale",
+     "where": "New York",
+     "year": 1959
+    },
+    "fact": "Disneyland opened in July 1955. Barbie debuted at the American International Toy Fair in March 1959.",
+    "source": "https://en.wikipedia.org/wiki/Disneyland"
+   },
+   {
+    "first": {
+     "event": "Bell patents the telephone",
+     "where": "United States",
+     "year": 1876
+    },
+    "second": {
+     "event": "Edison demonstrates his light bulb",
+     "where": "Menlo Park, New Jersey",
+     "year": 1879
+    },
+    "fact": "Alexander Graham Bell's patent was granted in March 1876. Edison showed off his long-lasting bulb at the end of 1879.",
+    "source": "https://en.wikipedia.org/wiki/Invention_of_the_telephone"
+   },
+   {
+    "first": {
+     "event": "Columbus reaches the Americas",
+     "where": "The Bahamas",
+     "year": 1492
+    },
+    "second": {
+     "event": "Leonardo starts painting the Mona Lisa",
+     "where": "Florence, Italy",
+     "year": 1503
+    },
+    "fact": "Leonardo began the Mona Lisa around 1503, eleven years after Columbus landed in the Caribbean.",
+    "source": "https://en.wikipedia.org/wiki/Mona_Lisa"
+   },
+   {
+    "first": {
+     "event": "Harvard College is founded",
+     "where": "Massachusetts",
+     "year": 1636
+    },
+    "second": {
+     "event": "The Taj Mahal's tomb is completed",
+     "where": "Agra, India",
+     "year": 1643,
+     "label": "c. 1643"
+    },
+    "fact": "Harvard opened in 1636. Work on the Taj Mahal began in 1632 and the main tomb was finished around 1643.",
+    "source": "https://en.wikipedia.org/wiki/Taj_Mahal"
+   },
+   {
+    "first": {
+     "event": "American women win the right to vote",
+     "where": "United States",
+     "year": 1920
+    },
+    "second": {
+     "event": "The Ottoman Empire comes to an end",
+     "where": "Today's Turkey",
+     "year": 1922
+    },
+    "fact": "The 19th Amendment was ratified in August 1920. The Ottoman sultanate was abolished in November 1922.",
+    "source": "https://en.wikipedia.org/wiki/Dissolution_of_the_Ottoman_Empire"
+   },
+   {
+    "first": {
+     "event": "Shakespeare dies",
+     "where": "Stratford-upon-Avon, England",
+     "year": 1616
+    },
+    "second": {
+     "event": "The Pilgrims land at Plymouth",
+     "where": "Massachusetts",
+     "year": 1620
+    },
+    "fact": "Shakespeare died in April 1616, four years before the Mayflower reached New England.",
+    "source": "https://en.wikipedia.org/wiki/William_Shakespeare"
+   }
+  ]
+ },
+ "2026-10-17": {
+  "rounds": [
+   {
+    "first": {
+     "event": "The first Super Bowl is played",
+     "where": "Los Angeles",
+     "year": 1967
+    },
+    "second": {
+     "event": "Apollo 11 lands on the Moon",
+     "where": "The Moon",
+     "year": 1969
+    },
+    "fact": "The Green Bay Packers won Super Bowl I in January 1967. Armstrong stepped onto the Moon in July 1969.",
+    "source": "https://en.wikipedia.org/wiki/Super_Bowl_I"
+   },
+   {
+    "first": {
+     "event": "Julius Caesar is assassinated",
+     "where": "Rome",
+     "year": -44
+    },
+    "second": {
+     "event": "Cleopatra dies",
+     "where": "Alexandria, Egypt",
+     "year": -30
+    },
+    "fact": "Caesar was killed on the Ides of March, 44 BC. Cleopatra died 14 years later, in 30 BC.",
+    "source": "https://en.wikipedia.org/wiki/Cleopatra"
+   },
+   {
+    "first": {
+     "event": "The Great Fire of London",
+     "where": "London, England",
+     "year": 1666
+    },
+    "second": {
+     "event": "Newton publishes his laws of motion",
+     "where": "London, England",
+     "year": 1687
+    },
+    "fact": "Newton's Principia came out in 1687, 21 years after the fire destroyed much of the old city.",
+    "source": "https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica"
+   },
+   {
+    "first": {
+     "event": "The American Civil War ends",
+     "where": "United States",
+     "year": 1865
+    },
+    "second": {
+     "event": "Russia sells Alaska to the U.S.",
+     "where": "Alaska",
+     "year": 1867
+    },
+    "fact": "The Civil War ended in 1865. The U.S. bought Alaska for $7.2 million two years later.",
+    "source": "https://en.wikipedia.org/wiki/Alaska_Purchase"
+   },
+   {
+    "first": {
+     "event": "The Berlin Wall falls",
+     "where": "Berlin, Germany",
+     "year": 1989
+    },
+    "second": {
+     "event": "Nelson Mandela is freed from prison",
+     "where": "Cape Town, South Africa",
+     "year": 1990
+    },
+    "fact": "The wall opened in November 1989. Mandela walked free three months later, in February 1990.",
+    "source": "https://en.wikipedia.org/wiki/Nelson_Mandela"
+   },
+   {
+    "first": {
+     "event": "Vesuvius buries Pompeii",
+     "where": "Near Naples, Italy",
+     "year": 79
+    },
+    "second": {
+     "event": "The Colosseum opens",
+     "where": "Rome",
+     "year": 80
+    },
+    "fact": "Vesuvius erupted in AD 79. Emperor Titus opened the Colosseum the next year with 100 days of games.",
+    "source": "https://en.wikipedia.org/wiki/Colosseum"
+   }
+  ]
+ },
+ "2026-10-18": {
+  "rounds": [
+   {
+    "first": {
+     "event": "Facebook launches",
+     "where": "Harvard University",
+     "year": 2004
+    },
+    "second": {
+     "event": "Twitter launches",
+     "where": "San Francisco",
+     "year": 2006
+    },
+    "fact": "Facebook started as TheFacebook in February 2004. The first tweet was sent in March 2006.",
+    "source": "https://en.wikipedia.org/wiki/Twitter"
+   },
+   {
+    "first": {
+     "event": "The first modern Olympics",
+     "where": "Athens, Greece",
+     "year": 1896
+    },
+    "second": {
+     "event": "The first Nobel Prizes are awarded",
+     "where": "Stockholm, Sweden",
+     "year": 1901
+    },
+    "fact": "The modern Olympics began in Athens in 1896. The first Nobel Prizes were handed out in December 1901.",
+    "source": "https://en.wikipedia.org/wiki/Nobel_Prize"
+   },
+   {
+    "first": {
+     "event": "Concorde makes its first flight",
+     "where": "Toulouse, France",
+     "year": 1969
+    },
+    "second": {
+     "event": "The Sydney Opera House opens",
+     "where": "Sydney, Australia",
+     "year": 1973
+    },
+    "fact": "Concorde first flew in March 1969. Queen Elizabeth II opened the Sydney Opera House in October 1973.",
+    "source": "https://en.wikipedia.org/wiki/Sydney_Opera_House"
+   },
+   {
+    "first": {
+     "event": "King John seals Magna Carta",
+     "where": "Runnymede, England",
+     "year": 1215
+    },
+    "second": {
+     "event": "Genghis Khan dies",
+     "where": "Mongol Empire",
+     "year": 1227
+    },
+    "fact": "Magna Carta was sealed in 1215, while Genghis Khan was still conquering. He died in 1227.",
+    "source": "https://en.wikipedia.org/wiki/Genghis_Khan"
+   },
+   {
+    "first": {
+     "event": "The first ancient Olympic Games",
+     "where": "Olympia, Greece",
+     "year": -776,
+     "label": "776 BC"
+    },
+    "second": {
+     "event": "Rome is founded, by tradition",
+     "where": "Italy",
+     "year": -753,
+     "label": "753 BC"
+    },
+    "fact": "Both dates are traditional, but the Greeks counted the first Olympiad from 776 BC, 23 years before Rome's legendary founding.",
+    "source": "https://en.wikipedia.org/wiki/Ancient_Olympic_Games"
+   },
+   {
+    "first": {
+     "event": "Mexico wins independence",
+     "where": "Mexico",
+     "year": 1821
+    },
+    "second": {
+     "event": "Brazil declares independence",
+     "where": "Brazil",
+     "year": 1822
+    },
+    "fact": "Mexico's independence was won in September 1821. Brazil declared its own a year later, in September 1822.",
+    "source": "https://en.wikipedia.org/wiki/Independence_of_Brazil"
+   }
+  ]
+ },
+ "2026-10-19": {
+  "rounds": [
+   {
+    "first": {
+     "event": "The World Wide Web goes public",
+     "where": "Geneva, Switzerland",
+     "year": 1991
+    },
+    "second": {
+     "event": "Google is founded",
+     "where": "Menlo Park, California",
+     "year": 1998
+    },
+    "fact": "Tim Berners-Lee opened the web to the public in 1991. Google was founded in a garage seven years later.",
+    "source": "https://en.wikipedia.org/wiki/World_Wide_Web"
+   },
+   {
+    "first": {
+     "event": "The Wright brothers' first flight",
+     "where": "Kitty Hawk, North Carolina",
+     "year": 1903
+    },
+    "second": {
+     "event": "The great San Francisco earthquake",
+     "where": "San Francisco",
+     "year": 1906
+    },
+    "fact": "The Wrights flew in December 1903. The earthquake struck San Francisco in April 1906.",
+    "source": "https://en.wikipedia.org/wiki/1906_San_Francisco_earthquake"
+   },
+   {
+    "first": {
+     "event": "The Louisiana Purchase",
+     "where": "North America",
+     "year": 1803
+    },
+    "second": {
+     "event": "Napoleon is defeated at Waterloo",
+     "where": "Belgium",
+     "year": 1815
+    },
+    "fact": "Napoleon sold Louisiana to the United States in 1803 partly to pay for his wars, which ended at Waterloo in 1815.",
+    "source": "https://en.wikipedia.org/wiki/Louisiana_Purchase"
+   },
+   {
+    "first": {
+     "event": "The Korean War begins",
+     "where": "Korea",
+     "year": 1950
+    },
+    "second": {
+     "event": "Mount Everest is first climbed",
+     "where": "Nepal and Tibet",
+     "year": 1953
+    },
+    "fact": "The Korean War started in June 1950. Hillary and Tenzing reached the top of Everest in May 1953.",
+    "source": "https://en.wikipedia.org/wiki/1953_British_Mount_Everest_expedition"
+   },
+   {
+    "first": {
+     "event": "The Russian Revolution",
+     "where": "Petrograd, Russia",
+     "year": 1917
+    },
+    "second": {
+     "event": "The Spanish flu pandemic begins",
+     "where": "Worldwide",
+     "year": 1918
+    },
+    "fact": "The Bolsheviks took power in November 1917. The first known flu cases were recorded in early 1918.",
+    "source": "https://en.wikipedia.org/wiki/Spanish_flu"
+   },
+   {
+    "first": {
+     "event": "Constantinople falls to the Ottomans",
+     "where": "Today's Istanbul",
+     "year": 1453
+    },
+    "second": {
+     "event": "Gutenberg prints his Bible",
+     "where": "Mainz, Germany",
+     "year": 1455,
+     "label": "c. 1455"
+    },
+    "fact": "Constantinople fell in May 1453. Gutenberg's Bible was finished around 1454 to 1455.",
+    "source": "https://en.wikipedia.org/wiki/Gutenberg_Bible"
+   }
+  ]
+ },
+ "2026-10-20": {
+  "rounds": [
+   {
+    "first": {
+     "event": "Netflix starts streaming movies",
+     "where": "United States",
+     "year": 2007
+    },
+    "second": {
+     "event": "Instagram launches",
+     "where": "San Francisco",
+     "year": 2010
+    },
+    "fact": "Netflix added streaming in January 2007. Instagram launched in October 2010.",
+    "source": "https://en.wikipedia.org/wiki/Instagram"
+   },
+   {
+    "first": {
+     "event": "Big Ben's clock starts keeping time",
+     "where": "London, England",
+     "year": 1859
+    },
+    "second": {
+     "event": "The London Underground opens",
+     "where": "London, England",
+     "year": 1863
+    },
+    "fact": "The Great Clock started in May 1859. The first Underground line opened in January 1863.",
+    "source": "https://en.wikipedia.org/wiki/Big_Ben"
+   },
+   {
+    "first": {
+     "event": "The Hoover Dam is dedicated",
+     "where": "Nevada and Arizona",
+     "year": 1935
+    },
+    "second": {
+     "event": "The Golden Gate Bridge opens",
+     "where": "San Francisco",
+     "year": 1937
+    },
+    "fact": "President Roosevelt dedicated the Hoover Dam in September 1935. The Golden Gate Bridge opened in May 1937.",
+    "source": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge"
+   },
+   {
+    "first": {
+     "event": "The Roman Republic begins",
+     "where": "Rome",
+     "year": -509,
+     "label": "509 BC"
+    },
+    "second": {
+     "event": "Alexander the Great dies",
+     "where": "Babylon",
+     "year": -323
+    },
+    "fact": "Rome had been a republic for nearly two centuries by the time Alexander died in Babylon in 323 BC.",
+    "source": "https://en.wikipedia.org/wiki/Roman_Republic"
+   },
+   {
+    "first": {
+     "event": "Vikings live in North America",
+     "where": "Newfoundland, Canada",
+     "year": 1021
+    },
+    "second": {
+     "event": "The Normans conquer England",
+     "where": "Hastings, England",
+     "year": 1066
+    },
+    "fact": "Tree rings show the Vikings were cutting wood at L'Anse aux Meadows in 1021, 45 years before the Battle of Hastings.",
+    "source": "https://en.wikipedia.org/wiki/L%27Anse_aux_Meadows"
+   },
+   {
+    "first": {
+     "event": "The first McDonald's opens",
+     "where": "San Bernardino, California",
+     "year": 1940
+    },
+    "second": {
+     "event": "Mount Rushmore is completed",
+     "where": "South Dakota",
+     "year": 1941
+    },
+    "fact": "The McDonald brothers opened their first restaurant in 1940. Work on Mount Rushmore stopped in October 1941.",
+    "source": "https://en.wikipedia.org/wiki/Mount_Rushmore"
+   }
+  ]
+ },
+ "2026-10-21": {
+  "rounds": [
+   {
+    "first": {
+     "event": "Jaws hits theaters",
+     "where": "United States",
+     "year": 1975
+    },
+    "second": {
+     "event": "Star Wars hits theaters",
+     "where": "United States",
+     "year": 1977
+    },
+    "fact": "Jaws came out in June 1975 and Star Wars in May 1977. Each became the highest-grossing film of its time.",
+    "source": "https://en.wikipedia.org/wiki/Jaws_(film)"
+   },
+   {
+    "first": {
+     "event": "The Suez Canal opens",
+     "where": "Egypt",
+     "year": 1869
+    },
+    "second": {
+     "event": "Germany becomes one country",
+     "where": "Versailles, France",
+     "year": 1871
+    },
+    "fact": "The Suez Canal opened in November 1869. The German Empire was proclaimed at Versailles in January 1871.",
+    "source": "https://en.wikipedia.org/wiki/Suez_Canal"
+   },
+   {
+    "first": {
+     "event": "Michelangelo finishes the Sistine Chapel ceiling",
+     "where": "Vatican City",
+     "year": 1512
+    },
+    "second": {
+     "event": "Magellan's expedition completes the first trip around the world",
+     "where": "Spain",
+     "year": 1522
+    },
+    "fact": "Michelangelo finished the ceiling in 1512. The one surviving ship of Magellan's fleet returned to Spain in 1522.",
+    "source": "https://en.wikipedia.org/wiki/Sistine_Chapel_ceiling"
+   },
+   {
+    "first": {
+     "event": "Dolly the sheep is born, the first cloned mammal",
+     "where": "Scotland",
+     "year": 1996
+    },
+    "second": {
+     "event": "The first Harry Potter book comes out",
+     "where": "United Kingdom",
+     "year": 1997
+    },
+    "fact": "Dolly was born in July 1996. Harry Potter and the Philosopher's Stone was published in June 1997.",
+    "source": "https://en.wikipedia.org/wiki/Dolly_(sheep)"
+   },
+   {
+    "first": {
+     "event": "The Aztec Triple Alliance forms",
+     "where": "Valley of Mexico",
+     "year": 1428
+    },
+    "second": {
+     "event": "Joan of Arc is burned at the stake",
+     "where": "Rouen, France",
+     "year": 1431
+    },
+    "fact": "The alliance that created the Aztec Empire formed in 1428, three years before Joan of Arc died.",
+    "source": "https://en.wikipedia.org/wiki/Aztec_Triple_Alliance"
+   },
+   {
+    "first": {
+     "event": "The First Fleet lands in Australia",
+     "where": "Sydney Cove, Australia",
+     "year": 1788
+    },
+    "second": {
+     "event": "The storming of the Bastille",
+     "where": "Paris, France",
+     "year": 1789
+    },
+    "fact": "British ships arrived at Sydney Cove in January 1788. The Bastille fell in July 1789.",
+    "source": "https://en.wikipedia.org/wiki/First_Fleet"
+   }
+  ]
+ },
+ "2026-10-22": {
+  "rounds": [
+   {
+    "first": {
+     "event": "Wikipedia launches",
+     "where": "Online",
+     "year": 2001
+    },
+    "second": {
+     "event": "Euro coins and notes go into circulation",
+     "where": "Europe",
+     "year": 2002
+    },
+    "fact": "Wikipedia launched in January 2001. Euro cash arrived exactly a year later, on January 1, 2002.",
+    "source": "https://en.wikipedia.org/wiki/Wikipedia"
+   },
+   {
+    "first": {
+     "event": "The first Tour de France",
+     "where": "France",
+     "year": 1903
+    },
+    "second": {
+     "event": "The first FIFA World Cup",
+     "where": "Uruguay",
+     "year": 1930
+    },
+    "fact": "The Tour de France began in 1903, 27 years before Uruguay hosted and won the first World Cup.",
+    "source": "https://en.wikipedia.org/wiki/1903_Tour_de_France"
+   },
+   {
+    "first": {
+     "event": "King Tut's tomb is discovered",
+     "where": "Valley of the Kings, Egypt",
+     "year": 1922
+    },
+    "second": {
+     "event": "Mickey Mouse first appears",
+     "where": "United States",
+     "year": 1928
+    },
+    "fact": "Howard Carter found Tutankhamun's tomb in November 1922. Mickey debuted in Steamboat Willie in 1928.",
+    "source": "https://en.wikipedia.org/wiki/KV62"
+   },
+   {
+    "first": {
+     "event": "India gains independence",
+     "where": "India",
+     "year": 1947
+    },
+    "second": {
+     "event": "Israel is founded",
+     "where": "Israel",
+     "year": 1948
+    },
+    "fact": "India became independent in August 1947. Israel declared independence in May 1948.",
+    "source": "https://en.wikipedia.org/wiki/Indian_independence_movement"
+   },
+   {
+    "first": {
+     "event": "The Chrysler Building is finished",
+     "where": "New York City",
+     "year": 1930
+    },
+    "second": {
+     "event": "The Empire State Building opens",
+     "where": "New York City",
+     "year": 1931
+    },
+    "fact": "The Chrysler Building was the world's tallest for less than a year before the Empire State Building opened in May 1931.",
+    "source": "https://en.wikipedia.org/wiki/Chrysler_Building"
+   },
+   {
+    "first": {
+     "event": "The Hundred Years' War begins",
+     "where": "England and France",
+     "year": 1337
+    },
+    "second": {
+     "event": "The Black Death reaches Europe",
+     "where": "Europe",
+     "year": 1347
+    },
+    "fact": "England and France were already ten years into their war when the plague arrived in 1347.",
+    "source": "https://en.wikipedia.org/wiki/Black_Death"
+   }
+  ]
+ },
+ "2026-10-23": {
+  "rounds": [
+   {
+    "first": {
+     "event": "East and West Germany reunite",
+     "where": "Germany",
+     "year": 1990
+    },
+    "second": {
+     "event": "The Soviet Union breaks up",
+     "where": "Moscow, Russia",
+     "year": 1991
+    },
+    "fact": "Germany reunified in October 1990. The Soviet Union was dissolved in December 1991.",
+    "source": "https://en.wikipedia.org/wiki/German_reunification"
+   },
+   {
+    "first": {
+     "event": "Coca-Cola is invented",
+     "where": "Atlanta, Georgia",
+     "year": 1886
+    },
+    "second": {
+     "event": "The Ford Model T goes on sale",
+     "where": "Detroit, Michigan",
+     "year": 1908
+    },
+    "fact": "Pharmacist John Pemberton created Coca-Cola in 1886. The Model T came out in 1908.",
+    "source": "https://en.wikipedia.org/wiki/Coca-Cola"
+   },
+   {
+    "first": {
+     "event": "Sputnik is launched",
+     "where": "Kazakhstan",
+     "year": 1957
+    },
+    "second": {
+     "event": "Hawaii becomes a U.S. state",
+     "where": "Hawaii",
+     "year": 1959
+    },
+    "fact": "Sputnik went up in October 1957. Hawaii became the 50th state in August 1959.",
+    "source": "https://en.wikipedia.org/wiki/Sputnik_1"
+   },
+   {
+    "first": {
+     "event": "The Rubik's Cube is invented",
+     "where": "Budapest, Hungary",
+     "year": 1974
+    },
+    "second": {
+     "event": "Apple is founded",
+     "where": "Los Altos, California",
+     "year": 1976
+    },
+    "fact": "Ernő Rubik made his first cube in 1974. Jobs and Wozniak founded Apple in April 1976.",
+    "source": "https://en.wikipedia.org/wiki/Rubik%27s_Cube"
+   },
+   {
+    "first": {
+     "event": "Ivan the Terrible is crowned tsar",
+     "where": "Moscow, Russia",
+     "year": 1547
+    },
+    "second": {
+     "event": "The Spanish Armada sails for England",
+     "where": "Spain",
+     "year": 1588
+    },
+    "fact": "Ivan became Russia's first tsar in 1547. The Armada set sail 41 years later.",
+    "source": "https://en.wikipedia.org/wiki/Ivan_the_Terrible"
+   },
+   {
+    "first": {
+     "event": "Marco Polo returns to Venice",
+     "where": "Venice, Italy",
+     "year": 1295
+    },
+    "second": {
+     "event": "Mansa Musa's pilgrimage to Mecca",
+     "where": "Mali Empire",
+     "year": 1324
+    },
+    "fact": "Marco Polo came home from China in 1295. Mansa Musa's famously rich trip through Cairo came in 1324.",
+    "source": "https://en.wikipedia.org/wiki/Mansa_Musa"
+   }
+  ]
+ },
+ "2026-10-24": {
+  "rounds": [
+   {
+    "first": {
+     "event": "Titanic, the movie, comes out",
+     "where": "United States",
+     "year": 1997
+    },
+    "second": {
+     "event": "The first iPod goes on sale",
+     "where": "United States",
+     "year": 2001
+    },
+    "fact": "James Cameron's Titanic was released in December 1997. Apple's first iPod came out in October 2001.",
+    "source": "https://en.wikipedia.org/wiki/IPod"
+   },
+   {
+    "first": {
+     "event": "The California Gold Rush begins",
+     "where": "California",
+     "year": 1848
+    },
+    "second": {
+     "event": "Abraham Lincoln is elected president",
+     "where": "United States",
+     "year": 1860
+    },
+    "fact": "Gold was found at Sutter's Mill in January 1848. Lincoln won the election in November 1860.",
+    "source": "https://en.wikipedia.org/wiki/California_gold_rush"
+   },
+   {
+    "first": {
+     "event": "Napoleon crowns himself emperor",
+     "where": "Paris, France",
+     "year": 1804
+    },
+    "second": {
+     "event": "Beethoven's Fifth Symphony premieres",
+     "where": "Vienna, Austria",
+     "year": 1808
+    },
+    "fact": "Napoleon was crowned in December 1804. Beethoven's Fifth premiered in December 1808.",
+    "source": "https://en.wikipedia.org/wiki/Symphony_No._5_(Beethoven)"
+   },
+   {
+    "first": {
+     "event": "The Hubble Space Telescope is launched",
+     "where": "Florida",
+     "year": 1990
+    },
+    "second": {
+     "event": "The Channel Tunnel opens",
+     "where": "England and France",
+     "year": 1994
+    },
+    "fact": "Hubble launched in April 1990. The Channel Tunnel opened in May 1994.",
+    "source": "https://en.wikipedia.org/wiki/Hubble_Space_Telescope"
+   },
+   {
+    "first": {
+     "event": "The Great Chicago Fire",
+     "where": "Chicago, Illinois",
+     "year": 1871
+    },
+    "second": {
+     "event": "Yellowstone becomes the first national park",
+     "where": "Wyoming",
+     "year": 1872
+    },
+    "fact": "Chicago burned in October 1871. Yellowstone was made a national park in March 1872.",
+    "source": "https://en.wikipedia.org/wiki/Yellowstone_National_Park"
+   },
+   {
+    "first": {
+     "event": "Work begins on Angkor Wat",
+     "where": "Cambodia",
+     "year": 1113,
+     "label": "early 1100s"
+    },
+    "second": {
+     "event": "Work begins on Notre-Dame de Paris",
+     "where": "Paris, France",
+     "year": 1163
+    },
+    "fact": "Angkor Wat was built under King Suryavarman II, who ruled from 1113 to about 1150. Notre-Dame was begun in 1163.",
+    "source": "https://en.wikipedia.org/wiki/Angkor_Wat"
+   }
+  ]
+ },
+ "2026-10-25": {
+  "rounds": [
+   {
+    "first": {
+     "event": "The Beatles release their first album",
+     "where": "Liverpool, England",
+     "year": 1963
+    },
+    "second": {
+     "event": "The Woodstock festival",
+     "where": "New York State",
+     "year": 1969
+    },
+    "fact": "Please Please Me came out in March 1963. Woodstock took place in August 1969.",
+    "source": "https://en.wikipedia.org/wiki/Please_Please_Me"
+   },
+   {
+    "first": {
+     "event": "Toy Story comes out",
+     "where": "United States",
+     "year": 1995
+    },
+    "second": {
+     "event": "The first Pokémon games come out",
+     "where": "Japan",
+     "year": 1996
+    },
+    "fact": "Toy Story, the first fully computer-animated feature film, came out in November 1995. Pokémon Red and Green launched in Japan in February 1996.",
+    "source": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Red_and_Blue"
+   },
+   {
+    "first": {
+     "event": "Edo, today's Tokyo, becomes Japan's seat of power",
+     "where": "Japan",
+     "year": 1603
+    },
+    "second": {
+     "event": "The Mayflower reaches New England",
+     "where": "Massachusetts",
+     "year": 1620
+    },
+    "fact": "Tokugawa Ieyasu made Edo the seat of his shogunate in 1603, 17 years before the Mayflower arrived.",
+    "source": "https://en.wikipedia.org/wiki/Edo"
+   },
+   {
+    "first": {
+     "event": "Captain Cook reaches Australia's east coast",
+     "where": "Botany Bay, Australia",
+     "year": 1770
+    },
+    "second": {
+     "event": "The Declaration of Independence is signed",
+     "where": "Philadelphia",
+     "year": 1776
+    },
+    "fact": "Cook landed at Botany Bay in April 1770. The Declaration was adopted in July 1776.",
+    "source": "https://en.wikipedia.org/wiki/James_Cook"
+   },
+   {
+    "first": {
+     "event": "Krakatoa erupts",
+     "where": "Indonesia",
+     "year": 1883
+    },
+    "second": {
+     "event": "The first Kodak camera goes on sale",
+     "where": "Rochester, New York",
+     "year": 1888
+    },
+    "fact": "Krakatoa exploded in August 1883. George Eastman's first Kodak camera went on sale in 1888.",
+    "source": "https://en.wikipedia.org/wiki/1883_eruption_of_Krakatoa"
+   },
+   {
+    "first": {
+     "event": "Work begins on the Leaning Tower of Pisa",
+     "where": "Pisa, Italy",
+     "year": 1173
+    },
+    "second": {
+     "event": "Saladin captures Jerusalem",
+     "where": "Jerusalem",
+     "year": 1187
+    },
+    "fact": "Building of the tower began in 1173. Saladin took Jerusalem in October 1187.",
+    "source": "https://en.wikipedia.org/wiki/Leaning_Tower_of_Pisa"
+   }
+  ]
+ },
+ "2026-10-26": {
+  "rounds": [
+   {
+    "first": {
+     "event": "The first mobile phone call",
+     "where": "New York City",
+     "year": 1973
+    },
+    "second": {
+     "event": "Pac-Man comes out",
+     "where": "Japan",
+     "year": 1980
+    },
+    "fact": "Motorola's Martin Cooper made the first handheld cellphone call in April 1973. Pac-Man arrived in arcades in 1980.",
+    "source": "https://en.wikipedia.org/wiki/Martin_Cooper_(inventor)"
+   },
+   {
+    "first": {
+     "event": "The first Kentucky Derby",
+     "where": "Louisville, Kentucky",
+     "year": 1875
+    },
+    "second": {
+     "event": "The Battle of the Little Bighorn",
+     "where": "Montana",
+     "year": 1876
+    },
+    "fact": "The first Kentucky Derby was run in May 1875. Custer's last stand came in June 1876.",
+    "source": "https://en.wikipedia.org/wiki/Kentucky_Derby"
+   },
+   {
+    "first": {
+     "event": "Nintendo is founded",
+     "where": "Kyoto, Japan",
+     "year": 1889
+    },
+    "second": {
+     "event": "X-rays are discovered",
+     "where": "Würzburg, Germany",
+     "year": 1895
+    },
+    "fact": "Nintendo began as a maker of playing cards in 1889. Wilhelm Röntgen discovered X-rays in 1895.",
+    "source": "https://en.wikipedia.org/wiki/Nintendo"
+   },
+   {
+    "first": {
+     "event": "Penicillin is discovered",
+     "where": "London, England",
+     "year": 1928
+    },
+    "second": {
+     "event": "Vatican City becomes its own country",
+     "where": "Rome",
+     "year": 1929
+    },
+    "fact": "Alexander Fleming noticed penicillin in September 1928. The Lateran Treaty created Vatican City in February 1929.",
+    "source": "https://en.wikipedia.org/wiki/Penicillin"
+   },
+   {
+    "first": {
+     "event": "Iceland's parliament, the Althing, first meets",
+     "where": "Þingvellir, Iceland",
+     "year": 930
+    },
+    "second": {
+     "event": "Otto I is crowned Holy Roman Emperor",
+     "where": "Rome",
+     "year": 962
+    },
+    "fact": "The Althing first met in 930, making it one of the world's oldest parliaments.",
+    "source": "https://en.wikipedia.org/wiki/Althing"
+   },
+   {
+    "first": {
+     "event": "Vasco da Gama reaches India by sea",
+     "where": "Calicut, India",
+     "year": 1498
+    },
+    "second": {
+     "event": "Martin Luther posts his 95 Theses",
+     "where": "Wittenberg, Germany",
+     "year": 1517
+    },
+    "fact": "Da Gama reached India in May 1498. Luther's 95 Theses came 19 years later, in 1517.",
+    "source": "https://en.wikipedia.org/wiki/Vasco_da_Gama"
+   }
+  ]
+ },
+ "2026-10-27": {
+  "rounds": [
+   {
+    "first": {
+     "event": "The PlayStation comes out",
+     "where": "Japan",
+     "year": 1994
+    },
+    "second": {
+     "event": "Windows 95 comes out",
+     "where": "United States",
+     "year": 1995
+    },
+    "fact": "Sony released the PlayStation in Japan in December 1994. Windows 95 launched in August 1995.",
+    "source": "https://en.wikipedia.org/wiki/PlayStation_(console)"
+   },
+   {
+    "first": {
+     "event": "Lego patents its brick",
+     "where": "Denmark",
+     "year": 1958
+    },
+    "second": {
+     "event": "The Cuban Revolution takes power",
+     "where": "Havana, Cuba",
+     "year": 1959
+    },
+    "fact": "Lego patented its modern interlocking brick in January 1958. Fidel Castro took power in January 1959.",
+    "source": "https://en.wikipedia.org/wiki/Lego"
+   },
+   {
+    "first": {
+     "event": "The Wall Street Crash",
+     "where": "New York City",
+     "year": 1929
+    },
+    "second": {
+     "event": "Amelia Earhart flies solo across the Atlantic",
+     "where": "Northern Ireland",
+     "year": 1932
+    },
+    "fact": "The stock market crashed in October 1929. Earhart landed in Northern Ireland in May 1932.",
+    "source": "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929"
+   },
+   {
+    "first": {
+     "event": "The Rosetta Stone is found",
+     "where": "Egypt",
+     "year": 1799
+    },
+    "second": {
+     "event": "Washington, D.C. becomes the U.S. capital",
+     "where": "Washington, D.C.",
+     "year": 1800
+    },
+    "fact": "French soldiers found the Rosetta Stone in July 1799. Congress first met in Washington in November 1800.",
+    "source": "https://en.wikipedia.org/wiki/Rosetta_Stone"
+   },
+   {
+    "first": {
+     "event": "Qin Shi Huang unites China",
+     "where": "China",
+     "year": -221
+    },
+    "second": {
+     "event": "Hannibal crosses the Alps",
+     "where": "Alps, Europe",
+     "year": -218
+    },
+    "fact": "China's first emperor finished unifying the country in 221 BC. Hannibal marched his elephants over the Alps in 218 BC.",
+    "source": "https://en.wikipedia.org/wiki/Qin_Shi_Huang"
+   },
+   {
+    "first": {
+     "event": "Amundsen reaches the South Pole",
+     "where": "Antarctica",
+     "year": 1911
+    },
+    "second": {
+     "event": "China becomes a republic",
+     "where": "Nanjing, China",
+     "year": 1912
+    },
+    "fact": "Amundsen reached the pole on December 14, 1911. The Republic of China was proclaimed on January 1, 1912.",
+    "source": "https://en.wikipedia.org/wiki/Amundsen%27s_South_Pole_expedition"
+   }
+  ]
+ },
+ "2026-10-28": {
+  "rounds": [
+   {
+    "first": {
+     "event": "Amazon is founded",
+     "where": "Bellevue, Washington",
+     "year": 1994
+    },
+    "second": {
+     "event": "eBay is founded",
+     "where": "San Jose, California",
+     "year": 1995
+    },
+    "fact": "Jeff Bezos founded Amazon in July 1994 as an online bookstore. eBay started in September 1995.",
+    "source": "https://en.wikipedia.org/wiki/Amazon_(company)"
+   },
+   {
+    "first": {
+     "event": "Benjamin Franklin's kite experiment",
+     "where": "Philadelphia",
+     "year": 1752
+    },
+    "second": {
+     "event": "Mozart is born",
+     "where": "Salzburg, Austria",
+     "year": 1756
+    },
+    "fact": "Franklin flew his kite in a thunderstorm in 1752. Mozart was born in January 1756.",
+    "source": "https://en.wikipedia.org/wiki/Kite_experiment"
+   },
+   {
+    "first": {
+     "event": "Mount St. Helens erupts",
+     "where": "Washington State",
+     "year": 1980
+    },
+    "second": {
+     "event": "MTV goes on the air",
+     "where": "New York City",
+     "year": 1981
+    },
+    "fact": "Mount St. Helens erupted in May 1980. MTV started broadcasting in August 1981.",
+    "source": "https://en.wikipedia.org/wiki/1980_eruption_of_Mount_St._Helens"
+   },
+   {
+    "first": {
+     "event": "The White Tower of London is begun",
+     "where": "London, England",
+     "year": 1078,
+     "label": "c. 1078"
+    },
+    "second": {
+     "event": "The First Crusade sets out",
+     "where": "Europe",
+     "year": 1096
+    },
+    "fact": "William the Conqueror started the White Tower around 1078, almost 20 years before the First Crusade.",
+    "source": "https://en.wikipedia.org/wiki/White_Tower_(Tower_of_London)"
+   },
+   {
+    "first": {
+     "event": "Pizarro captures the Inca emperor Atahualpa",
+     "where": "Cajamarca, Peru",
+     "year": 1532
+    },
+    "second": {
+     "event": "Henry VIII breaks from the Pope",
+     "where": "England",
+     "year": 1534
+    },
+    "fact": "Atahualpa was captured in November 1532. England's Act of Supremacy passed in 1534.",
+    "source": "https://en.wikipedia.org/wiki/Atahualpa"
+   },
+   {
+    "first": {
+     "event": "China's Terracotta Army is buried",
+     "where": "Xi'an, China",
+     "year": -210,
+     "label": "c. 210 BC"
+    },
+    "second": {
+     "event": "Hannibal is defeated at Zama",
+     "where": "Today's Tunisia",
+     "year": -202
+    },
+    "fact": "The Terracotta Army was buried with China's first emperor around 210 BC. Rome beat Hannibal at Zama in 202 BC.",
+    "source": "https://en.wikipedia.org/wiki/Terracotta_Army"
+   }
+  ]
+ }
+}

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>More games · GeoClue</title>
-  <meta name="description" content="More free daily games from GeoClue are coming soon.">
+  <meta name="description" content="More free daily games from GeoClue, including Hindsight: which came first?">
   <script>try{var t=JSON.parse(localStorage.getItem("geoclue:v1:theme"));if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
   <meta name="theme-color" content="#e8f0ee" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0c1a24" media="(prefers-color-scheme: dark)">
@@ -35,18 +35,25 @@
         <nav class="menu" id="menu" aria-label="Site menu" hidden>
           <ul>
             <li><a href="./">Today's GeoClue</a></li>
+            <li data-hindsight><a href="hindsight.html">Today's Hindsight</a></li>
             <li><a href="games.html" aria-current="page">More games</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main class="card notice soon">
-      <p class="globe" aria-hidden="true">🌍</p>
-      <h2>More games coming soon</h2>
-      <p>We're building new daily puzzles to play alongside GeoClue. Check back soon!</p>
-      <p><a class="button" href="./">Play today's GeoClue</a></p>
+    <main>
+      <h2 class="sr-only">More games</h2>
+      <ul class="game-list">
+        <li><a class="game-card" href="./">
+          <span class="gi" style="--gc:#1f6f8b" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <b>GeoClue</b><span>Find the mystery country from five clues.</span></a></li>
+        <li data-hindsight><a class="game-card" href="hindsight.html">
+          <span class="gi" style="--gc:#6a3d9a" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12M6 21h12M7 3c0 5 10 5 10 9s-10 4-10 9M17 3c0 5-10 5-10 9s10 4 10 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <b>Hindsight</b><span>Six matchups. Tap the event in history that happened first.</span></a></li>
+      </ul>
     </main>
+    <p class="games-soon">More daily games are on the way.</p>
 
     <footer>GeoClue: a new geography puzzle every day.</footer>
   </div>
