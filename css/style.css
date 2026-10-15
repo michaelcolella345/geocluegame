@@ -216,6 +216,13 @@ h1 a.home { color: inherit; text-decoration: none; }
 
 /* Live map under the clues (js/map.js) */
 .live-map { position: relative; }
+/* Map on/off switch above the map */
+.map-switch { justify-self: end; margin: -4px 0 -6px; display: inline-flex; align-items: center; gap: 8px; padding: 4px 2px; background: none; border: 0; color: var(--muted); font: inherit; font-size: .85rem; cursor: pointer; }
+.map-switch i { position: relative; width: 34px; height: 20px; border-radius: 999px; background: var(--line); transition: background .2s; }
+.map-switch i::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0, 0, 0, .3); transition: transform .2s; }
+.map-switch[aria-checked="true"] i { background: var(--accent); }
+.map-switch[aria-checked="true"] i::after { transform: translateX(14px); }
+.map-switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
 .map-view { position: relative; overflow: hidden; aspect-ratio: 17 / 11; border-radius: 10px; border: 1px solid var(--line); background: #60aad6; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
 .map-view.dragging { cursor: grabbing; }
 .map-view:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -283,3 +290,11 @@ h1 a.home { color: inherit; text-decoration: none; }
 .game-card b { font-family: var(--display); font-size: 1.2rem; font-weight: 800; }
 .game-card span { color: var(--muted); font-size: .9rem; }
 .games-soon { margin: 0; color: var(--muted); text-align: center; font-size: .9rem; }
+
+/* Soft green wash across the screen when the country is found (js/ui.js winFlash, same as Hindsight's) */
+.win-flash { position: fixed; inset: 0; pointer-events: none; z-index: 31; opacity: 0;
+  background: linear-gradient(100deg, transparent 0%, color-mix(in srgb, var(--win) 34%, transparent) 45%, color-mix(in srgb, var(--win) 34%, transparent) 55%, transparent 100%);
+  background-size: 250% 100%; }
+.win-flash.on { animation: win-sweep .8s ease-out; }
+@keyframes win-sweep { 0% { opacity: 1; background-position: 120% 0; } 100% { opacity: 0; background-position: -60% 0; } }
+@media (prefers-reduced-motion: reduce) { .win-flash { display: none; } }

@@ -47,15 +47,28 @@ async function init() {
   }
   bindEvents();
   loadDay();
-  // The map is extra: it can be switched off in config.js, and if its files don't load,
-  // the game works without it.
-  if (CONFIG.LIVE_MAP !== false) loadShapes().then((shapes) => {
-    liveMap = createMap($("live-map"), matcher.byName, shapes);
-    $("live-map").hidden = false;
-    if (game) render();
-  }).catch((e) => console.warn("Map not available:", e));
+  // The map is extra: it can be switched off for everyone in config.js, each player can
+  // switch it off with the Map switch, and if its files don't load the game works without it.
+  if (CONFIG.LIVE_MAP !== false) {
+    $("map-switch").hidden = false;
+    $("map-switch").addEventListener("click", () => showMap(!store.loadMapOn()));
+    showMap(store.loadMapOn());
+  }
   if (!store.hasSeenHelp()) openDialog("help");
   setInterval(tick, 1000);
+}
+
+let mapLoading = null;
+function showMap(on) {
+  store.saveMapOn(on);
+  $("map-switch").setAttribute("aria-checked", String(on));
+  $("live-map").hidden = !on || !liveMap;
+  if (!on || liveMap || mapLoading) return;
+  mapLoading = loadShapes().then((shapes) => {
+    liveMap = createMap($("live-map"), matcher.byName, shapes);
+    $("live-map").hidden = !store.loadMapOn();
+    if (game) render();
+  }).catch((e) => { console.warn("Map not available:", e); mapLoading = null; });
 }
 
 function loadDay() {
@@ -254,6 +267,7 @@ function submitGuess(raw) {
 
   const last = scoreGuess(c.name, game.answer, matcher.byName);
   const bonus = 5 - game.guesses.length;
+  if (last.correct) winFlash();
   $("announce").textContent = last.correct
     ? `Correct! It's ${game.answer}.` + (bonus ? ` ${bonus} bonus clue${bonus > 1 ? "s" : ""} revealed.` : "")
     : `${c.name} is ${fmtMiles(last.miles)} away. Head ${compassWord(last.bearing)}.` +
@@ -261,6 +275,15 @@ function submitGuess(raw) {
   if (!game.done) $("guess").focus();
 }
 const setMsg = (t) => { $("msg").textContent = t; };
+
+// The same soft green wash Hindsight uses for a right answer. Skipped for players who turn off motion.
+function winFlash() {
+  if (CONFIG.WIN_FLASH === false || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const f = $("win-flash");
+  f.classList.remove("on");
+  void f.offsetWidth; // restart the animation
+  f.classList.add("on");
+}
 
 // ---------- Autocomplete ----------
 let sel = -1;

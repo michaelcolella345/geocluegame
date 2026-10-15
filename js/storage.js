@@ -29,6 +29,10 @@ export const saveStats = (s) => set("stats", s);
 export const hasSeenHelp = () => get("seenHelp", false);
 export const markHelpSeen = () => set("seenHelp", true);
 
+// The guess map: on unless the player switched it off.
+export const loadMapOn = () => get("mapOn", true) !== false;
+export const saveMapOn = (on) => set("mapOn", on);
+
 export const loadTheme = () => get("theme", null); // "light" | "dark" | null (follow device)
 export const saveTheme = (t) => set("theme", t);
 
