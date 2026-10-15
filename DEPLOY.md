@@ -106,42 +106,22 @@ On the dashboard, gameplay rows look like `Puzzle 2: started`, `Puzzle 2: solved
 
 ## Part 3: Connect geocluegame.com
 
-For a "bare" domain like `geocluegame.com` (no `www`), Cloudflare needs to manage the domain's DNS. That means switching the domain's **nameservers** to Cloudflare's. You keep the domain at your registrar and keep paying for it there. Only the "address book" moves.
+The domain was bought on Cloudflare, so its DNS is already managed there and there are no nameservers to change. (If you ever buy a domain somewhere else, first add it under **Add a domain** in Cloudflare and switch its nameservers at that registrar to the two Cloudflare shows you.)
 
-> ⚠️ If you use this domain for **email** (for example `you@geocluegame.com`), check in step 3.1 that Cloudflare copied your **MX** records before you switch nameservers. If you don't use it for email, don't worry about this.
+The game runs as a **Worker** named `geocluegame` (the one with the `workers.dev` address). That's the one the domain must be attached to: the "How everyone did today" stats only work where the Worker runs.
 
-### 3.1 Add the domain to Cloudflare
+### 3.1 Attach the domain to the Worker
 
-1. In the Cloudflare dashboard, click **Add a domain** (on the home page, or **+ Add** at the top).
-2. Enter `geocluegame.com` and continue.
-3. Choose the **Free** plan.
-4. Cloudflare scans your existing DNS records and shows them. Click **Continue**. Delete any records that pointed the domain at a "parked" or "coming soon" page from your registrar, but keep any MX (email) records.
-5. Cloudflare shows you **two nameservers**, something like `ada.ns.cloudflare.com` and `bob.ns.cloudflare.com`. Keep this page open.
+1. In the Cloudflare dashboard, open **Workers & Pages** and tap **geocluegame**. If you see both a Worker and a Pages project with that name, pick the Worker.
+2. Tap **Settings** → **Domains & Routes** → **+ Add** → **Custom domain**.
+3. Enter `geocluegame.com` and tap **Add domain**.
+4. (Optional) Repeat steps 2 and 3 for `www.geocluegame.com`. As of October 2026 this is skipped: Cloudflare wouldn't add it, and almost nobody types "www".
 
-### 3.2 Change the nameservers at your registrar
+The domain shows **Active** after a few minutes, with the HTTPS padlock set up automatically. The game is then live at **https://geocluegame.com**. 🎉
 
-Where you do this depends on where you bought the domain. Look for **Nameservers** or **DNS settings** on the domain's page:
+**If it says the domain already has DNS records:** open `geocluegame.com` in the dashboard → **DNS** → **Records**, delete the **A**, **AAAA** or **CNAME** records for `geocluegame.com` and `www` (leave any **MX** email records alone), then try again.
 
-- **GoDaddy:** My Products → your domain → **DNS** → **Nameservers** → **Change** → "I'll use my own nameservers"
-- **Namecheap:** Domain List → **Manage** → **Nameservers** → **Custom DNS**
-- **Squarespace / Google Domains:** Domains → your domain → **DNS** → **Domain nameservers** → **Use custom nameservers**
-- **Porkbun:** Domain Management → **Details** → **Authoritative Nameservers** → **Edit**
-
-Replace the existing nameservers with Cloudflare's two and save.
-
-Back in Cloudflare, click **Continue** / **Check nameservers**. It usually finishes in under an hour but can take up to 24 hours. Cloudflare emails you when the domain is **Active**.
-
-### 3.3 Attach the domain to your Pages project
-
-You can do this right away. It finishes on its own once the domain is active.
-
-1. Go to **Workers & Pages** → your `geocluegame` project → **Custom domains**.
-2. Click **Set up a custom domain**, enter `geocluegame.com`, and click **Continue** → **Activate domain**.
-3. Repeat for `www.geocluegame.com`, so people who type "www" also land on the game.
-
-When both show **Active**, with the HTTPS padlock set up automatically, the game is live at **https://geocluegame.com**. 🎉
-
-### 3.4 (Optional) Send www to the bare domain
+### 3.2 (Optional) Send www to the bare domain
 
 Both addresses already work. To make `www` *redirect* to the main address:
 
@@ -154,6 +134,7 @@ Both addresses already work. To make `www` *redirect* to the main address:
 ## Part 4: Check that everything works
 
 - [ ] `https://geocluegame.com` loads with a padlock icon.
+- [ ] After finishing today's puzzle there, the "How everyone did" section appears once at least 5 people have played.
 - [ ] On your phone, the "How to play" box shows on first visit.
 - [ ] Share the link in a text message or on Slack and check that the GeoClue preview card appears. Previews can be cached; if an old one shows, paste the link into <https://www.opengraph.xyz> to refresh.
 - [ ] Play today's game and tap **Share**.
