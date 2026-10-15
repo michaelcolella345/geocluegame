@@ -115,9 +115,9 @@ The game runs as a **Worker** named `geocluegame` (the one with the `workers.dev
 1. In the Cloudflare dashboard, open **Workers & Pages** and tap **geocluegame**. If you see both a Worker and a Pages project with that name, pick the Worker.
 2. Tap **Settings** → **Domains & Routes** → **+ Add** → **Custom domain**.
 3. Enter `geocluegame.com` and tap **Add domain**.
-4. Repeat steps 2 and 3 for `www.geocluegame.com`, so people who type "www" also land on the game.
+4. (Optional) Repeat steps 2 and 3 for `www.geocluegame.com`. As of October 2026 this is skipped: Cloudflare wouldn't add it, and almost nobody types "www".
 
-Each one shows **Active** after a few minutes, with the HTTPS padlock set up automatically. The game is then live at **https://geocluegame.com**. 🎉
+The domain shows **Active** after a few minutes, with the HTTPS padlock set up automatically. The game is then live at **https://geocluegame.com**. 🎉
 
 **If it says the domain already has DNS records:** open `geocluegame.com` in the dashboard → **DNS** → **Records**, delete the **A**, **AAAA** or **CNAME** records for `geocluegame.com` and `www` (leave any **MX** email records alone), then try again.
 
