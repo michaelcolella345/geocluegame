@@ -254,6 +254,7 @@ function submitGuess(raw) {
 
   const last = scoreGuess(c.name, game.answer, matcher.byName);
   const bonus = 5 - game.guesses.length;
+  if (last.correct) winFlash();
   $("announce").textContent = last.correct
     ? `Correct! It's ${game.answer}.` + (bonus ? ` ${bonus} bonus clue${bonus > 1 ? "s" : ""} revealed.` : "")
     : `${c.name} is ${fmtMiles(last.miles)} away. Head ${compassWord(last.bearing)}.` +
@@ -261,6 +262,15 @@ function submitGuess(raw) {
   if (!game.done) $("guess").focus();
 }
 const setMsg = (t) => { $("msg").textContent = t; };
+
+// The same soft green wash Hindsight uses for a right answer. Skipped for players who turn off motion.
+function winFlash() {
+  if (CONFIG.WIN_FLASH === false || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const f = $("win-flash");
+  f.classList.remove("on");
+  void f.offsetWidth; // restart the animation
+  f.classList.add("on");
+}
 
 // ---------- Autocomplete ----------
 let sel = -1;

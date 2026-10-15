@@ -283,3 +283,11 @@ h1 a.home { color: inherit; text-decoration: none; }
 .game-card b { font-family: var(--display); font-size: 1.2rem; font-weight: 800; }
 .game-card span { color: var(--muted); font-size: .9rem; }
 .games-soon { margin: 0; color: var(--muted); text-align: center; font-size: .9rem; }
+
+/* Soft green wash across the screen when the country is found (js/ui.js winFlash, same as Hindsight's) */
+.win-flash { position: fixed; inset: 0; pointer-events: none; z-index: 31; opacity: 0;
+  background: linear-gradient(100deg, transparent 0%, color-mix(in srgb, var(--win) 34%, transparent) 45%, color-mix(in srgb, var(--win) 34%, transparent) 55%, transparent 100%);
+  background-size: 250% 100%; }
+.win-flash.on { animation: win-sweep .8s ease-out; }
+@keyframes win-sweep { 0% { opacity: 1; background-position: 120% 0; } 100% { opacity: 0; background-position: -60% 0; } }
+@media (prefers-reduced-motion: reduce) { .win-flash { display: none; } }

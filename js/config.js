@@ -23,6 +23,9 @@ export const CONFIG = {
   // "How everyone did today" on the results screen. Set to false to hide it.
   EVERYONE_STATS: true,
 
+  // A soft green flash across the screen when you find the country. Set to false to turn it off.
+  WIN_FLASH: true,
+
   // Hindsight, the "which came first?" game (hindsight.html). Set to false to hide it everywhere.
   HINDSIGHT: true,
 
