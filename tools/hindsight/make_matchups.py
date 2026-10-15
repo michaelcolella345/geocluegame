@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Builds data/hindsight.json from the event list in events.py.
-# Run from the project folder:  python3 tools/hindsight/make_matchups.py 2026-10-15 2026-12-11
+# Run from the project folder:  python3 tools/hindsight/make_matchups.py 2026-10-16 2026-12-11
+# Days in data/hindsight.json before the start date are kept unchanged.
 # Each day gets six matchups from six different eras, in random order. The two events in a
 # matchup are close in time (how close depends on the era) and never from the same story
 # (the "group" in events.py). Events are spread out so the same one doesn't come back soon.
@@ -59,5 +60,9 @@ for d in range(days):
             return o
         rounds.append({"first": j(first), "second": j(second)})
     out[(start + datetime.timedelta(days=d)).isoformat()] = {"rounds": rounds}
-json.dump(out, open(OUT, "w"), ensure_ascii=False, indent=1)
+# Days before the start date that are already in the file are kept as they are (people may have played them).
+try: old = json.load(open(OUT))
+except FileNotFoundError: old = {}
+out = {**{k: v for k, v in old.items() if k < start.isoformat()}, **out}
+json.dump(dict(sorted(out.items())), open(OUT, "w"), ensure_ascii=False, indent=1)
 print(days, "days; events used:", len(uses), "of", len(E), "; max uses", max(uses.values()))
