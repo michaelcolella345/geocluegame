@@ -198,6 +198,11 @@ dialog { position: fixed; }
   .clue.new p, .row.enter, .row.win, .row.miss, .slot.pop, .clue.reveal, .result.enter { animation: none; }
 }
 a.button { display: inline-block; font-weight: 600; text-decoration: none; border-radius: 8px; padding: 12px 18px; background: var(--accent); color: var(--on-accent); }
+/* "Play Hindsight" on the results, in Hindsight's plum */
+a.button.play-hs { --plum: #6a3d9a; display: inline-flex; align-items: center; gap: 7px; background: var(--plum); color: #fff; }
+a.button.play-hs svg { width: 17px; height: 17px; }
+:root[data-theme="dark"] a.button.play-hs { --plum: #b48be0; color: #17111f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) a.button.play-hs { --plum: #b48be0; color: #17111f; } }
 
 /* ☰ menu (top right, every page) */
 .top-right { position: relative; }

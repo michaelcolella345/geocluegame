@@ -29,6 +29,9 @@ export const CONFIG = {
   // Hindsight, the "which came first?" game (hindsight.html). Set to false to hide it everywhere.
   HINDSIGHT: true,
 
+  // A "Play Hindsight" button next to Share on GeoClue's results. Set to false to hide it.
+  HINDSIGHT_BUTTON: true,
+
   // The date of Hindsight #1 (YYYY-MM-DD). Its matchups live in data/hindsight.json.
   HINDSIGHT_LAUNCH_DATE: "2026-10-15",
 

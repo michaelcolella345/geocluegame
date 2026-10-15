@@ -203,9 +203,15 @@ function resultHTML(rows) {
     <div class="dyk"><h3>Did you know?</h3><p>${esc(p.didYouKnow.text)}</p>
       <a href="${esc(p.didYouKnow.source)}" target="_blank" rel="noopener">Source</a></div>
     ${statsHTML()}
-    <div class="btns"><button type="button" id="share-btn">Share</button></div>
+    <div class="btns"><button type="button" id="share-btn">Share</button>${hindsightButton()}</div>
     <p class="copied" id="copied" aria-live="polite"></p>
     <p class="countdown-wrap">Next puzzle in <span class="countdown" data-countdown>${countdownText()}</span></p>`;
+}
+
+// "Play Hindsight" next to Share. Off when Hindsight or this button is switched off in config.js.
+function hindsightButton() {
+  if (CONFIG.HINDSIGHT === false || CONFIG.HINDSIGHT_BUTTON === false) return "";
+  return `<a class="button play-hs" href="hindsight.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12M6 21h12M7 3c0 5 10 5 10 9s-10 4-10 9M17 3c0 5-10 5-10 9s10 4 10 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Play Hindsight</a>`;
 }
 
 // ---------- How everyone did ----------
