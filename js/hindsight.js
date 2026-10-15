@@ -1,5 +1,6 @@
 // Hindsight: six matchups a day, tap the event that happened first.
 // Matchups live in data/hindsight.json, one set of six per date.
+// Scoring: 1 point per correct pick, 2 once you have 2 in a row, so a perfect day is 10.
 import { CONFIG } from "./config.js";
 import * as store from "./storage.js";
 import * as track from "./track.js";
@@ -9,9 +10,10 @@ import { localDateKey, daysBetween, msUntilMidnight } from "./game.js";
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const ROUNDS = 6;
+const MAX_POINTS = 10;
 const SENT_KEY = "geoclue:v1:hindsight:sent"; // puzzle number of the last result sent from this browser
 
-let sets, day, picks = [], crowd = null;
+let sets, day, picks = [], field = null;
 
 // ---------- Which day is it? ----------
 // On localhost you can test any date with ?date=YYYY-MM-DD.
@@ -29,8 +31,10 @@ const puzzleNumber = (key) => daysBetween(CONFIG.HINDSIGHT_LAUNCH_DATE, key) + 1
 
 // ---------- Years and gaps ----------
 const yearText = (e) => e.label || (e.year < 0 ? `${-e.year} BC` : e.year < 1000 ? `AD ${e.year}` : String(e.year));
+// There's no year 0: 1 BC is followed by AD 1.
+const yearsBetween = (a, b) => b - a - (a < 0 && b > 0 ? 1 : 0);
 function gapText(r) {
-  const n = r.second.year - r.first.year;
+  const n = yearsBetween(r.first.year, r.second.year);
   const about = r.first.label || r.second.label ? "about " : "";
   return `${about}${n.toLocaleString("en-US")} year${n === 1 ? "" : "s"} apart`;
 }
@@ -75,7 +79,7 @@ function loadDay() {
   const set = sets[key];
   day = { key, number, rounds: set && set.rounds };
   $("meta").innerHTML = number >= 1 ? `Hindsight #${number}<br>${prettyDate(key)}` : prettyDate(key);
-  crowd = null;
+  field = null;
 
   if (number < 1) { showNotice("Hindsight starts soon", `The first matchups arrive on ${prettyDate(CONFIG.HINDSIGHT_LAUNCH_DATE)}.`, `<a class="button" href="./">Play today's GeoClue</a>`); return; }
   if (!day.rounds || day.rounds.length !== ROUNDS) { showNotice("Back tomorrow!", "There are no matchups for today. New ones arrive at midnight.", `<a class="button" href="./">Play today's GeoClue</a>`); return; }
@@ -84,18 +88,59 @@ function loadDay() {
   $("game").hidden = false;
   const saved = store.loadHindsightProgress();
   picks = saved && saved.date === key && Array.isArray(saved.picks) ? saved.picks.slice(0, ROUNDS) : [];
-  loadCrowd(picks.length === ROUNDS);
+  if (picks.length === ROUNDS) loadField();
   picks.length === ROUNDS ? showResult(false) : showRound();
+}
+
+// ---------- Animations ----------
+// A green wash across the screen when right, a red pulse at the edges when wrong, and embers
+// floating up while a streak is going. All of it is skipped for players who turn off motion.
+const reduceMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+function flash(kind) {
+  const f = $("flash");
+  f.className = "hs-flash";
+  void f.offsetWidth; // restart the animation
+  f.className = `hs-flash ${kind}`;
+}
+function embers(n) {
+  if (reduceMotion()) return;
+  const box = $("embers");
+  for (let k = 0; k < n; k++) {
+    const e = document.createElement("i");
+    e.style.left = `${Math.random() * 100}%`;
+    e.style.setProperty("--dx", `${Math.random() * 80 - 40}px`);
+    e.style.animationDelay = `${Math.random() * 0.5}s`;
+    box.appendChild(e);
+    setTimeout(() => e.remove(), 2300);
+  }
+}
+
+// ---------- Points ----------
+// Points earned by each pick: 0 if wrong, 1 if right, 2 if it's the third (or later) right in a row.
+function pointsList(list = picks) {
+  let run = 0;
+  return list.map((ok) => { run = ok ? run + 1 : 0; return ok ? (run >= 3 ? 2 : 1) : 0; });
+}
+const totalPoints = (list = picks) => pointsList(list).reduce((a, b) => a + b, 0);
+// Right picks in a row going into the next matchup.
+function currentRun() {
+  let run = 0;
+  for (const ok of picks) run = ok ? run + 1 : 0;
+  return run;
 }
 
 // ---------- One matchup ----------
 function drawProgress(current) {
+  const earned = pointsList();
   $("progress").innerHTML = Array.from({ length: ROUNDS }, (_, k) =>
-    `<i class="${k < picks.length ? (picks[k] ? "ok" : "no") : k === current ? "now" : ""}"></i>`).join("");
+    `<i class="${k < picks.length ? (earned[k] === 2 ? "fire" : picks[k] ? "ok" : "no") : k === current ? "now" : ""}"></i>`).join("");
 }
 
 function showRound() {
   const i = picks.length;
+  const hot = currentRun() >= 2;
+  document.body.classList.toggle("hot", hot);
+  if (hot && currentRun() === 2) embers(18);
   const r = day.rounds[i];
   const pair = firstOnTop(day.key, i) ? [r.first, r.second] : [r.second, r.first];
   drawProgress(i);
@@ -103,7 +148,8 @@ function showRound() {
   $("round").hidden = false;
   $("round").innerHTML = `
     <div class="hs-round">
-      <div class="hs-q"><h2>Which came first?</h2><span>${i + 1} of ${ROUNDS}</span></div>
+      <div class="hs-q"><h2>Which came first?</h2><span>${i + 1} of ${ROUNDS} · ${totalPoints()} pts</span></div>
+      ${currentRun() >= 2 ? `<p class="hs-heat"><span class="flame" aria-hidden="true">🔥</span>${currentRun() === 2 ? "Heating up! This one is worth 2" : `On fire! ${currentRun()} in a row`}</p>` : ""}
       ${pair.map((e, k) => `
         <button type="button" class="pick" data-first="${e === r.first}">
           <span class="ev">${esc(e.event)}</span><span class="where">${esc(e.where)}</span><span class="yr" hidden>${esc(yearText(e))}</span>
@@ -121,33 +167,40 @@ function answer(btn) {
   store.saveHindsightProgress({ date: day.key, picks });
   if (picks.length === 1) track.hindsightStarted(day.number);
   if (picks.length === ROUNDS) finish();
+  const earned = pointsList()[i];
 
   for (const b of document.querySelectorAll(".pick")) {
     b.disabled = true;
     b.classList.add("shown");
     b.querySelector(".yr").hidden = false;
-    if (b.dataset.first === "true") { b.classList.add("first"); b.insertAdjacentHTML("beforeend", `<span class="tag">Came first</span>`); }
-    else if (b === btn) { b.classList.add("wrong"); b.insertAdjacentHTML("beforeend", `<span class="tag">Your pick</span>`); }
+    if (b.dataset.first === "true") { b.classList.add("first"); b.insertAdjacentHTML("beforeend", `<span class="tag">Came first</span>`); if (right) b.classList.add("pop"); }
+    else if (b === btn) { b.classList.add("wrong", "shake"); b.insertAdjacentHTML("beforeend", `<span class="tag">Your pick</span>`); }
   }
+  flash(right ? "ok" : "no");
+  if (!right) document.body.classList.remove("hot");
+  if (earned === 2) embers(8);
   drawProgress(-1);
   const last = picks.length === ROUNDS;
   $("reveal").innerHTML = `
     <div class="card hs-reveal">
-      <p class="hs-verdict ${right ? "ok" : "no"}" tabindex="-1">${right ? "Correct!" : "Not quite."} ${capital(gapText(r))}.</p>
+      <p class="hs-verdict ${right ? "ok" : "no"}" tabindex="-1">${right ? "Correct!" : "Not quite."}
+        ${right ? `<span class="hs-plus${earned === 2 ? " x2" : ""}">+${earned} ${earned === 2 ? "🔥" : "pt"}</span>` : ""}</p>
       <div class="hs-tl" aria-hidden="true">
         <div class="axis"></div><div class="span"></div><span class="gap">${gapText(r)}</span>
         <div class="dot a"></div><div class="dot b"></div>
         <span class="lab a">${esc(yearText(r.first))}</span><span class="lab b">${esc(yearText(r.second))}</span>
       </div>
-      <p class="hs-fact">${esc(r.fact)} <a href="${esc(r.source)}" target="_blank" rel="noopener">Source</a></p>
-      <div class="hs-crowd" id="crowd-now"${crowdPct(i) == null ? " hidden" : ""}>${crowdHTML(i)}</div>
+      <div class="hs-facts">
+        <h3>Bonus facts</h3>
+        ${[r.first, r.second].map((e) => `<p><b>${esc(yearText(e))}</b> ${e.fact ? esc(e.fact) : esc(e.event)}
+          <a href="${esc(e.source)}" target="_blank" rel="noopener">More</a></p>`).join("")}
+      </div>
       <div class="btns"><button type="button" id="next">${last ? "See my score" : "Next matchup"}</button></div>
     </div>`;
   $("next").focus({ preventScroll: true });
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   $("reveal").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "nearest" });
 }
-const capital = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
 function next() {
   if (picks.length === ROUNDS) { showResult(true); return; }
@@ -156,74 +209,74 @@ function next() {
   $("progress").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "nearest" });
 }
 
-// ---------- Players who got it right ----------
-// Read today's numbers when the page opens. The finished game is sent once, anonymously
-// (just the six right/wrong answers), to worker/index.js. Nothing shows until 5 players finish.
-async function loadCrowd(finished) {
+// ---------- How you did against everyone ----------
+// The finished game's points are sent once, anonymously, to worker/index.js, which answers with
+// the share of players for each score. Nothing shows until 5 players have finished.
+async function loadField() {
   if (!CONFIG.HINDSIGHT_STATS || day.number < 1) return;
   const number = day.number;
+  const points = totalPoints();
   let lastSent = 0;
   try { lastSent = Number(localStorage.getItem(SENT_KEY)); } catch { /* not saved */ }
-  const send = finished && lastSent !== number;
+  const send = lastSent !== number;
   try {
     const r = await fetch(`api/hindsight?puzzle=${number}`, send
-      ? { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ picks }) }
+      ? { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ points }) }
       : { cache: "no-store" });
     if (!r.ok || day.number !== number) return;
     if (send) { try { localStorage.setItem(SENT_KEY, String(number)); } catch { /* not saved */ } }
-    crowd = await r.json();
+    field = await r.json();
   } catch { return; }
-  // Fill in anything already on screen.
-  const now = $("crowd-now");
-  if (now && picks.length) { now.innerHTML = crowdHTML(picks.length - 1); now.hidden = crowdPct(picks.length - 1) == null; }
-  if (!$("result").hidden) $("recap").outerHTML = recapHTML();
+  const el = $("field");
+  if (el) { el.innerHTML = fieldHTML(); el.hidden = !el.innerHTML; }
 }
-const crowdPct = (i) => (crowd && crowd.enough && Array.isArray(crowd.percent) ? crowd.percent[i] : null);
-function crowdHTML(i) {
-  const p = crowdPct(i);
-  if (p == null) return "";
-  return `<div class="row2"><span>Players who got this right</span><span>${p}%</span></div>
-    <div class="bar"><i style="width:${p}%"></i></div>`;
+function fieldHTML() {
+  if (!field) return "";
+  if (!field.enough) return `<p class="everyone-wait">Not enough players have finished yet. Check back later to see how you compare.</p>`;
+  const mine = totalPoints();
+  let below = 0;
+  for (let p = 0; p < mine; p++) below += field.percent[p] || 0;
+  return `<p class="everyone-big"><b>${Math.min(100, below)}%</b> You did better than ${Math.min(100, below)}% of players today.</p>`;
 }
 
 // ---------- Finished ----------
 function finish() {
-  const right = picks.filter(Boolean).length;
-  store.saveHindsightStats(recordResult(store.loadHindsightStats(), day.number, right));
-  track.hindsightFinished(day.number, right);
-  loadCrowd(true);
+  const points = totalPoints();
+  store.saveHindsightStats(recordResult(store.loadHindsightStats(), day.number, points));
+  track.hindsightFinished(day.number, points);
+  loadField();
 }
 
-export function recordResult(stats, number, right) {
+export function recordResult(stats, number, points) {
   if (stats.lastPlayed != null && number <= stats.lastPlayed) return stats;
   const s = { ...stats, dist: { ...store.emptyHindsightStats().dist, ...stats.dist } };
   s.currentStreak = s.lastPlayed === number - 1 ? s.currentStreak + 1 : 1;
   s.bestStreak = Math.max(s.bestStreak, s.currentStreak);
   s.played += 1;
-  s.totalRight += right;
-  s.dist[right] += 1;
+  s.totalPoints += points;
+  s.dist[points] = (s.dist[points] || 0) + 1;
   s.lastPlayed = number;
   return s;
 }
 // Days played in a row. A skipped day breaks it even before the next game is played.
 const displayStreak = (s, today) => (s.lastPlayed != null && s.lastPlayed >= today - 1 ? s.currentStreak : 0);
 
-function shareText() {
-  const right = picks.filter(Boolean).length;
-  const streak = displayStreak(store.loadHindsightStats(), day.number);
-  const fire = streak >= 2 ? ` 🔥${streak}` : "";
-  return `Hindsight #${day.number} ${right}/${ROUNDS}${fire}\n${picks.map((p) => (p ? "🟩" : "🟥")).join("")}\n${CONFIG.SITE_URL}/hindsight`;
-}
+// e.g. "⏳ Hindsight #5 · 8/10", then 🟩 right, 🔥 right on a streak (2 points), 🟥 wrong.
+const shareText = () => [`⏳ Hindsight #${day.number} · ${totalPoints()}/${MAX_POINTS}`, emojiRow(), `${CONFIG.SITE_URL}/hindsight`].join("\n");
+const emojiRow = () => pointsList().map((p, k) => (p === 2 ? "🔥" : picks[k] ? "🟩" : "🟥")).join("");
 
 function showResult(focus) {
-  const right = picks.filter(Boolean).length;
-  const title = right === 6 ? "Perfect hindsight!" : right >= 4 ? "Nicely done" : right >= 2 ? "Good effort" : "A tough day";
+  const points = totalPoints();
+  document.body.classList.remove("hot");
+  if (focus && points >= 7) { flash("ok"); embers(24); }
+  const title = points === MAX_POINTS ? "Perfect hindsight!" : points >= 7 ? "Nicely done" : points >= 4 ? "Good effort" : "A tough day";
   drawProgress(-1);
   $("round").hidden = true;
   $("round").innerHTML = "";
   $("result").innerHTML = `
-    <h2 tabindex="-1">${title} <span class="hs-score">${right}/${ROUNDS}</span></h2>
-    <div class="emoji-row" aria-label="Your result">${picks.map((p) => (p ? "🟩" : "🟥")).join("")}</div>
+    <h2 tabindex="-1">${title} <span class="hs-score">${points}/${MAX_POINTS}</span></h2>
+    <div class="emoji-row" aria-label="Your result">${emojiRow()}</div>
+    <section class="everyone" id="field"${fieldHTML() ? "" : " hidden"}>${fieldHTML()}</section>
     ${recapHTML()}
     ${statsHTML()}
     <div class="btns"><button type="button" id="share-btn">Share</button></div>
@@ -234,31 +287,31 @@ function showResult(focus) {
 }
 
 function recapHTML() {
-  return `<ol class="hs-recap" id="recap">${day.rounds.map((r, k) => {
-    const p = crowdPct(k);
-    return `<li><span>${picks[k] ? "🟩" : "🟥"}</span><span>
+  const earned = pointsList();
+  return `<ol class="hs-recap">${day.rounds.map((r, k) => `<li><span>${earned[k] === 2 ? "🔥" : picks[k] ? "🟩" : "🟥"}</span><span>
       <span class="line"><small>${esc(yearText(r.first))}</small> ${esc(r.first.event)}</span>
       <span class="line"><small>${esc(yearText(r.second))}</small> ${esc(r.second.event)}</span>
-      ${p == null ? "" : `<span class="pct">${p}% of players got this right</span>`}</span></li>`;
-  }).join("")}</ol>`;
+      <span class="pct">${earned[k] ? `+${earned[k]} ${earned[k] === 1 ? "point" : "points"}` : "No points"}</span></span></li>`).join("")}</ol>`;
 }
 
 function statsHTML() {
   const s = store.loadHindsightStats();
   const streak = day && day.number >= 1 ? displayStreak(s, day.number) : 0;
-  const keys = [6, 5, 4, 3, 2, 1, 0];
-  const max = Math.max(1, ...keys.map((k) => s.dist[k] || 0));
-  const mine = day && picks.length === ROUNDS && s.lastPlayed === day.number ? picks.filter(Boolean).length : null;
+  // Points grouped into rows so the chart stays short.
+  const groups = [["10", [10]], ["8–9", [8, 9]], ["6–7", [6, 7]], ["4–5", [4, 5]], ["0–3", [0, 1, 2, 3]]];
+  const count = (g) => g.reduce((n, p) => n + (s.dist[p] || 0), 0);
+  const max = Math.max(1, ...groups.map(([, g]) => count(g)));
+  const mine = day && picks.length === ROUNDS && s.lastPlayed === day.number ? totalPoints() : null;
   return `<div class="stats">
       <div class="stat"><b>${s.played}</b><span>Played</span></div>
-      <div class="stat"><b>${s.played ? (s.totalRight / s.played).toFixed(1) : 0}</b><span>Average score</span></div>
+      <div class="stat"><b>${s.played ? (s.totalPoints / s.played).toFixed(1) : 0}</b><span>Average points</span></div>
       <div class="stat"><b>${streak}</b><span>Day streak</span></div>
       <div class="stat"><b>${s.bestStreak}</b><span>Best streak</span></div>
     </div>
-    <h3 class="dist-h">Score distribution</h3>
-    <ol class="dist">${keys.map((k) => {
-      const v = s.dist[k] || 0;
-      return `<li${k === mine ? ` class="mine"` : ""}><span>${k}</span>
+    <h3 class="dist-h">Points</h3>
+    <ol class="dist hs-dist">${groups.map(([label, g]) => {
+      const v = count(g);
+      return `<li${g.includes(mine) ? ` class="mine"` : ""}><span>${label}</span>
         <span class="bar" style="--w:${Math.max(8, (100 * v) / max)}%"><b>${v}</b></span></li>`;
     }).join("")}</ol>`;
 }

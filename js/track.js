@@ -37,6 +37,6 @@ export const started = (number) => send(`Puzzle ${number}: started`);
 export const finished = (number, game) =>
   send(game.won ? `Puzzle ${number}: solved in ${game.guesses.length}` : `Puzzle ${number}: lost`);
 
-// Hindsight: the first answer of the day, and the final score out of 6.
+// Hindsight: the first answer of the day, and the final points out of 10.
 export const hindsightStarted = (number) => send(`Hindsight ${number}: started`);
-export const hindsightFinished = (number, right) => send(`Hindsight ${number}: ${right}/6`);
+export const hindsightFinished = (number, points) => send(`Hindsight ${number}: ${points}/10`);

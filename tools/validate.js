@@ -105,10 +105,11 @@ hsDates.forEach((d, i) => {
       if (!e || typeof e.event !== "string" || e.event.length < 5) err(`${at}: ${side}.event is missing`);
       else if (typeof e.where !== "string" || !e.where) err(`${at}: ${side}.where is missing`);
       else if (!Number.isInteger(e.year) || e.year === 0) err(`${at}: ${side}.year must be a whole number (negative for BC, never 0)`);
+      else if (e.fact != null && (typeof e.fact !== "string" || e.fact.length < 10)) err(`${at}: ${side}.fact is too short (or leave it out)`);
     }
     if (r.first && r.second && !(r.first.year < r.second.year)) err(`${at}: "first" must have the earlier year`);
-    if (typeof r.fact !== "string" || r.fact.length < 10) err(`${at}: fact is missing`);
-    if (!isUrl(r.source)) err(`${at}: needs a source URL`);
+    if (r.fact != null && (typeof r.fact !== "string" || r.fact.length < 10)) err(`${at}: fact is too short (or leave it out)`);
+    for (const side of ["first", "second"]) if (r[side] && !isUrl(r[side].source)) err(`${at}: ${side} needs a source URL`);
   });
 });
 

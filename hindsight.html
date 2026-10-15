@@ -29,6 +29,9 @@
   <script type="module" src="js/hindsight.js"></script>
 </head>
 <body>
+  <div class="hs-glow" aria-hidden="true"></div>
+  <div class="hs-embers" id="embers" aria-hidden="true"></div>
+  <div class="hs-flash" id="flash" aria-hidden="true"></div>
   <div class="wrap">
     <nav class="game-switch" aria-label="Switch game" data-hindsight>
       <a href="./">
@@ -69,7 +72,7 @@
     <section class="card notice" id="notice" hidden></section>
 
     <main id="game" hidden>
-      <p class="lede">Six matchups. Tap the event that happened first.</p>
+      <p class="lede">Six matchups. Tap the event that happened first. Get 2 in a row and every right pick after that is worth double.</p>
       <div class="hs-progress" id="progress" aria-hidden="true"></div>
       <section id="round" aria-live="polite"></section>
       <section class="card result" id="result" hidden aria-live="polite"></section>
@@ -83,11 +86,11 @@
     <h2 id="help-h">How to play</h2>
     <p>Each day brings <b>six matchups</b> of two events from history. Everyone gets the same ones.</p>
     <ul>
-      <li>Tap the event you think happened first.</li>
-      <li>Then you'll see both years on a timeline, a quick fact, and how many players got it right.</li>
-      <li>The matchups get trickier as you go. Some are a year apart, others are a surprise across centuries.</li>
+      <li>Tap the event you think happened first. Then you'll see both years on a timeline.</li>
+      <li>Each right pick is worth <b>1 point</b>. Get 2 in a row and every right pick after that is worth <b>2</b> 🔥, until you miss one. A perfect day is 10 points.</li>
+      <li>The matchups jump all over history, from ancient Egypt to last decade.</li>
     </ul>
-    <p>Score out of six, share it, and come back tomorrow for a new set.</p>
+    <p>At the end you'll see how you did against everyone who played today. Come back tomorrow for a new set.</p>
     <form method="dialog"><button autofocus>Let's play</button></form>
   </dialog>
 

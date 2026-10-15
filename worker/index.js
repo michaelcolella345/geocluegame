@@ -17,17 +17,6 @@ export class PuzzleTally extends DurableObject {
   async read() {
     return (await this.ctx.storage.get("tally")) || {};
   }
-  // Hindsight: how many players got each of the six matchups right.
-  async addRounds(picks) {
-    const t = (await this.ctx.storage.get("rounds")) || { players: 0, right: [0, 0, 0, 0, 0, 0] };
-    t.players += 1;
-    picks.forEach((ok, i) => { if (ok) t.right[i] += 1; });
-    await this.ctx.storage.put("rounds", t);
-    return t;
-  }
-  async readRounds() {
-    return (await this.ctx.storage.get("rounds")) || { players: 0, right: [0, 0, 0, 0, 0, 0] };
-  }
 }
 
 const json = (body, status = 200) => new Response(JSON.stringify(body), {
@@ -48,10 +37,12 @@ function summary(t) {
   return { enough: true, percent: Object.fromEntries(SCORES.map((s) => [s, Math.round((100 * (t[s] || 0)) / total)])) };
 }
 
-// Hindsight: the share of players who got each matchup right, once enough have finished.
-function roundsSummary(t) {
-  if (t.players < MIN_PLAYERS) return { enough: false };
-  return { enough: true, percent: t.right.map((n) => Math.round((100 * n) / t.players)) };
+// Hindsight: the share of players for each score (0 to 10 points), once enough have finished.
+const POINTS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+function pointsSummary(t) {
+  const total = POINTS.reduce((n, s) => n + (t[s] || 0), 0);
+  if (total < MIN_PLAYERS) return { enough: false };
+  return { enough: true, percent: Object.fromEntries(POINTS.map((s) => [s, Math.round((100 * (t[s] || 0)) / total)])) };
 }
 
 async function hindsight(request, env, url) {
@@ -59,12 +50,12 @@ async function hindsight(request, env, url) {
   if (!Number.isInteger(puzzle) || Math.abs(puzzle - utcPuzzleNumber(CONFIG.HINDSIGHT_LAUNCH_DATE)) > 1) return json({ error: "Unknown puzzle" }, 400);
   const tally = env.TALLY.get(env.TALLY.idFromName(`hindsight-${puzzle}`));
 
-  if (request.method === "GET") return json(roundsSummary(await tally.readRounds()));
+  if (request.method === "GET") return json(pointsSummary(await tally.read()));
   if (request.method === "POST") {
     const body = await request.json().catch(() => ({}));
-    const picks = body.picks;
-    if (!Array.isArray(picks) || picks.length !== 6 || !picks.every((p) => typeof p === "boolean")) return json({ error: "Unknown picks" }, 400);
-    return json(roundsSummary(await tally.addRounds(picks)));
+    const points = String(body.points);
+    if (!POINTS.includes(points)) return json({ error: "Unknown points" }, 400);
+    return json(pointsSummary(await tally.add(points)));
   }
   return json({ error: "Method not allowed" }, 405);
 }

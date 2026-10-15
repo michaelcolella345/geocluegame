@@ -37,8 +37,8 @@ export const saveTheme = (t) => set("theme", t);
 export const loadHindsightProgress = () => get("hindsight:progress", null);
 export const saveHindsightProgress = (p) => set("hindsight:progress", p);
 export const emptyHindsightStats = () => ({
-  played: 0, totalRight: 0, currentStreak: 0, bestStreak: 0,
-  dist: { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 },
+  played: 0, totalPoints: 0, currentStreak: 0, bestStreak: 0,
+  dist: {}, // points (0 to 10) -> number of games
   lastPlayed: null, // puzzle number of the last finished game
 });
 export const loadHindsightStats = () => ({ ...emptyHindsightStats(), ...get("hindsight:stats", {}) });
