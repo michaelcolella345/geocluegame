@@ -16,4 +16,10 @@ export const CONFIG = {
   // how many people start each puzzle, solve it on each guess, or lose.
   // Leave it as "" to turn stats off.
   GOATCOUNTER_CODE: "geocluegame",
+
+  // The live map under the clues. Set to false to hide it and play without a map.
+  LIVE_MAP: true,
+
+  // "How everyone did today" on the results screen. Set to false to hide it.
+  EVERYONE_STATS: true,
 };

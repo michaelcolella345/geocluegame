@@ -4,6 +4,8 @@ import { loadData, makeMatcher } from "./data.js";
 import { compassWord, BAND_EMOJI, BAND_LABEL } from "./geo.js";
 import * as store from "./storage.js";
 import * as track from "./track.js";
+import { loadShapes, createMap } from "./map.js";
+import { fetchEveryone, everyoneHTML } from "./everyone.js";
 import "./nav.js";
 import {
   localDateKey, puzzleFor, startGame, applyGuess, scoreGuess, cluesShown,
@@ -14,7 +16,8 @@ const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const fmtMiles = (m) => `${Math.round(m).toLocaleString("en-US")} mi`;
 
-let matcher, puzzles, day, game;
+let matcher, puzzles, day, game, liveMap;
+let everyone = null; // { puzzle, data } once "How everyone did" has loaded
 
 // ---------- Which day is it? ----------
 // On localhost you can test any date with ?date=YYYY-MM-DD.
@@ -44,6 +47,13 @@ async function init() {
   }
   bindEvents();
   loadDay();
+  // The map is extra: it can be switched off in config.js, and if its files don't load,
+  // the game works without it.
+  if (CONFIG.LIVE_MAP !== false) loadShapes().then((shapes) => {
+    liveMap = createMap($("live-map"), matcher.byName, shapes);
+    $("live-map").hidden = false;
+    if (game) render();
+  }).catch((e) => console.warn("Map not available:", e));
   if (!store.hasSeenHelp()) openDialog("help");
   setInterval(tick, 1000);
 }
@@ -69,6 +79,7 @@ function loadDay() {
   $("game").hidden = false;
   showDifficulty(day.puzzle.difficulty);
   game = startGame(day, store.loadProgress());
+  if (liveMap) liveMap.reset();
   store.saveProgress(game);
   render();
 }
@@ -123,6 +134,8 @@ function render(anim = {}) {
     return `<li class="${cls}"${delay}><span class="n" aria-hidden="true">${i + 1}</span><p><span class="sr-only">Clue ${i + 1}: </span>${esc(c.text)}${bonus ? ' <span class="tag">Bonus clue</span>' : ""}</p></li>`;
   }).join("");
 
+  if (liveMap) liveMap.update(rows, { answer: game.answer, done: game.done });
+
   $("slots").innerHTML = Array.from({ length: CONFIG.MAX_GUESSES }, (_, i) =>
     `<div class="slot${anim.newRow && i === rows.length - 1 ? " pop" : ""}"${rows[i] ? ` style="background:var(--${rows[i].band})"` : ""}></div>`).join("");
 
@@ -142,6 +155,7 @@ function render(anim = {}) {
   play.hidden = game.done;
   if (!game.done) { $("result").hidden = true; return; }
   $("result").innerHTML = resultHTML(rows);
+  loadEveryone();
   if (!anim.finishing) { $("result").hidden = false; return; }
 
   // Keep the guess bar in place (faded, disabled) during the transition so the page doesn't jump.
@@ -172,12 +186,31 @@ function resultHTML(rows) {
   return `<h2 tabindex="-1">${title}</h2>
     <p>${sub}</p>
     <div class="emoji-row" aria-label="Your result">${rows.map((g) => BAND_EMOJI[g.band]).join("")}</div>
+    <section class="everyone" id="everyone"${showEveryone() ? "" : " hidden"}>${showEveryone() ? everyoneHTML(everyone.data, myScore()) : ""}</section>
     <div class="dyk"><h3>Did you know?</h3><p>${esc(p.didYouKnow.text)}</p>
       <a href="${esc(p.didYouKnow.source)}" target="_blank" rel="noopener">Source</a></div>
     ${statsHTML()}
     <div class="btns"><button type="button" id="share-btn">Share</button></div>
     <p class="copied" id="copied" aria-live="polite"></p>
     <p class="countdown-wrap">Next puzzle in <span class="countdown" data-countdown>${countdownText()}</span></p>`;
+}
+
+// ---------- How everyone did ----------
+const myScore = () => (game.won ? String(game.guesses.length) : "X");
+const showEveryone = () => everyone && everyone.puzzle === day.number && everyone.data;
+function loadEveryone() {
+  if (!CONFIG.EVERYONE_STATS || !game || !game.done || day.number < 1) return;
+  if (everyone && everyone.puzzle === day.number) return;
+  const puzzle = day.number;
+  everyone = { puzzle, data: null };
+  fetchEveryone(puzzle, myScore()).then((data) => {
+    if (!data || !day || day.number !== puzzle) return;
+    everyone.data = data;
+    const el = $("everyone");
+    if (!el) return;
+    el.innerHTML = everyoneHTML(data, myScore());
+    el.hidden = false;
+  });
 }
 
 function statsHTML() {

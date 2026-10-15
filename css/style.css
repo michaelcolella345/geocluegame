@@ -213,3 +213,56 @@ a.button { display: inline-block; font-weight: 600; text-decoration: none; borde
 /* More games page */
 .soon .globe { font-size: 2.6rem; line-height: 1; }
 h1 a.home { color: inherit; text-decoration: none; }
+
+/* Live map under the clues (js/map.js) */
+.live-map { position: relative; }
+.map-view { position: relative; overflow: hidden; aspect-ratio: 17 / 11; border-radius: 10px; border: 1px solid var(--line); background: #60aad6; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+.map-view.dragging { cursor: grabbing; }
+.map-view:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.map-world { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
+.map-terrain, .map-shapes { position: absolute; top: 0; }
+.map-terrain { background-repeat: repeat-x; }
+.map-shapes { overflow: visible; }
+.map-country { fill-opacity: .85; stroke: #fff; stroke-width: 1.5; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.map-country.cold { fill: #3f6f8f; } .map-country.mild { fill: #f2c418; } .map-country.warm { fill: #e5781a; } .map-country.hot { fill: #d1462f; } .map-country.win { fill: #1f8a4c; }
+.map-country.new { animation: map-shade .6s ease-out; }
+@keyframes map-shade { from { fill-opacity: 0; stroke-opacity: 0; } }
+.map-pin { position: absolute; transform-origin: 0 0; transform: scale(var(--pin-scale, 1)) translate(-50%, calc(-100% - 7px)); }
+.map-pin { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; font: 600 11px/1 var(--mono); color: #10273a; box-shadow: 0 1px 3px rgba(0, 0, 0, .3); }
+.map-pin::after { content: ""; position: absolute; left: 50%; bottom: -8px; margin-left: -4px; border: 4px solid transparent; border-top: 6px solid var(--pin); }
+.map-pin { background: var(--pin); }
+.map-pin.cold { --pin: #6f8fa3; } .map-pin.mild { --pin: #e6c229; } .map-pin.warm { --pin: #e5781a; } .map-pin.hot { --pin: #e0553c; } .map-pin.win { --pin: #2e8a57; color: #fff; }
+.map-pin.new { animation: map-pin .45s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes map-pin { from { opacity: 0; transform: scale(0) translate(-50%, calc(-100% - 7px)); } }
+.map-zoom { position: absolute; top: 8px; right: 8px; display: grid; gap: 6px; user-select: none; -webkit-user-select: none; }
+.map-zoom button.icon { width: 32px; height: 32px; border-radius: 8px; background: color-mix(in srgb, var(--card) 90%, transparent); color: var(--ink); font-size: 1.1rem; }
+:root[data-theme="dark"] .map-terrain { filter: brightness(.8) saturate(.9); }
+:root[data-theme="dark"] .map-view { background: #4d88ab; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .map-terrain { filter: brightness(.8) saturate(.9); }
+  :root:not([data-theme="light"]) .map-view { background: #4d88ab; }
+}
+@media (prefers-reduced-motion: reduce) { .map-country.new, .map-pin.new { animation: none; } }
+
+/* How everyone did today (js/everyone.js) */
+.everyone { width: 100%; text-align: left; border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 8px; }
+.everyone h3 { margin: 0; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.everyone p { margin: 0; color: var(--ink); }
+.everyone .everyone-wait { color: var(--muted); }
+.everyone-big { font-size: .9rem; }
+.everyone-big b { font-family: var(--display); font-weight: 800; font-size: 1.9rem; line-height: 1; margin-right: 4px; font-variant-numeric: tabular-nums; }
+.everyone-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+.everyone-bars li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr) 2.6rem; gap: 8px; align-items: center; font-family: var(--mono); font-size: .8rem; }
+.everyone-bars .track { position: relative; height: 18px; border-radius: 3px; background: color-mix(in srgb, var(--line) 55%, transparent); }
+.everyone-bars .fill { position: absolute; inset: 0 auto 0 0; width: var(--w); border-radius: 3px; background: var(--muted); animation: everyone-grow .7s cubic-bezier(.2, .8, .2, 1) calc(var(--i) * .1s) both; }
+.everyone-bars li.you .fill { background: var(--win); }
+.everyone-bars li.x .fill { background: color-mix(in srgb, var(--hot) 70%, var(--muted)); }
+.everyone-bars li.you.x .fill { background: var(--hot); }
+.everyone-bars .pct { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+.everyone-bars li.you .pct { color: var(--ink); }
+.everyone-bars .you-label { position: absolute; left: calc(var(--w) + 6px); top: 50%; transform: translateY(-50%); font-family: var(--body); font-size: .72rem; font-weight: 600; color: var(--win); white-space: nowrap; }
+.everyone-bars li.x .you-label { color: var(--hot); }
+.everyone-bars li .you-label.inside { left: auto; right: calc(100% - var(--w) + 6px); color: #fff; }
+.everyone-line { font-size: .9rem; }
+@keyframes everyone-grow { from { width: 0; } }
+@media (prefers-reduced-motion: reduce) { .everyone-bars .fill { animation: none; } }

@@ -5,4 +5,5 @@
 wrangler.jsonc
 *.md
 tools
+worker
 node_modules
