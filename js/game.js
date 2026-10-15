@@ -83,10 +83,9 @@ export function displayStreak(stats, todayNumber) {
   return stats.lastWon >= todayNumber - 1 ? stats.currentStreak : 0;
 }
 
-// The text the Share button copies, e.g. "GeoClue #12 3/5 🔥7\n🟨🟧🟩\ngeocluegame.com".
-// The 🔥 streak only appears from a 2-day streak up.
-export function shareText(number, game, scored, emoji, streak = 0) {
+// The text the Share button copies, e.g. "GeoClue #12 3/5\n🟨🟧🟩\ngeocluegame.com".
+// The streak stays in the stats on screen, not in the share text.
+export function shareText(number, game, scored, emoji) {
   const score = game.won ? game.guesses.length : "X";
-  const fire = game.won && streak >= 2 ? ` 🔥${streak}` : "";
-  return `GeoClue #${number} ${score}/${CONFIG.MAX_GUESSES}${fire}\n${scored.map((g) => emoji[g.band]).join("")}\n${CONFIG.SITE_URL}`;
+  return `GeoClue #${number} ${score}/${CONFIG.MAX_GUESSES}\n${scored.map((g) => emoji[g.band]).join("")}\n${CONFIG.SITE_URL}`;
 }

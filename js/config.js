@@ -22,4 +22,13 @@ export const CONFIG = {
 
   // "How everyone did today" on the results screen. Set to false to hide it.
   EVERYONE_STATS: true,
+
+  // Hindsight, the "which came first?" game (hindsight.html). Set to false to hide it everywhere.
+  HINDSIGHT: true,
+
+  // The date of Hindsight #1 (YYYY-MM-DD). Its matchups live in data/hindsight.json.
+  HINDSIGHT_LAUNCH_DATE: "2026-10-15",
+
+  // "Players who got this right" after each Hindsight matchup. Set to false to hide it.
+  HINDSIGHT_STATS: true,
 };

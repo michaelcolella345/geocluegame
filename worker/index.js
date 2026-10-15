@@ -25,8 +25,8 @@ const json = (body, status = 200) => new Response(JSON.stringify(body), {
 
 // Today's puzzle number in UTC. Players are in every timezone, so a puzzle is accepted from
 // one day before to one day after it.
-const utcPuzzleNumber = () => {
-  const [y, m, d] = CONFIG.LAUNCH_DATE.split("-").map(Number);
+const utcPuzzleNumber = (launch = CONFIG.LAUNCH_DATE) => {
+  const [y, m, d] = launch.split("-").map(Number);
   return Math.floor((Date.now() - Date.UTC(y, m - 1, d)) / 864e5) + 1;
 };
 
@@ -37,9 +37,33 @@ function summary(t) {
   return { enough: true, percent: Object.fromEntries(SCORES.map((s) => [s, Math.round((100 * (t[s] || 0)) / total)])) };
 }
 
+// Hindsight: the share of players for each score (0 to 10 points), once enough have finished.
+const POINTS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+function pointsSummary(t) {
+  const total = POINTS.reduce((n, s) => n + (t[s] || 0), 0);
+  if (total < MIN_PLAYERS) return { enough: false };
+  return { enough: true, percent: Object.fromEntries(POINTS.map((s) => [s, Math.round((100 * (t[s] || 0)) / total)])) };
+}
+
+async function hindsight(request, env, url) {
+  const puzzle = Number(url.searchParams.get("puzzle"));
+  if (!Number.isInteger(puzzle) || Math.abs(puzzle - utcPuzzleNumber(CONFIG.HINDSIGHT_LAUNCH_DATE)) > 1) return json({ error: "Unknown puzzle" }, 400);
+  const tally = env.TALLY.get(env.TALLY.idFromName(`hindsight-${puzzle}`));
+
+  if (request.method === "GET") return json(pointsSummary(await tally.read()));
+  if (request.method === "POST") {
+    const body = await request.json().catch(() => ({}));
+    const points = String(body.points);
+    if (!POINTS.includes(points)) return json({ error: "Unknown points" }, 400);
+    return json(pointsSummary(await tally.add(points)));
+  }
+  return json({ error: "Method not allowed" }, 405);
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/api/hindsight") return hindsight(request, env, url);
     if (url.pathname !== "/api/results") return env.ASSETS.fetch(request);
 
     const puzzle = Number(url.searchParams.get("puzzle"));

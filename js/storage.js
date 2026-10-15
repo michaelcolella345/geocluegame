@@ -31,3 +31,17 @@ export const markHelpSeen = () => set("seenHelp", true);
 
 export const loadTheme = () => get("theme", null); // "light" | "dark" | null (follow device)
 export const saveTheme = (t) => set("theme", t);
+
+// Hindsight (hindsight.html) keeps its own progress, stats and help flag. The theme is shared.
+// Today's game: { date, picks: [true/false per matchup answered] }
+export const loadHindsightProgress = () => get("hindsight:progress", null);
+export const saveHindsightProgress = (p) => set("hindsight:progress", p);
+export const emptyHindsightStats = () => ({
+  played: 0, totalPoints: 0, currentStreak: 0, bestStreak: 0,
+  dist: {}, // points (0 to 10) -> number of games
+  lastPlayed: null, // puzzle number of the last finished game
+});
+export const loadHindsightStats = () => ({ ...emptyHindsightStats(), ...get("hindsight:stats", {}) });
+export const saveHindsightStats = (s) => set("hindsight:stats", s);
+export const hasSeenHindsightHelp = () => get("hindsight:seenHelp", false);
+export const markHindsightHelpSeen = () => set("hindsight:seenHelp", true);

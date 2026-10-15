@@ -266,3 +266,20 @@ h1 a.home { color: inherit; text-decoration: none; }
 .everyone-line { font-size: .9rem; }
 @keyframes everyone-grow { from { width: 0; } }
 @media (prefers-reduced-motion: reduce) { .everyone-bars .fill { animation: none; } }
+
+/* GeoClue / Hindsight switch (top right, above the header) */
+.game-switch { justify-self: end; display: inline-flex; gap: 2px; padding: 3px; margin-bottom: -6px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--line); }
+.game-switch a { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 999px; font-size: .82rem; font-weight: 600; color: var(--muted); text-decoration: none; }
+.game-switch a:hover { color: var(--ink); }
+.game-switch a[aria-current="page"] { background: var(--accent); color: var(--on-accent); }
+.game-switch svg { width: 15px; height: 15px; }
+
+/* More games page: one card per game */
+.game-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.game-card { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 14px; align-items: center; padding: 16px 18px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--ink); text-decoration: none; }
+.game-card:hover { border-color: var(--accent); }
+.game-card .gi { grid-row: span 2; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: #fff; background: var(--gc, var(--accent)); }
+.game-card .gi svg { width: 24px; height: 24px; }
+.game-card b { font-family: var(--display); font-size: 1.2rem; font-weight: 800; }
+.game-card span { color: var(--muted); font-size: .9rem; }
+.games-soon { margin: 0; color: var(--muted); text-align: center; font-size: .9rem; }

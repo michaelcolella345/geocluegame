@@ -1,5 +1,6 @@
-// Header controls shared by every page: the ☰ menu and the light/dark toggle.
+// Header controls shared by every page: the ☰ menu, the light/dark toggle and the game switch.
 import * as store from "./storage.js";
+import { CONFIG } from "./config.js";
 
 const $ = (id) => document.getElementById(id);
 
@@ -57,5 +58,13 @@ function setupTheme() {
   updateThemeButton();
 }
 
+// ---------- Game switch ----------
+// The GeoClue / Hindsight switch and Hindsight's menu links disappear if Hindsight is switched off.
+function setupGames() {
+  if (CONFIG.HINDSIGHT !== false) return;
+  for (const el of document.querySelectorAll("[data-hindsight]")) el.remove();
+}
+
 setupMenu();
 setupTheme();
+setupGames();

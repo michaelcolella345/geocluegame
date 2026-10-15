@@ -77,3 +77,14 @@ These had a verify note from you (or I looked twice) and I found no problem: Per
 - That range has 9 Fridays, one more than there were hard puzzles, so I made **Estonia** hard as well. The hard puzzles, in order, are Nepal, Madagascar, Finland, Mongolia, Rwanda, Estonia, Uzbekistan, Ethiopia and Bhutan.
 - No two days in a row come from the same region, and launch day is an easy one (Colombia).
 - No country repeats. After Dec 11 the game shows "Back tomorrow!" until more puzzles are added, so **add puzzles from 2026-12-12 onward before then**.
+
+## Hindsight matchups (data/hindsight.json, Oct 15 to Dec 11)
+
+The matchups are built from the 354 events in `tools/hindsight/events.py`, and each event's year was checked when it was written. The game only needs the order of each pair to be right. Things worth knowing:
+
+- **Approximate dates** (marked "c." on screen, such as the Great Pyramid, Plato's Academy or Machu Picchu) are never paired with an event less than 10 years away, so the order holds even if the date is off by a few years.
+- **Traditional dates:** the first Olympics (776 BC), the founding of Rome (753 BC), Carthage (814 BC), the University of Bologna (1088) and the Ottoman state (1299) are dates by tradition, not proven ones. The event text says "by tradition" where it matters.
+- **Same-year events** are never paired.
+- **Close calls:** no matchup is less than 2 years apart, so the order never depends on which month something happened.
+
+Hindsight matchups run out after **December 11, 2026**, the same day as GeoClue. See README.md for how to add more.

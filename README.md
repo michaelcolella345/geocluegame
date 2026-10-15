@@ -18,12 +18,14 @@ To test a specific day, add `?date=2026-11-05` to the address. This only works o
 
 ```
 index.html            the game page
-games.html            the "More games coming soon" page (linked from the ☰ menu)
+games.html            the More games page (linked from the ☰ menu)
+hindsight.html        Hindsight, the "which came first?" game
 css/style.css         all styles
 js/config.js          launch date, site URL, distance bands  ← settings live here
 js/*.js               game code
 data/countries.json   every guessable country: name, code, center lat/lon, aliases
 data/puzzles.json     one puzzle per date
+data/hindsight.json   one set of six Hindsight matchups per date
 data/map-shapes.json  country outlines for shading guesses on the live map
 assets/               favicon, social preview image, fonts, map/terrain.jpg
 tools/validate.js     checks the data files for mistakes
@@ -106,6 +108,38 @@ After a game, the results screen shows what share of players solved today's puzz
 `.assetsignore` keeps the server code from being published as part of the site.
 
 If the site is also published as a Cloudflare Pages project (the `pages.dev` address), Pages can't run that Worker, so `functions/api/results.js` passes those requests on to the Worker's own address. Both addresses then share one tally.
+
+## Hindsight
+
+`hindsight.html` is a second daily game: six matchups of two events from history, and the player taps the one that happened first. After each pick it shows both years on a small timeline and a bonus fact about each event, with a link to read more. Each right pick is worth 1 point, and once a player has 2 in a row every right pick after that is worth 2, so a perfect day is 10. At the end it says "You did better than X% of players today". It uses GeoClue's layout and fonts with its own "Museum plum" colors (`css/hindsight.css`), keeps its own stats and day streak, and shares like this:
+
+```
+⏳ Hindsight #5 · 8/10
+🟩🟩🔥🟥🟩🟩
+geocluegame.com/hindsight
+```
+
+🟩 is a right pick, 🔥 a right pick on a streak (2 points) and 🟥 a miss. Right picks get a green flash, misses a shake, and a streak shows a "Heating up!" badge with a warm glow and embers. Players who turn off motion in their phone settings don't see the animations.
+
+A GeoClue / Hindsight switch sits above the header on both games, and Hindsight is listed on the More games page.
+
+Settings in `js/config.js`:
+
+- `HINDSIGHT`: set to `false` to hide the game, its switch and its menu links.
+- `HINDSIGHT_LAUNCH_DATE`: the date of Hindsight #1.
+- `HINDSIGHT_STATS`: set to `false` to hide "You did better than X%". Like "How everyone did", it stays hidden until 5 players finish and never shows a player count. Each browser sends its points once to `/api/hindsight` in `worker/index.js`.
+
+### Adding Hindsight matchups
+
+Matchups live in `data/hindsight.json`, one entry per date with exactly six rounds. It's made by a script from a list of dated events:
+
+1. Add events to `tools/hindsight/events.py`, and a bonus fact for each one to `tools/hindsight/facts.py` (the script stops if one is missing). Each has a year (negative for BC), the event, where it happened, its Wikipedia page, and optionally a `group` (events in the same group, like the start and end of one war, are never paired) and a `label` for approximate dates such as `"c. 1078"`.
+2. Run `python3 tools/hindsight/make_matchups.py 2026-10-15 2027-02-28` with the first and last date you want. It rewrites `data/hindsight.json` and always gives the same result for the same events and dates.
+3. Run `node tools/validate.js` to check the file.
+
+Each day takes one matchup from six different eras (ancient, medieval, 1500–1799, 1800s, 1900–1945, 1946–1989, 1990 on) in random order, so a day jumps around the centuries. Some matchups are close calls and some are a bit easier. The two events are close in time but never a coin flip: from 2 to 7 years apart in recent decades, up to about 150 years in ancient times (the limits are `MINGAP` and `MAXGAP` in the script). Approximate dates are always at least 10 years from their partner.
+
+To change one matchup by hand, edit `data/hindsight.json` directly: `first` must be the earlier event, and the game decides which one is shown on top. Rerunning the script would undo hand edits, so do those last.
 
 ## Deploying
 
