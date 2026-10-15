@@ -80,10 +80,10 @@ These had a verify note from you (or I looked twice) and I found no problem: Per
 
 ## Hindsight matchups (data/hindsight.json, Oct 15 to Dec 11)
 
-The matchups are built from the 354 events in `tools/hindsight/events.py`, and each event's year was checked when it was written. The game only needs the order of each pair to be right. Things worth knowing:
+The matchups are built from the 357 events in `tools/hindsight/events.py`. The game only needs the order of each pair to be right. Things worth knowing:
 
-- **Approximate dates** (marked "c." on screen, such as the Great Pyramid, Plato's Academy or Machu Picchu) are never paired with an event less than 10 years away, so the order holds even if the date is off by a few years.
-- **Traditional dates:** the first Olympics (776 BC), the founding of Rome (753 BC), Carthage (814 BC), the University of Bologna (1088) and the Ottoman state (1299) are dates by tradition, not proven ones. The event text says "by tradition" where it matters.
+- **Only firmly dated events (checked 2026-10-15):** every event and bonus fact was fact-checked, and events whose year is disputed, approximate or only traditional were removed: the Great Pyramid, Hammurabi's code, the Thera eruption, the last mammoths, Ramesses II and Kadesh, Tutankhamun's death, the founding of Carthage and Rome, the first Olympics, the Roman Republic, Confucius's birth, the 587 BC fall of Jerusalem, Plato's Academy, Ashoka, the Terracotta Army's burial, Caesar's birth, Roman London, the Battle of Tours, Al-Qarawiyyin, Vladimir's baptism, Bologna, Angkor Wat, the Ottoman founding, Mansa Musa, Tenochtitlan, Pachacuti, Machu Picchu, the Gutenberg Bible, the Taj Mahal, Franklin's kite (it may never have happened) and the oldest photograph. 35 well-dated events replaced them. Bonus facts that were slightly off were corrected (for example the Great Plague, Napoleon's crowning, the first balloon flight and the insulin patent), and "Luther posts his 95 Theses" became "publishes", since the nailing story is doubtful.
+- **Hindsight #1 (October 15)** was left as it was, because people had already played it. It still has two of the removed events. Plato's Academy (about 387 BC) against Alexander's death (323 BC) is safe either way. The University of Bologna (1088, by tradition) against the crusaders taking Jerusalem (1099) is the one shaky matchup, since historians aren't sure Bologna's university existed by 1099.
 - **Same-year events** are never paired.
 - **Close calls:** no matchup is less than 2 years apart, so the order never depends on which month something happened.
 
