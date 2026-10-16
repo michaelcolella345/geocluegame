@@ -3,3 +3,6 @@ node_modules/
 *.log
 .wrangler/
 __pycache__/
+
+# Promo videos made by tools/promo/make-video.mjs
+tools/promo/out/
