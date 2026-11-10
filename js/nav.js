@@ -65,6 +65,15 @@ function setupGames() {
   for (const el of document.querySelectorAll("[data-hindsight]")) el.remove();
 }
 
+// ---------- New look ----------
+// NEW_LOOK: false in config.js switches off css/refresh.css and goes back to the previous look.
+function setupLook() {
+  if (CONFIG.NEW_LOOK !== false) return;
+  const css = $("refresh-css");
+  if (css) css.disabled = true;
+}
+
+setupLook();
 setupMenu();
 setupTheme();
 setupGames();

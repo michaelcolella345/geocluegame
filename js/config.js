@@ -17,6 +17,10 @@ export const CONFIG = {
   // Leave it as "" to turn stats off.
   GOATCOUNTER_CODE: "geocluegame",
 
+  // The 2026 refresh: new look and smoother animations on every page (css/refresh.css).
+  // Set to false to go back to the previous look and animations.
+  NEW_LOOK: true,
+
   // The live map under the clues. Set to false to hide it and play without a map.
   LIVE_MAP: true,
 
