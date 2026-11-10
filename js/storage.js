@@ -49,3 +49,24 @@ export const loadHindsightStats = () => ({ ...emptyHindsightStats(), ...get("hin
 export const saveHindsightStats = (s) => set("hindsight:stats", s);
 export const hasSeenHindsightHelp = () => get("hindsight:seenHelp", false);
 export const markHindsightHelpSeen = () => set("hindsight:seenHelp", true);
+
+// Past games (js/archive.js): every game this browser has played, by date, so the calendar can
+// show which days are done and old puzzles can be replayed. Replays are saved here only, never
+// in the progress or stats above.
+// GeoClue: { "YYYY-MM-DD": { guesses: [country names], done, won } }
+// Hindsight: { "YYYY-MM-DD": { picks: [true/false per matchup] } }
+export const loadHistory = () => get("history", {}) || {};
+export function saveHistoryDay(dateKey, g) {
+  set("history", { ...loadHistory(), [dateKey]: { guesses: g.guesses, done: g.done, won: g.won } });
+}
+export const loadHindsightHistory = () => get("hindsight:history", {}) || {};
+export function saveHindsightHistoryDay(dateKey, picks) {
+  set("hindsight:history", { ...loadHindsightHistory(), [dateKey]: { picks } });
+}
+// Games finished before the calendar existed: the last saved game of each kind still counts.
+export function backfillHistory() {
+  const g = loadProgress();
+  if (g && g.done && g.date && !loadHistory()[g.date]) saveHistoryDay(g.date, g);
+  const h = loadHindsightProgress();
+  if (h && h.date && Array.isArray(h.picks) && h.picks.length === 6 && !loadHindsightHistory()[h.date]) saveHindsightHistoryDay(h.date, h.picks);
+}

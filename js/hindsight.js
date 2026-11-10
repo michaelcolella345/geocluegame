@@ -5,7 +5,7 @@ import { CONFIG } from "./config.js";
 import * as store from "./storage.js";
 import * as track from "./track.js";
 import "./nav.js";
-import { localDateKey, daysBetween, msUntilMidnight } from "./game.js";
+import { todayKey, replayKey, daysBetween, msUntilMidnight } from "./game.js";
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -14,15 +14,11 @@ const MAX_POINTS = 10;
 const SENT_KEY = "geoclue:v1:hindsight:sent"; // puzzle number of the last result sent from this browser
 
 let sets, day, picks = [], field = null;
+// The past day being replayed from the Past games calendar (js/archive.js), or null for today.
+// A replay is saved only in the calendar's history: no streak, stats, GoatCounter or "Players who got this right".
+let replay = null;
 
 // ---------- Which day is it? ----------
-// On localhost you can test any date with ?date=YYYY-MM-DD.
-function todayKey() {
-  const local = ["localhost", "127.0.0.1", ""].includes(location.hostname);
-  const forced = new URLSearchParams(location.search).get("date");
-  if (local && /^\d{4}-\d{2}-\d{2}$/.test(forced || "")) return forced;
-  return localDateKey();
-}
 const prettyDate = (key) => {
   const [y, m, d] = key.split("-").map(Number);
   return new Date(y, m - 1, d).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
@@ -74,8 +70,11 @@ function showNotice(title, text, extra = "") {
 }
 
 function loadDay() {
-  const key = todayKey();
+  replay = replayKey(CONFIG.HINDSIGHT_LAUNCH_DATE, todayKey());
+  const key = replay || todayKey();
   const number = puzzleNumber(key);
+  $("past-note").hidden = !replay;
+  if (replay) $("past-note").innerHTML = `Past matchups from ${prettyDate(key)}. They won't change your streak or stats. <a href="hindsight.html">Play today's Hindsight</a>`;
   const set = sets[key];
   day = { key, number, rounds: set && set.rounds };
   $("meta").innerHTML = number >= 1 ? `Hindsight #${number}<br>${prettyDate(key)}` : prettyDate(key);
@@ -86,7 +85,7 @@ function loadDay() {
 
   $("notice").hidden = true;
   $("game").hidden = false;
-  const saved = store.loadHindsightProgress();
+  const saved = replay ? { date: key, ...store.loadHindsightHistory()[key] } : store.loadHindsightProgress();
   picks = saved && saved.date === key && Array.isArray(saved.picks) ? saved.picks.slice(0, ROUNDS) : [];
   if (picks.length === ROUNDS) loadField();
   picks.length === ROUNDS ? showResult(false) : showRound();
@@ -194,9 +193,12 @@ function answer(btn) {
   const r = day.rounds[i];
   const right = btn.dataset.first === "true";
   picks = [...picks, right];
-  store.saveHindsightProgress({ date: day.key, picks });
-  if (picks.length === 1) track.hindsightStarted(day.number);
-  if (picks.length === ROUNDS) finish();
+  if (replay) store.saveHindsightHistoryDay(day.key, picks);
+  else {
+    store.saveHindsightProgress({ date: day.key, picks });
+    if (picks.length === 1) track.hindsightStarted(day.number);
+    if (picks.length === ROUNDS) finish();
+  }
   const earned = pointsList()[i];
 
   for (const b of document.querySelectorAll(".pick")) {
@@ -243,7 +245,7 @@ function next() {
 // The finished game's points are sent once, anonymously, to worker/index.js, which answers with
 // the share of players for each score. Nothing shows until 5 players have finished.
 async function loadField() {
-  if (!CONFIG.HINDSIGHT_STATS || day.number < 1) return;
+  if (!CONFIG.HINDSIGHT_STATS || replay || day.number < 1) return;
   const number = day.number;
   const points = totalPoints();
   let lastSent = 0;
@@ -273,6 +275,7 @@ function fieldHTML() {
 function finish() {
   const points = totalPoints();
   store.saveHindsightStats(recordResult(store.loadHindsightStats(), day.number, points));
+  store.saveHindsightHistoryDay(day.key, picks);
   track.hindsightFinished(day.number, points);
   loadField();
 }
@@ -311,7 +314,9 @@ function showResult(focus) {
     ${statsHTML()}
     <div class="btns"><button type="button" id="share-btn">Share</button></div>
     <p class="copied" id="copied" aria-live="polite"></p>
-    <p>New matchups in <span class="countdown" data-countdown>${countdownText()}</span></p>`;
+    ${replay
+      ? `<p class="past-note">These were past matchups, so your streak and stats stay as they were. <a href="hindsight.html">Play today's Hindsight</a></p>`
+      : `<p>New matchups in <span class="countdown" data-countdown>${countdownText()}</span></p>`}`;
   $("result").hidden = false;
   if (focus) $("result").querySelector("h2").focus({ preventScroll: true });
 }
@@ -326,7 +331,7 @@ function recapHTML() {
 
 function statsHTML() {
   const s = store.loadHindsightStats();
-  const streak = day && day.number >= 1 ? displayStreak(s, day.number) : 0;
+  const streak = Math.max(0, displayStreak(s, puzzleNumber(todayKey())));
   // Points grouped into rows so the chart stays short.
   const groups = [["10", [10]], ["8–9", [8, 9]], ["6–7", [6, 7]], ["4–5", [4, 5]], ["0–3", [0, 1, 2, 3]]];
   const count = (g) => g.reduce((n, p) => n + (s.dist[p] || 0), 0);
@@ -375,7 +380,7 @@ function countdownText() {
   return `${p(Math.floor(s / 3600))}:${p(Math.floor((s % 3600) / 60))}:${p(s % 60)}`;
 }
 function tick() {
-  if (day && todayKey() !== day.key) { loadDay(); return; }
+  if (day && !replay && todayKey() !== day.key) { loadDay(); return; }
   for (const el of document.querySelectorAll("[data-countdown]")) el.textContent = countdownText();
 }
 

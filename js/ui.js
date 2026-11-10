@@ -8,7 +8,7 @@ import { loadShapes, createMap } from "./map.js";
 import { fetchEveryone, everyoneHTML } from "./everyone.js";
 import "./nav.js";
 import {
-  localDateKey, puzzleFor, startGame, applyGuess, scoreGuess, cluesShown,
+  todayKey, replayKey, puzzleNumber, puzzleFor, startGame, applyGuess, scoreGuess, cluesShown,
   recordResult, displayStreak, shareText, msUntilMidnight,
 } from "./game.js";
 
@@ -22,15 +22,9 @@ const closeness = (miles) => Math.max(4, Math.round(100 * (1 - Math.min(miles, 1
 
 let matcher, puzzles, day, game, liveMap;
 let everyone = null; // { puzzle, data } once "How everyone did" has loaded
-
-// ---------- Which day is it? ----------
-// On localhost you can test any date with ?date=YYYY-MM-DD.
-function todayKey() {
-  const local = ["localhost", "127.0.0.1", ""].includes(location.hostname);
-  const forced = new URLSearchParams(location.search).get("date");
-  if (local && /^\d{4}-\d{2}-\d{2}$/.test(forced || "")) return forced;
-  return localDateKey();
-}
+// The past day being replayed from the Past games calendar (js/archive.js), or null for today.
+// A replay is saved only in the calendar's history: no streak, stats, GoatCounter or "How everyone did".
+let replay = null;
 
 function prettyDate(key) {
   const [y, m, d] = key.split("-").map(Number);
@@ -76,8 +70,12 @@ function showMap(on) {
 }
 
 function loadDay() {
-  const key = todayKey();
+  replay = replayKey(CONFIG.LAUNCH_DATE, todayKey());
+  const key = replay || todayKey();
   day = puzzleFor(key, puzzles);
+  const note = $("past-note");
+  note.hidden = !replay;
+  if (replay) note.innerHTML = `Past puzzle from ${prettyDate(key)}. It won't change your streak or stats. <a href="./">Play today's GeoClue</a>`;
   $("meta").innerHTML = day.number >= 1
     ? `GeoClue #${day.number}<br>${prettyDate(key)}`
     : prettyDate(key);
@@ -95,9 +93,10 @@ function loadDay() {
   $("notice").hidden = true;
   $("game").hidden = false;
   showDifficulty(day.puzzle.difficulty);
-  game = startGame(day, store.loadProgress());
+  const past = replay && store.loadHistory()[key];
+  game = startGame(day, replay ? past && { ...past, date: key, answer: day.puzzle.answer } : store.loadProgress());
   if (liveMap) liveMap.reset();
-  store.saveProgress(game);
+  if (!replay) store.saveProgress(game);
   render();
 }
 
@@ -111,7 +110,7 @@ function showDifficulty(level) {
   const name = level[0].toUpperCase() + level.slice(1);
   el.dataset.level = level;
   el.innerHTML = `<span class="dots" aria-hidden="true">${LEVELS.map((_, i) => `<i${i < n ? ' class="on"' : ""}></i>`).join("")}</span>` +
-    `<span>Today's difficulty: <b>${name}</b></span>`;
+    `<span>${replay ? "Difficulty" : "Today's difficulty"}: <b>${name}</b></span>`;
 }
 
 function showNotice(title, text, countdown = false) {
@@ -211,7 +210,9 @@ function resultHTML(rows) {
     ${statsHTML()}
     <div class="btns"><button type="button" id="share-btn">Share</button>${hindsightButton()}</div>
     <p class="copied" id="copied" aria-live="polite"></p>
-    <p class="countdown-wrap">Next puzzle in <span class="countdown" data-countdown>${countdownText()}</span></p>`;
+    ${replay
+      ? `<p class="past-note">This was a past puzzle, so your streak and stats stay as they were. <a href="./">Play today's GeoClue</a></p>`
+      : `<p class="countdown-wrap">Next puzzle in <span class="countdown" data-countdown>${countdownText()}</span></p>`}`;
 }
 
 // "Play Hindsight" next to Share. Off when Hindsight or this button is switched off in config.js.
@@ -224,7 +225,7 @@ function hindsightButton() {
 const myScore = () => (game.won ? String(game.guesses.length) : "X");
 const showEveryone = () => everyone && everyone.puzzle === day.number && everyone.data;
 function loadEveryone() {
-  if (!CONFIG.EVERYONE_STATS || !game || !game.done || day.number < 1) return;
+  if (!CONFIG.EVERYONE_STATS || replay || !game || !game.done || day.number < 1) return;
   if (everyone && everyone.puzzle === day.number) return;
   const puzzle = day.number;
   everyone = { puzzle, data: null };
@@ -240,7 +241,7 @@ function loadEveryone() {
 
 function statsHTML() {
   const s = store.loadStats();
-  const streak = displayStreak(s, day && day.number >= 1 ? day.number : 0);
+  const streak = displayStreak(s, Math.max(0, puzzleNumber(todayKey())));
   const keys = [1, 2, 3, 4, 5, "fail"];
   const max = Math.max(1, ...keys.map((k) => s.dist[k] || 0));
   const mine = game && game.done && day && s.lastPlayed === day.number ? (game.won ? game.guesses.length : "fail") : null;
@@ -281,11 +282,15 @@ function submitGuess(raw) {
   if (error) { setMsg(error); return; }
   setMsg("");
   game = next;
-  store.saveProgress(game);
-  if (game.guesses.length === 1) track.started(day.number);
-  if (game.done) {
-    store.saveStats(recordResult(store.loadStats(), day.number, game));
-    track.finished(day.number, game);
+  if (replay) store.saveHistoryDay(day.dateKey, game);
+  else {
+    store.saveProgress(game);
+    if (game.guesses.length === 1) track.started(day.number);
+    if (game.done) {
+      store.saveStats(recordResult(store.loadStats(), day.number, game));
+      store.saveHistoryDay(day.dateKey, game);
+      track.finished(day.number, game);
+    }
   }
   $("guess").value = "";
   hideSugg();
@@ -380,7 +385,7 @@ function countdownText() {
   return `${p(Math.floor(s / 3600))}:${p(Math.floor((s % 3600) / 60))}:${p(s % 60)}`;
 }
 function tick() {
-  if (day && todayKey() !== day.dateKey) { $("msg").textContent = ""; loadDay(); return; }
+  if (day && !replay && todayKey() !== day.dateKey) { $("msg").textContent = ""; loadDay(); return; }
   for (const el of document.querySelectorAll("[data-countdown]")) el.textContent = countdownText();
 }
 
