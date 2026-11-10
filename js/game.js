@@ -8,6 +8,23 @@ const pad = (n) => String(n).padStart(2, "0");
 // The player's local calendar date as "YYYY-MM-DD".
 export const localDateKey = (d = new Date()) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 
+// Today's date key. On localhost you can test any date with ?date=YYYY-MM-DD.
+export function todayKey() {
+  const local = ["localhost", "127.0.0.1", ""].includes(location.hostname);
+  const forced = new URLSearchParams(location.search).get("date");
+  if (local && /^\d{4}-\d{2}-\d{2}$/.test(forced || "")) return forced;
+  return localDateKey();
+}
+
+// The past day being replayed (?day=YYYY-MM-DD from the Past games calendar), or null for today.
+// Only days from launch up to yesterday count; anything else plays today's game.
+export function replayKey(launchKey, today) {
+  if (CONFIG.ARCHIVE === false) return null;
+  const key = new URLSearchParams(location.search).get("day");
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(key || "")) return null;
+  return daysBetween(launchKey, key) >= 0 && daysBetween(key, today) > 0 ? key : null;
+}
+
 // Whole days between two "YYYY-MM-DD" dates (timezone-proof: both are treated as UTC midnights).
 const dayIndex = (key) => Date.UTC(+key.slice(0, 4), +key.slice(5, 7) - 1, +key.slice(8, 10)) / 864e5;
 export const daysBetween = (fromKey, toKey) => dayIndex(toKey) - dayIndex(fromKey);

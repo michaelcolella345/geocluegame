@@ -1,6 +1,7 @@
 // Header controls shared by every page: the ☰ menu, the light/dark toggle and the game switch.
 import * as store from "./storage.js";
 import { CONFIG } from "./config.js";
+import "./archive.js";
 
 const $ = (id) => document.getElementById(id);
 

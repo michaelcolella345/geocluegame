@@ -21,6 +21,10 @@ export const CONFIG = {
   // Set to false to go back to the previous look and animations.
   NEW_LOOK: true,
 
+  // "Past games" in the ☰ menu: a calendar of earlier days to replay. Replays never change
+  // streaks, stats or "How everyone did". Set to false to hide it.
+  ARCHIVE: true,
+
   // The live map under the clues. Set to false to hide it and play without a map.
   LIVE_MAP: true,
 
