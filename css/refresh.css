@@ -1,0 +1,320 @@
+/* GeoClue 2026 refresh: new look + motion, layered on top of style.css (and hindsight.css).
+   Turn it all off with NEW_LOOK: false in js/config.js (js/nav.js then switches this file off).
+   Layout: field-notebook column. Clues sit on a dotted "trail", the guess bar comes right after
+   them (so it's on screen without scrolling on a phone), then your guesses, then the map. */
+
+:root {
+  /* Colors: same sea-green and chart-water blue as before, a touch deeper and cleaner */
+  --bg: #e4eeeb;
+  --card: #fbfdfc;
+  --ink: #0e2535;
+  --muted: #557080;
+  --line: #c6d7d3;
+  --accent: #1d6c89;
+  --accent-soft: #d6e8ee;
+  --shadow: 0 1px 0 rgba(14, 37, 53, .04), 0 6px 20px -8px rgba(14, 37, 53, .18);
+  --radius: 16px;
+
+  /* Motion: one set of timings and curves for the whole site */
+  --t-fast: 160ms;
+  --t-med: 280ms;
+  --t-slow: 520ms;
+  --ease-out: cubic-bezier(.16, 1, .3, 1);       /* quick start, long gentle settle */
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1); /* fallback for browsers without linear() */
+}
+@supports (animation-timing-function: linear(0, 1)) {
+  :root {
+    /* A real spring: overshoots a little, wobbles once, settles */
+    --ease-spring: linear(0, .009, .035 2.1%, .141 4.4%, .723 12.9%, .938 16.7%, 1.017 19.4%, 1.067, 1.099 24.3%,
+      1.104 25.6%, 1.099 27%, 1.077 29.6%, .994 38.1%, .981 41.2%, .98 44.3%, .992 52.5%, 1.001 61.4%, 1);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a1822; --card: #112532; --ink: #e4eff1; --muted: #8ea8b5; --line: #22404f; --accent: #63b8d4; --accent-soft: #163949;
+    --shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 10px 26px -10px rgba(0, 0, 0, .6);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a1822; --card: #112532; --ink: #e4eff1; --muted: #8ea8b5; --line: #22404f; --accent: #63b8d4; --accent-soft: #163949;
+  --shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 10px 26px -10px rgba(0, 0, 0, .6);
+}
+/* Hindsight keeps its Museum plum */
+:root.hindsight { --accent-soft: #e9dff3; }
+@media (prefers-color-scheme: dark) { :root.hindsight:not([data-theme="light"]) { --accent-soft: #2e2240; } }
+:root.hindsight[data-theme="dark"] { --accent-soft: #2e2240; }
+
+/* ---------- Page ---------- */
+body {
+  padding: 18px max(16px, env(safe-area-inset-right)) 48px max(16px, env(safe-area-inset-left));
+  background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--line) 55%, transparent) 1px, transparent 0);
+}
+/* Contour rings behind the header, like the lines on a survey map */
+.wrap { position: relative; gap: 16px; }
+.wrap::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  top: -60px; right: -90px; width: 380px; height: 300px;
+  background: repeating-radial-gradient(ellipse at 70% 30%, transparent 0 17px, color-mix(in srgb, var(--accent) 16%, transparent) 17px 18px);
+  -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent);
+  mask-image: radial-gradient(closest-side, #000 30%, transparent);
+}
+
+/* ---------- Header ---------- */
+h1 { font-size: clamp(2.3rem, 10vw, 3rem); letter-spacing: -.035em; }
+h1 span { color: var(--accent); }
+.meta { font-size: .7rem; line-height: 1.45; }
+button.icon {
+  border-radius: 12px; border: 1px solid var(--line); background: color-mix(in srgb, var(--card) 70%, transparent);
+  color: var(--ink); transition: transform var(--t-fast) var(--ease-out), background var(--t-fast), border-color var(--t-fast);
+}
+button.icon:hover { border-color: var(--accent); color: var(--accent); }
+button.icon:active { transform: scale(.92); }
+.theme-btn svg { transition: transform var(--t-slow) var(--ease-spring); }
+.theme-btn:active svg { transform: rotate(40deg); }
+
+.game-switch { border: 1px solid var(--line); background: color-mix(in srgb, var(--card) 80%, transparent); box-shadow: var(--shadow); }
+.game-switch a { transition: color var(--t-fast), background var(--t-med) var(--ease-out); }
+
+.lede { font-size: .95rem; }
+.difficulty { margin-top: -4px; background: var(--card); box-shadow: var(--shadow); }
+
+/* ---------- Cards ---------- */
+.card { border-radius: var(--radius); border-color: color-mix(in srgb, var(--line) 70%, transparent); box-shadow: var(--shadow); padding: 18px 18px 18px 16px; }
+
+/* ---------- Clue trail: numbered stops joined by a dotted route ---------- */
+.clues { gap: 0; }
+.clue { position: relative; grid-template-columns: 2.4rem 1fr; gap: 12px; padding-bottom: 14px; }
+.clue:last-child { padding-bottom: 0; }
+.clue::before { /* the route to the next stop */
+  content: ""; position: absolute; left: calc(1.2rem - 1px); top: 2rem; bottom: 0; width: 2px;
+  background: linear-gradient(var(--accent) 50%, transparent 0) 0 0 / 2px 6px repeat-y;
+  opacity: .55; transform-origin: top;
+}
+.clue:last-child::before { display: none; }
+.clue.locked::before { background-image: linear-gradient(var(--line) 50%, transparent 0); opacity: 1; }
+.clue .n {
+  width: 2.1rem; height: 2.1rem; margin-left: .15rem; border: 0; font-weight: 500; font-size: .82rem;
+  background: var(--accent); color: var(--on-accent); box-shadow: 0 0 0 4px var(--card);
+}
+.clue.locked .n { background: var(--card); color: var(--muted); border: 1.5px dashed var(--line); box-shadow: 0 0 0 4px var(--card); }
+.clue p { padding-top: .25rem; font-size: 1rem; line-height: 1.5; }
+.clue.locked p { font-style: normal; font-size: .85rem; padding-top: .45rem; }
+.clue.bonus .n { background: var(--win); color: #fff; border: 0; }
+.clue .tag { color: var(--win); }
+
+/* A new clue unlocks: the stop pops, a ring pings out of it, the route draws down, the text wipes in */
+.clue.new .n { animation: stop-pop var(--t-slow) var(--ease-spring) both; }
+.clue.new .n::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--accent);
+  animation: ping 900ms var(--ease-out) 120ms both;
+}
+.clue .n { position: relative; }
+.clue.new p { animation: clue-wipe 620ms var(--ease-out) 90ms both; }
+.clue.new + .clue::before, .clue:has(+ .clue.new)::before { animation: route-draw 420ms var(--ease-out) both; }
+@keyframes stop-pop { 0% { transform: scale(.4); } 100% { transform: none; } }
+@keyframes ping { 0% { opacity: .9; transform: scale(1); } 100% { opacity: 0; transform: scale(2.1); } }
+@keyframes clue-wipe {
+  0% { opacity: 0; clip-path: inset(0 100% 0 0); transform: translateX(-6px); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); transform: none; }
+}
+@keyframes route-draw { from { transform: scaleY(0); } }
+/* Bonus clues after a win cascade down the trail */
+.clue.reveal { animation: none; }
+.clue.reveal .n { animation: stop-pop var(--t-slow) var(--ease-spring) var(--d, 0ms) both; }
+.clue.reveal p { animation: clue-wipe 620ms var(--ease-out) calc(var(--d, 0ms) + 60ms) both; }
+
+/* ---------- Guesses left + guess bar ---------- */
+main > .lede { order: 1; } main > .difficulty { order: 2; } main > .card:not(.result) { order: 3; }
+main > .slots { order: 4; } main > #play { order: 5; } main > .result { order: 6; }
+main > section[aria-label="Your guesses"] { order: 7; } main > .map-switch { order: 8; } main > .live-map { order: 9; } main > .legend { order: 10; }
+/* Hindsight keeps its own order */
+.hindsight main > * { order: 0; }
+
+.slots { gap: 5px; margin-bottom: -8px; }
+.slot { height: 6px; border-radius: 99px; transition: background var(--t-med); }
+.slot.pop { animation: pip-fill 520ms var(--ease-spring) both; transform-origin: left; }
+@keyframes pip-fill { 0% { transform: scaleX(0); } 100% { transform: none; } }
+
+.guessbar { gap: 8px; }
+#guess {
+  height: 52px; padding: 0 16px; border-radius: 14px; border: 1.5px solid var(--line); background: var(--card); box-shadow: var(--shadow);
+  font-size: 1.05rem; transition: border-color var(--t-fast), box-shadow var(--t-med) var(--ease-out);
+}
+#guess:focus { border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent), var(--shadow); }
+button, a.button { border-radius: 14px; transition: transform var(--t-fast) var(--ease-out), filter var(--t-fast), background var(--t-fast); }
+button:not(.icon):not(.pick):active, a.button:active { transform: scale(.96); }
+button:hover:not(:disabled), a.button:hover { filter: brightness(1.07); }
+#go { height: 52px; padding: 0 22px; }
+.sugg { border-radius: 14px; box-shadow: 0 14px 34px -10px rgba(0, 0, 0, .3); animation: sugg-in var(--t-med) var(--ease-out); transform-origin: top; }
+.sugg li { padding: 11px 12px; border-radius: 9px; }
+@keyframes sugg-in { from { opacity: 0; transform: translateY(-4px) scale(.98); } }
+.msg:not(:empty) { animation: nudge 300ms var(--ease-out); }
+@keyframes nudge { 0% { transform: translateX(-6px); opacity: 0; } 100% { transform: none; opacity: 1; } }
+
+/* ---------- Your guesses ---------- */
+.log { gap: 8px; }
+.row {
+  grid-template-columns: minmax(0, 1fr) auto 36px; gap: 2px 12px; padding: 12px 12px 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--line) 70%, transparent); border-left: 0; border-radius: 14px;
+  background: var(--card); box-shadow: var(--shadow); position: relative; overflow: hidden;
+}
+.row::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--c); }
+.row .name { grid-column: 1; grid-row: 1; font-size: 1.02rem; }
+.row .band { grid-column: 1; grid-row: 2; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
+.row .dist { grid-column: 2; grid-row: 1 / span 2; font-size: 1.05rem; font-weight: 500; align-self: center; }
+.row .arrow {
+  grid-column: 3; grid-row: 1 / span 2; width: 36px; height: 36px; border-radius: 50%;
+  background: color-mix(in srgb, var(--c) 14%, var(--card)); border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
+}
+.row .arrow svg { width: 20px; height: 20px; }
+/* How close you were: a thin bar along the bottom, fuller when nearer */
+.row .prox { position: absolute; left: 5px; right: 0; bottom: 0; height: 3px; background: color-mix(in srgb, var(--c) 12%, transparent); }
+.row .prox i { display: block; height: 100%; width: var(--p); background: var(--c); border-radius: 0 3px 3px 0; transform-origin: left; }
+
+/* A guess lands: the row drops in, the arrow swings from north to its heading, the closeness bar fills */
+.row.enter { animation: row-drop 560ms var(--ease-spring) both; }
+.row.enter .arrow svg { animation: needle 900ms var(--ease-spring) 120ms both; }
+.row.enter .prox i { animation: prox-fill 800ms var(--ease-out) 200ms both; }
+.row.miss { animation: row-drop 560ms var(--ease-spring) both, shake-damped 520ms var(--ease-out) 420ms; }
+@keyframes row-drop { 0% { opacity: 0; transform: translateY(-14px) scale(.97); } 40% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+@keyframes needle { from { transform: rotate(calc(var(--deg, 0deg) - 200deg)); } }
+@keyframes prox-fill { from { transform: scaleX(0); } }
+@keyframes shake-damped {
+  0%, 100% { transform: none; } 15% { transform: translateX(-8px); } 30% { transform: translateX(6px); }
+  45% { transform: translateX(-4px); } 60% { transform: translateX(2px); } 75% { transform: translateX(-1px); }
+}
+
+/* The right answer: the row fills green from the left and a ring ripples out from it */
+.row.win { --c: var(--win); animation: row-drop 560ms var(--ease-spring) both; }
+.row.win::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--win) 22%, transparent), color-mix(in srgb, var(--win) 8%, transparent));
+  transform-origin: left; animation: win-fill 700ms var(--ease-out) 150ms both;
+}
+.row.win > * { position: relative; z-index: 1; }
+.row.win .arrow { background: var(--win); color: #fff !important; border-color: var(--win); animation: stop-pop 600ms var(--ease-spring) 250ms both; }
+@keyframes win-fill { from { transform: scaleX(0); } }
+
+/* ---------- Win moment (WIN_FLASH): a soft green bloom that grows out of the winning row ---------- */
+.win-flash.bloom { background: none; opacity: 1; }
+.win-flash.bloom::before, .win-flash.bloom::after { content: ""; position: absolute; left: var(--x, 50%); top: var(--y, 50%); border-radius: 50%; translate: -50% -50%; }
+.win-flash.bloom::before {
+  width: 240vmax; height: 240vmax; opacity: 0; scale: 0;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--win) 30%, transparent), color-mix(in srgb, var(--win) 12%, transparent) 55%, transparent);
+}
+.win-flash.bloom::after { width: 60px; height: 60px; opacity: 0; border: 3px solid var(--win); }
+.win-flash.bloom.on { animation: none; }
+.win-flash.bloom.on::before { animation: bloom 1100ms var(--ease-out) both; }
+.win-flash.bloom.on::after { animation: ripple 900ms var(--ease-out) 80ms both; }
+@keyframes bloom { 0% { opacity: 1; scale: 0; } 55% { opacity: .9; } 100% { opacity: 0; scale: 1; } }
+@keyframes ripple { 0% { opacity: .9; scale: .4; } 100% { opacity: 0; scale: 7; } }
+
+/* ---------- Results ---------- */
+.result { gap: 14px; padding: 22px 18px; }
+.result h2, .notice h2 { font-size: 2rem; letter-spacing: -.02em; }
+.result.enter { animation: result-rise 680ms var(--ease-spring) both; }
+@keyframes result-rise { 0% { opacity: 0; transform: translateY(24px) scale(.97); } 35% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+.result.enter .emoji-row { animation: stamp 520ms var(--ease-spring) 260ms both; }
+.result.enter .stats .stat { animation: rise 460ms var(--ease-out) both; }
+.result.enter .stats .stat:nth-child(2) { animation-delay: 60ms; }
+.result.enter .stats .stat:nth-child(3) { animation-delay: 120ms; }
+.result.enter .stats .stat:nth-child(4) { animation-delay: 180ms; }
+.dist .bar { border-radius: 5px; transform-origin: left; }
+.result.enter .dist .bar, dialog[open] .dist .bar { animation: prox-fill 700ms var(--ease-out) 300ms both; }
+@keyframes stamp { 0% { opacity: 0; transform: scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+.stat b { font-size: 1.7rem; }
+
+/* ---------- Dialogs and menu ---------- */
+dialog { border-radius: 20px; border-color: var(--line); box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .45); }
+dialog[open] { animation: dlg-in 360ms var(--ease-spring); }
+dialog[open]::backdrop { animation: fade-in var(--t-med) var(--ease-out); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+@keyframes dlg-in { from { opacity: 0; transform: translateY(16px) scale(.96); } }
+@keyframes fade-in { from { opacity: 0; } }
+.menu { border-radius: 14px; animation: menu-in var(--t-med) var(--ease-out); transform-origin: top right; }
+@keyframes menu-in { from { opacity: 0; transform: translateY(-6px) scale(.96); } }
+
+/* ---------- Map + everyone ---------- */
+.map-view { border-radius: var(--radius); box-shadow: var(--shadow); }
+.map-switch i, .map-switch i::after { transition-timing-function: var(--ease-out); transition-duration: var(--t-med); }
+.map-pin.new { animation: map-pin 600ms var(--ease-spring); }
+.everyone-bars .fill { animation-timing-function: var(--ease-out); animation-duration: 800ms; }
+.game-card { border-radius: var(--radius); box-shadow: var(--shadow); transition: transform var(--t-fast) var(--ease-out), border-color var(--t-fast); }
+.game-card:active { transform: scale(.98); }
+
+/* ================= Hindsight ================= */
+.hindsight .wrap::before { background: repeating-radial-gradient(ellipse at 70% 30%, transparent 0 17px, color-mix(in srgb, var(--accent) 14%, transparent) 17px 18px); }
+.hs-progress { gap: 5px; }
+.hs-progress i { height: 6px; border-radius: 99px; transition: background var(--t-med) var(--ease-out); }
+.hs-progress i.now { animation: breathe-bar 1.8s var(--ease-in-out) infinite; }
+@keyframes breathe-bar { 50% { opacity: .55; } }
+.hs-q h2 { font-size: 1.4rem; font-weight: 700; }
+.pick {
+  border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow); border-width: 1.5px;
+  transition: border-color var(--t-fast), transform var(--t-fast) var(--ease-out), background var(--t-med);
+}
+.pick:active:not(:disabled) { transform: scale(.97); }
+.pick .ev { font-size: 1.08rem; }
+.pick .yr { font-size: 1.05rem; font-weight: 500; }
+.pick.shown .yr { animation: year-in 520ms var(--ease-spring) both; }
+@keyframes year-in { from { opacity: 0; transform: translateY(10px); } }
+.pick.first { background: color-mix(in srgb, var(--win) 10%, var(--card)); }
+.pick .tag { animation: rise 360ms var(--ease-out) 160ms both; }
+.hs-or { font-weight: 500; }
+
+/* Right pick: the card springs, and a green bloom grows from where you tapped */
+.pick.pop { animation: pick-pop 560ms var(--ease-spring); }
+@keyframes pick-pop { 0% { transform: scale(.97); } 45% { transform: scale(1.03); } 100% { transform: none; } }
+/* Wrong pick: a short damped shake, then a soft red pulse round the screen edge */
+.pick.shake { animation: shake-damped 520ms var(--ease-out); }
+.hs-flash.bloom.ok { background: none; animation: none; opacity: 1; }
+.hs-flash.bloom.ok::before, .hs-flash.bloom.ok::after { content: ""; position: absolute; left: var(--x, 50%); top: var(--y, 50%); border-radius: 50%; translate: -50% -50%; }
+.hs-flash.bloom.ok::before {
+  width: 240vmax; height: 240vmax; opacity: 0;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--win) 28%, transparent), color-mix(in srgb, var(--win) 10%, transparent) 55%, transparent);
+  animation: bloom 1000ms var(--ease-out) both;
+}
+.hs-flash.bloom.ok::after { width: 60px; height: 60px; opacity: 0; border: 3px solid var(--win); animation: ripple 850ms var(--ease-out) 60ms both; }
+.hs-flash.bloom.no {
+  box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--hot) 55%, transparent), inset 0 0 90px color-mix(in srgb, var(--hot) 26%, transparent);
+  animation: edge-pulse 700ms var(--ease-out);
+}
+@keyframes edge-pulse { 0% { opacity: 0; } 20% { opacity: 1; } 100% { opacity: 0; } }
+
+.hs-reveal { animation: result-rise 600ms var(--ease-spring) both; border-radius: var(--radius); }
+.hs-plus { animation: plus-pop 600ms var(--ease-spring) 120ms both; }
+@keyframes plus-pop { 0% { opacity: 0; transform: translateY(10px) scale(.6); } 100% { opacity: 1; transform: none; } }
+.hs-tl .span { animation: tl-draw 700ms var(--ease-out) 150ms both; }
+.hs-tl .dot { animation: stop-pop 520ms var(--ease-spring) both; }
+.hs-tl .dot.a { animation-delay: 100ms; } .hs-tl .dot.b { animation-delay: 650ms; }
+.hs-tl .gap { animation: rise 400ms var(--ease-out) 500ms both; }
+@keyframes tl-draw { from { transform: scaleX(0); } }
+
+/* Streak fire: the badge springs in, the flame flickers from its base, the glow breathes */
+.hs-heat { animation: heat-in 640ms var(--ease-spring) both, hs-shimmer 2.8s linear infinite; }
+@keyframes heat-in { 0% { opacity: 0; transform: scale(.5) rotate(-6deg); } 100% { opacity: 1; transform: none; } }
+.hs-heat .flame { animation: flicker 1.3s var(--ease-in-out) infinite; }
+@keyframes flicker {
+  0%, 100% { transform: scale(1, 1) skewX(0deg); } 25% { transform: scale(1.06, 1.14) skewX(-4deg); }
+  50% { transform: scale(.97, 1.04) skewX(3deg); } 75% { transform: scale(1.04, 1.1) skewX(-2deg); }
+}
+body.hot .hs-glow { animation: glow-breathe 3.2s var(--ease-in-out) infinite; }
+@keyframes glow-breathe { 0%, 100% { opacity: 1; } 50% { opacity: .6; } }
+/* Embers rise and sway, each with its own size, speed and drift (set in js/hindsight.js) */
+.hs-embers i.drift {
+  bottom: auto; top: var(--y0, 100%); width: var(--s, 6px); height: var(--s, 6px);
+  animation: ember-rise var(--dur, 1.8s) var(--ease-out) var(--delay, 0s) both;
+}
+@keyframes ember-rise {
+  0% { opacity: 0; transform: translate(0, 0) scale(1); }
+  12% { opacity: 1; }
+  50% { transform: translate(calc(var(--dx) * .6), calc(var(--rise, 50vh) * -.55)) scale(.85); }
+  100% { opacity: 0; transform: translate(var(--dx), calc(var(--rise, 50vh) * -1)) scale(.3); }
+}
+
+/* ---------- Less motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
+  .win-flash, .hs-flash, .hs-embers { display: none; }
+}

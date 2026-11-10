@@ -167,6 +167,7 @@ The game as it was on October 14, 2026, before the live map, is saved on GitHub 
 
 1. **Turn off just the live map.** On GitHub, open `js/config.js`, tap the pencil, change `LIVE_MAP: true` to `LIVE_MAP: false` and tap **Commit changes**. The site updates in a minute or two. Change it back to `true` to bring the map back.
    The same goes for **How everyone did today** on the results screen: change `EVERYONE_STATS: true` to `EVERYONE_STATS: false`.
+   The same goes for the **November 2026 refresh** (new look and animations on every page): change `NEW_LOOK: true` to `NEW_LOOK: false` to get the previous look back.
 2. **Undo one merged change.** Open that pull request on GitHub (for example "Add a live terrain map…") and tap **Revert**. GitHub makes a new pull request that undoes it. Merge that one.
 3. **Go all the way back** to the saved version: use **Rolling back a bad change** above for an instant fix, then ask Claude to "put main back to classic-2026-10-14" so the code on GitHub matches.
 

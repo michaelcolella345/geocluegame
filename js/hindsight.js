@@ -96,15 +96,45 @@ function loadDay() {
 // A green wash across the screen when right, a red pulse at the edges when wrong, and embers
 // floating up while a streak is going. All of it is skipped for players who turn off motion.
 const reduceMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
-function flash(kind) {
+// With the 2026 refresh (NEW_LOOK in config.js) the green bloom grows from the card you tapped
+// and the embers rise from the "Heating up" badge.
+const NEW_LOOK = CONFIG.NEW_LOOK !== false;
+function flash(kind, from) {
   const f = $("flash");
   f.className = "hs-flash";
+  if (NEW_LOOK && from) {
+    const r = from.getBoundingClientRect();
+    f.style.setProperty("--x", `${r.left + r.width / 2}px`);
+    f.style.setProperty("--y", `${r.top + r.height / 2}px`);
+  } else if (NEW_LOOK) {
+    f.style.setProperty("--x", "50%");
+    f.style.setProperty("--y", "40%");
+  }
   void f.offsetWidth; // restart the animation
-  f.className = `hs-flash ${kind}`;
+  f.className = `hs-flash ${NEW_LOOK ? "bloom " : ""}${kind}`;
 }
 function embers(n) {
   if (reduceMotion()) return;
   const box = $("embers");
+  if (NEW_LOOK) {
+    const badge = document.querySelector(".hs-heat");
+    const r = badge && badge.getBoundingClientRect();
+    for (let k = 0; k < n; k++) {
+      const e = document.createElement("i");
+      e.className = "drift";
+      const x = r ? r.left + Math.random() * r.width : Math.random() * innerWidth;
+      e.style.left = `${x}px`;
+      e.style.setProperty("--y0", r ? `${r.top + r.height / 2}px` : "100%");
+      e.style.setProperty("--dx", `${Math.random() * 120 - 60}px`);
+      e.style.setProperty("--s", `${3 + Math.random() * 5}px`);
+      e.style.setProperty("--dur", `${1.4 + Math.random() * 1.2}s`);
+      e.style.setProperty("--delay", `${Math.random() * 0.6}s`);
+      e.style.setProperty("--rise", `${r ? 160 + Math.random() * 220 : innerHeight * 0.7}px`);
+      box.appendChild(e);
+      setTimeout(() => e.remove(), 3000);
+    }
+    return;
+  }
   for (let k = 0; k < n; k++) {
     const e = document.createElement("i");
     e.style.left = `${Math.random() * 100}%`;
@@ -140,7 +170,6 @@ function showRound() {
   const i = picks.length;
   const hot = currentRun() >= 2;
   document.body.classList.toggle("hot", hot);
-  if (hot && currentRun() === 2) embers(18);
   const r = day.rounds[i];
   const pair = firstOnTop(day.key, i) ? [r.first, r.second] : [r.second, r.first];
   drawProgress(i);
@@ -156,6 +185,7 @@ function showRound() {
         </button>${k === 0 ? `<span class="hs-or" aria-hidden="true">OR</span>` : ""}`).join("")}
       <div id="reveal"></div>
     </div>`;
+  if (hot && currentRun() === 2) embers(18);
 }
 
 function answer(btn) {
@@ -176,7 +206,7 @@ function answer(btn) {
     if (b.dataset.first === "true") { b.classList.add("first"); b.insertAdjacentHTML("beforeend", `<span class="tag">Came first</span>`); if (right) b.classList.add("pop"); }
     else if (b === btn) { b.classList.add("wrong", "shake"); b.insertAdjacentHTML("beforeend", `<span class="tag">Your pick</span>`); }
   }
-  flash(right ? "ok" : "no");
+  flash(right ? "ok" : "no", btn);
   if (!right) document.body.classList.remove("hot");
   if (earned === 2) embers(8);
   drawProgress(-1);

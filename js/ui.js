@@ -15,6 +15,10 @@ import {
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const fmtMiles = (m) => `${Math.round(m).toLocaleString("en-US")} mi`;
+// The 2026 refresh (css/refresh.css). NEW_LOOK: false in config.js goes back to the previous look.
+const NEW_LOOK = CONFIG.NEW_LOOK !== false;
+// How close a guess was, for the bar under each guess: full when next door, empty from 10,000 mi.
+const closeness = (miles) => Math.max(4, Math.round(100 * (1 - Math.min(miles, 10000) / 10000)));
 
 let matcher, puzzles, day, game, liveMap;
 let everyone = null; // { puzzle, data } once "How everyone did" has loaded
@@ -121,7 +125,7 @@ function showNotice(title, text, countdown = false) {
 const scored = () => game.guesses.map((n) => scoreGuess(n, game.answer, matcher.byName));
 
 function arrowSVG(deg) {
-  return `<svg viewBox="0 0 24 24" aria-hidden="true" style="transform:rotate(${deg.toFixed(0)}deg)"><path d="M12 2 L18 20 L12 16 L6 20 Z" fill="currentColor"/></svg>`;
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" style="--deg:${deg.toFixed(0)}deg;transform:rotate(${deg.toFixed(0)}deg)"><path d="M12 2 L18 20 L12 16 L6 20 Z" fill="currentColor"/></svg>`;
 }
 
 // Motion timings (ms). All zero when the player prefers reduced motion.
@@ -159,8 +163,10 @@ function render(anim = {}) {
       <span class="name">${esc(g.name)}</span>
       <span class="dist">${g.correct ? "Found it" : fmtMiles(g.miles)}</span>
       <span class="arrow" style="color:var(--${g.band})" title="${g.correct ? "" : "Head " + compassWord(g.bearing)}">${g.correct ? "✓" : arrowSVG(g.bearing)}</span>
+      ${NEW_LOOK ? `<span class="band" aria-hidden="true">${g.correct ? "Correct" : BAND_LABEL[g.band]}</span>${g.correct ? "" : `<span class="prox" aria-hidden="true"><i style="--p:${closeness(g.miles)}%"></i></span>`}` : ""}
     </li>`;
   }).join("");
+  if (anim.newRow && NEW_LOOK) countUp($("log").querySelector(".row.enter:not(.win) .dist"));
 
   const play = $("play");
   play.classList.remove("leaving");
@@ -252,6 +258,20 @@ function statsHTML() {
     }).join("")}</ol>`;
 }
 
+// The newest guess's distance counts up from zero as its row lands.
+function countUp(el) {
+  if (!el || reduceMotion()) return;
+  const end = parseInt(el.textContent.replace(/\D/g, ""), 10);
+  if (!end) return;
+  const t0 = performance.now(), dur = 700;
+  const step = (t) => {
+    const k = Math.min(1, (t - t0) / dur);
+    el.textContent = fmtMiles(end * (1 - Math.pow(1 - k, 4)));
+    if (k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
 // ---------- Guessing ----------
 function submitGuess(raw) {
   if (!game || game.done) return;
@@ -286,6 +306,16 @@ const setMsg = (t) => { $("msg").textContent = t; };
 function winFlash() {
   if (CONFIG.WIN_FLASH === false || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const f = $("win-flash");
+  if (NEW_LOOK) {
+    // Bloom out of the winning row rather than sweeping across the whole screen.
+    const row = $("log").querySelector(".row.win");
+    const r = row && row.getBoundingClientRect();
+    f.classList.add("bloom");
+    if (r) {
+      f.style.setProperty("--x", `${r.left + r.width - 30}px`);
+      f.style.setProperty("--y", `${r.top + r.height / 2}px`);
+    }
+  }
   f.classList.remove("on");
   void f.offsetWidth; // restart the animation
   f.classList.add("on");
