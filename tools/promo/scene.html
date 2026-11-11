@@ -1,0 +1,189 @@
+<!doctype html>
+<!-- One promo video, drawn at 1080×1920. make-video.mjs fills it with a puzzle, then calls
+     render(t) for every frame and screenshots the page. Nothing here is part of the website. -->
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../css/style.css">
+<style>
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; }
+  body {
+    padding: 0; position: relative; font-size: 44px; line-height: 1.32;
+    background-size: 44px 44px;
+    background-image: radial-gradient(circle at 2px 2px, color-mix(in srgb, var(--line) 80%, transparent) 2px, transparent 0);
+  }
+  .layer { position: absolute; left: 90px; right: 90px; will-change: transform, opacity; }
+
+  /* Header, on screen the whole time */
+  #head { top: 190px; display: grid; justify-items: center; gap: 22px; text-align: center; }
+  #head h1 { font-size: 200px; line-height: .9; }
+  #meta { margin: 0; font-family: var(--mono); font-size: 34px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  #head .difficulty { justify-self: center; margin: 4px 0 0; font-size: 34px; gap: 16px; padding: 10px 30px 10px 24px; border-width: 2px; }
+  #head .difficulty .dots { gap: 7px; }
+  #head .difficulty .dots i { width: 18px; height: 18px; border-width: 3px; }
+
+  /* World map strip with a "?" pin (always the middle of the strip, so it gives nothing away) */
+  .map { position: relative; height: 380px; border-radius: 28px; overflow: hidden; border: 2px solid var(--line);
+    box-shadow: 0 30px 80px rgba(16, 39, 58, .14); background: var(--card); }
+  .map .terrain { position: absolute; inset: 0; background-image: url(../../assets/map/terrain.jpg); background-repeat: repeat-x;
+    background-size: auto 100%; }
+  .pin { position: absolute; left: 50%; top: 50%; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--accent); color: var(--on-accent);
+    font-family: var(--display); font-weight: 800; font-size: 76px; box-shadow: 0 10px 30px rgba(16, 39, 58, .3); }
+  .ring { position: absolute; left: 50%; top: 50%; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%;
+    border: 6px solid var(--accent); }
+
+  #intro { top: 760px; display: grid; gap: 70px; }
+  .big { font-family: var(--display); font-weight: 800; font-size: 96px; line-height: 1.02; letter-spacing: -.02em; margin: 0;
+    text-align: center; text-wrap: balance; }
+  .big span { color: var(--accent); }
+
+  /* Clues */
+  #clues { top: 640px; display: grid; gap: 34px; }
+  #clues .kicker { margin: 0; text-align: center; font-family: var(--mono); font-size: 34px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+  #clues .card { padding: 46px 44px; border-radius: 28px; border-width: 2px; box-shadow: 0 30px 80px rgba(16, 39, 58, .14); }
+  #clues .clues { gap: 40px; font-size: var(--fs, 54px); }
+  #clues .clue { grid-template-columns: 84px 1fr; gap: 28px; }
+  #clues .clue .n { width: 76px; height: 76px; font-size: 32px; border-width: 3px; }
+  #clues .clue.on .n { background: var(--accent); color: var(--on-accent); }
+  #clues .clue p { padding-top: 6px; }
+  #clues .clue.locked p { padding-top: 12px; font-size: .8em; }
+
+  /* Call to action */
+  #cta { top: 700px; display: grid; gap: 56px; justify-items: center; text-align: center; }
+  #cta .map { width: 100%; height: 300px; }
+  .url { font-family: var(--display); font-weight: 800; font-size: 84px; letter-spacing: -.01em; padding: 26px 56px; border-radius: 999px;
+    background: var(--accent); color: var(--on-accent); }
+  .sub { margin: -10px 0 0; color: var(--muted); font-size: 40px; }
+  .yday { margin: 0; font-size: 36px; color: var(--muted); padding-top: 34px; border-top: 2px solid var(--line); width: 82%; }
+  .yday b { color: var(--ink); }
+</style></head>
+<body>
+  <header class="layer" id="head">
+    <h1>Geo<span>Clue</span></h1>
+    <p id="meta"></p>
+    <p class="difficulty" id="difficulty"></p>
+  </header>
+
+  <section class="layer" id="intro">
+    <div class="map" id="map1"><div class="terrain"></div><div class="ring"></div><div class="pin">?</div></div>
+    <p class="big" id="ask">Can you name <span>today's country?</span></p>
+  </section>
+
+  <section class="layer" id="clues">
+    <p class="kicker">Today's clues</p>
+    <div class="card"><ol class="clues" id="clue-list"></ol></div>
+  </section>
+
+  <section class="layer" id="cta">
+    <p class="big" id="cta-q">Think you know it?</p>
+    <div class="map" id="map2"><div class="terrain"></div><div class="ring"></div><div class="pin">?</div></div>
+    <div class="url" id="url"></div>
+    <p class="sub" id="sub">Free · five clues · five guesses · a new country every day</p>
+    <p class="yday" id="yday" hidden></p>
+  </section>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const clamp = (x) => Math.max(0, Math.min(1, x));
+  const ease = (x) => 1 - Math.pow(1 - clamp(x), 3);
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  let T = null; // timeline, set by setup()
+
+  // Fill the page with one puzzle and work out when everything happens. Returns the video length and a good moment for the cover, in seconds.
+  window.setup = async function (d) {
+    if (d.theme === "dark" || d.theme === "light") document.documentElement.dataset.theme = d.theme;
+    $("meta").textContent = `#${d.number} · ${d.dateLabel}`;
+    const levels = ["easy", "medium", "hard"];
+    const n = levels.indexOf(d.difficulty) + 1;
+    const diff = $("difficulty");
+    if (n > 0) {
+      diff.dataset.level = d.difficulty;
+      diff.innerHTML = `<span class="dots">${levels.map((_, i) => `<i${i < n ? ' class="on"' : ""}></i>`).join("")}</span>` +
+        `<span>Today's difficulty: <b>${d.difficulty[0].toUpperCase() + d.difficulty.slice(1)}</b></span>`;
+    } else diff.hidden = true;
+
+    const total = d.totalClues;
+    $("clue-list").innerHTML = d.clues.map((c, i) => `<li class="clue"><span class="n">${i + 1}</span><p>${esc(c)}</p></li>`).join("") +
+      Array.from({ length: total - d.clues.length }, (_, i) => `<li class="clue locked"><span class="n">${d.clues.length + i + 1}</span><p>Unlocks after a wrong guess</p></li>`).join("");
+    $("url").textContent = d.siteUrl;
+    if (d.yesterday) { $("yday").hidden = false; $("yday").innerHTML = `Yesterday's country was <b>${esc(d.yesterday)}</b>`; }
+
+    await Promise.all(['800 100px "Bricolage Grotesque"', '400 40px "IBM Plex Sans"', '600 40px "IBM Plex Sans"', '500 30px "IBM Plex Mono"']
+      .map((f) => document.fonts.load(f)));
+    await document.fonts.ready;
+    await new Promise((r) => { const img = new Image(); img.onload = img.onerror = r; img.src = "../../assets/map/terrain.jpg"; });
+
+    // Shrink the clue text until the card stays clear of the bottom of the screen,
+    // where TikTok and Reels put their captions and buttons.
+    let fs = 54;
+    const card = $("clues");
+    while (fs > 30 && card.getBoundingClientRect().bottom > 1540) { fs -= 2; card.style.setProperty("--fs", fs + "px"); }
+
+    // Timeline in seconds. Each clue gets reading time in proportion to its length.
+    const clueAt = [];
+    let t = 4.6;
+    for (const c of d.clues) { clueAt.push(t); t += Math.max(2.4, Math.min(3.6, 1.2 + c.length / 40)); }
+    const lockedAt = t - 0.6;
+    const cluesOut = t + 0.9;
+    const ctaIn = cluesOut + 0.35;
+    T = { clueAt, lockedAt, cluesOut, ctaIn, end: ctaIn + 4.2 };
+    render(0);
+    return { seconds: T.end, coverAt: 3.2 };
+  };
+
+  // Fade + slide one element in at `a` and (optionally) out at `b`.
+  function show(el, t, a, b = null, o = {}) {
+    const { dx = 0, dy = 50, dur = 0.6, outDur = 0.45, outDx = 0, outDy = -40, scale = 1 } = o;
+    const pi = ease((t - a) / dur), po = b == null ? 0 : ease((t - b) / outDur);
+    el.style.opacity = pi * (1 - po);
+    const s = scale + (1 - scale) * pi;
+    el.style.transform = `translate(${(1 - pi) * dx + po * outDx}px, ${(1 - pi) * dy + po * outDy}px) scale(${s})`;
+  }
+
+  function pan(map, t, a) {
+    map.querySelector(".terrain").style.backgroundPosition = `${-120 - t * 70}px 50%`;
+    const cyc = Math.max(0, t - a - 0.4) % 1.6 / 1.6;
+    const ring = map.querySelector(".ring");
+    ring.style.transform = `scale(${1 + cyc * 1.6})`;
+    ring.style.opacity = t - a < 0.4 ? 0 : 0.8 * (1 - cyc);
+    const pin = map.querySelector(".pin");
+    const p = clamp((t - a - 0.2) / 0.5) - 1; // pop in with a little overshoot
+    pin.style.transform = `scale(${1 + 2.7 * p * p * p + 1.7 * p * p})`;
+  }
+
+  window.render = function (t) {
+    if (!T) return;
+    const [hh1, hmeta, hdiff] = [$("head").querySelector("h1"), $("meta"), $("difficulty")];
+    show(hh1, t, 0.1, null, { dy: 70, scale: 0.92 });
+    show(hmeta, t, 0.45, null, { dy: 30 });
+    show(hdiff, t, 0.7, null, { dy: 30 });
+
+    // Intro: map + question
+    show($("intro"), t, 0.9, T.clueAt[0] - 0.75, { dy: 80, outDy: -60 });
+    show($("map1"), t, 0.9, null, { dy: 0, scale: 0.94 });
+    show($("ask"), t, 1.4, null, { dy: 40 });
+    pan($("map1"), t, 0.9);
+
+    // Clues, one at a time. The newest one has a filled number.
+    show($("clues"), t, T.clueAt[0] - 0.45, T.cluesOut, { dy: 70, outDx: -260, outDy: 0 });
+    const items = $("clue-list").children;
+    for (let i = 0; i < items.length; i++) {
+      const li = items[i];
+      const at = li.classList.contains("locked") ? T.lockedAt + (i - T.clueAt.length) * 0.25 : T.clueAt[i];
+      show(li, t, at, null, { dy: 26, dur: 0.5 });
+      if (!li.classList.contains("locked")) {
+        const next = T.clueAt[i + 1] ?? T.lockedAt;
+        li.classList.toggle("on", t >= at && t < next);
+      }
+    }
+
+    // Call to action
+    show($("cta"), t, T.ctaIn, null, { dx: 260, dy: 0 });
+    show($("cta-q"), t, T.ctaIn, null, { dy: 30 });
+    show($("map2"), t, T.ctaIn + 0.25, null, { dy: 30, scale: 0.94 });
+    show($("url"), t, T.ctaIn + 0.6, null, { dy: 30, scale: 0.85 });
+    show($("sub"), t, T.ctaIn + 0.95, null, { dy: 20 });
+    show($("yday"), t, T.ctaIn + 1.4, null, { dy: 20 });
+    pan($("map2"), t, T.ctaIn + 0.25);
+  };
+</script>
+</body></html>
